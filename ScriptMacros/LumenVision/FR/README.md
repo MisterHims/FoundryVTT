@@ -8,7 +8,7 @@
 * **Module Requirement(s)**: None
 
 ### Description
-Lumen Vision est une collection de macros issue de la communauté Foundry VTT qui a été traduite en français, modifiée et convertie au système métrique européen. Cette collection permet d'initialiser rapidement la vision et/ou la lumière issue d'un token ou d'un objet.
+LumenVision est une collection de macros regroupée en une seule. Elle est en partie issue de la communauté Foundry VTT. Cette version a été traduite en français, modifiée puis convertie au système métrique européen. Elle permet d'initialiser rapidement la vision et/ou lumière issue d'un token ou d'un objet.
 
 ## Installation
 
@@ -23,15 +23,15 @@ Lumen Vision est une collection de macros issue de la communauté Foundry VTT qu
 
 Permet de rapidement définir un type de vision ainsi qu'une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés.
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/FR/%5BPack%5D%20Lumen%20Vision/Collection/images/01.jpg?raw=true)
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/01.jpg?raw=true)
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/FR/%5BPack%5D%20Lumen%20Vision/Collection/images/02.jpg?raw=true)
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/02.jpg?raw=true)
 
 ### 2 | LV-Lanterne-de-révélation
 
 Permet d'utiliser une Lanterne de révélation détenue par le token sélectionné. Cette utilisation vous offrera le choix entre allumer la lanterne (néccesite 1 Huile) ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre d'Huile(s) restante(s).
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/FR/%5BPack%5D%20Lumen%20Vision/Collection/images/07.jpg?raw=true)
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/07.jpg?raw=true)
 
 #### Notes d'Installation
 
