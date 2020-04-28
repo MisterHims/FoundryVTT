@@ -31,6 +31,8 @@ Permet de rapidement définir un type de vision ainsi qu'une source de lumière 
 
 Permet d'utiliser une Lanterne de révélation détenue par le token sélectionné. Cette utilisation vous offrera le choix entre allumer la lanterne (néccesite 1 Huile) ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre d'Huile(s) restante(s).
 
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/FR/%5BPack%5D%20Lumen%20Vision/Collection/images/07.jpg?raw=true)
+
 #### Notes d'Installation
 
 Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
