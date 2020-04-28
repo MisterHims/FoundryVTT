@@ -25,8 +25,8 @@ Permet de rapidement définir un type de vision ainsi qu'une source de lumière 
 
 ### 2 | LV-Lanterne-de-révélation
 
-Permet d'utiliser une Lanterne de révélation détenue par le token sélectionné. Cette utilisation vous offrera le choix entre allumer la lanterne (néccesite 1 Huile) ou l'éteindre.
+Permet d'utiliser une Lanterne de révélation détenue par le token sélectionné. Cette utilisation vous offrera le choix entre allumer la lanterne (néccesite 1 Huile) ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre d'Huile(s) restante(s).
 
 #### Notes d'Installation
 
-Attention à bien vérifier le nom de votre objet "Huile" ! Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
+Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
