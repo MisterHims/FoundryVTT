@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.5-informational)
-## Lumen Vision
+## LumenVision
 
 * **Author**: MisterHims, Foundry VTT Community
 * **Version**: 1.0.0
