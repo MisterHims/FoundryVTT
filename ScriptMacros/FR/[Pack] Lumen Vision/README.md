@@ -12,6 +12,21 @@ Lumen Vision est une collection de macros issue de la communauté Foundry VTT qu
 
 ## Installation
 
+* Accédez à la Collection et copiez la macro souhaitée
+* Sur Foundry VTT, cliquez sur un des bouton de la barre de macros
+* Sélectionnez le type de macro "Script"
+* Collez le code précédement copié dans le champ prévu à cet effet
+
 ## Collection de Macros
 
-### 1 - Initialisation Générale
+### 1 | LV-Initialiser
+
+Permet de rapidement définir un type de vision ainsi qu'une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés.
+
+### 2 | LV-Lanterne-de-révélation
+
+Permet d'utiliser une Lanterne de révélation détenue par le token sélectionné. Cette utilisation vous offrera le choix entre allumer la lanterne (néccesite 1 Huile) ou l'éteindre.
+
+#### Notes d'Installation
+
+Attention à bien vérifier le nom de votre objet "Huile" ! Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
