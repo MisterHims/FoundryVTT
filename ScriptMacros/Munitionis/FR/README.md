@@ -93,32 +93,25 @@ if (updates.length > 0) {
 ```
 *[ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js)*
 
-5. Dans le code ci-dessus, l'exemple d'arme à distance utilisée est un "Arc court" et ses munitions des "Flèches". Si vous souhaitez utiliser d'autres armes et/ou munitions, par exemple une "Arbalète" et des "Carreaux", changez simplement leurs noms dans les lignes suivantes :
+___
+Dans le code ci-dessus, l'exemple d'arme à distance utilisée est un "Arc court" et ses munitions des "Flèches".
+
+Si vous souhaitez utiliser d'autres armes et/ou munitions, par exemple un "Arc long" à la place, changez simplement leurs noms dans les lignes suivantes :
 ```javascript
 let weaponName = "Arc court";
 ```
-devient
+est alors remplacé par
 ```javascript
-let weaponName = "Arbalète";
+let weaponName = "Arc long";
 ```
-et
-```javascript
-let consumableName = "Flèches";
-```
-devient
-```javascript
-let consumableName = "Carreaux";
-```
+Effectuez la même procédure si vous souhaitez changer les munitions utilisées (par exemple "Flèches" par "Carreaux").
 
+Ainsi, le nom des différentes armes et munitions dans cette macro doivent être les mêmes que ceux contenues dans l'inventaire du personnage.
+___
 
-et ```let consumableName = "Flèches"; ```
+5. Nommez de façon exacte cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
 
-
- remplacez-y le nom de l'arme à distance utilisée ("Arc court") et le nom des munitions ("Flèches") par les noms de l'arme à distance et munitions que vous souhaitez utiliser. Ainsi, le nom des différentes armes et munitions dans cette macro doivent être les mêmes que ceux contenues dans l'inventaire du personnage.
-
-6. Nommez de façon exacte cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
-
-7. Créez maintenant la dernière macro néccessaire à la collecte des flèches (dans le cas présent) et ajoutez-y le code suivant :
+6. Créez maintenant la dernière macro néccessaire à la collecte des flèches (dans le cas présent) et ajoutez-y le code suivant :
 
 ```javascript
 if (!actor) {
@@ -180,6 +173,6 @@ new Dialog({
 ```
 *[munitionis-recover.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/munitionis-recover.js)*
 
-8. Donnez le nom que vous souhaitez à cette nouvelle macro puis enregistrez-là.
+7. Donnez le nom que vous souhaitez à cette nouvelle macro puis enregistrez-là.
 
-9. Placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Assurez-vous que ce token cible l'adversaire. Cliquez sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Lorsque la barre de message jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la denrière macro créée) pour les récupérer.
+8. Placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Assurez-vous que ce token cible l'adversaire. Cliquez sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Lorsque la barre de message jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la denrière macro créée) pour les récupérer.
