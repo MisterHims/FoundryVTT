@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.5-informational)
-## Munitionis
+# Munitionis
 
 * **Author**: Ultrakorne, Melchior, ChaoDjinn, Foundry VTT Community
 * **Traduction FR**: MisterHims
@@ -8,10 +8,10 @@
 * **System Compatibility**: DnD5e
 * **Module Requirement(s)**: [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master)
 
-### Description
+## Description
 Munitionis est une petite collection de macros qui vous permettra d'utiliser l'arme à distance de votre personnage, d'y inclure sa consommation de munitions, mais également de pouvoir récupérer la moitié de ces munitions utilisées. Elle est issue de la communauté Foundry VTT. Elle a par la suite été traduite en français.
 
-### Installation
+## Installation
 
 1. Installez le module Minor Quality of Life et configurez-le à vos besoins.
 2. Allez sur FoundryVTT puis sélectionnez une arme à distance dans l'inventaire de la fiche personnage. Faites un glisser-déposer de celle-ci dans votre barre de macros.
@@ -159,7 +159,7 @@ new Dialog({
 * Si vous avez tiré toutes vos munitions, une notification jaune s'affiche pour vous avertir que vous ne disposez plus de munitions.
 * Cliquez alors sur la macro de collecte de munitions "Munitionis-Recover" pour récupérer la moitié (arrondi à l'inférieur).
 
-### Faire jouer un son au tir
+## Faire jouer un son au tir
 
 Vous pouvez faire jouer un son lorsque le personnage tir avec l'arme à distance qui a été définie.
 
