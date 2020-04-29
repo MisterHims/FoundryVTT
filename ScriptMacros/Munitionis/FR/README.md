@@ -13,9 +13,9 @@ LumenVision est une collection de macros regroupée en une seule. Elle est en pa
 
 ## Installation
 
-1. Installez le module [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master) et configurez-le à vos besoins
-2. Sélectionnez une arme à distance dans l'inventaire du personnage contenu dans sa fiche et faites un glisser-déposer dans votre barre de Macros
-3. Faites un clic-droit sur la nouvelle macro puis éditez-là. Ajoutez-y les lignes suivantes avant le code déjà présent précédemment généré par l'arme du personnage :
+1. Installez le module [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master) et configurez-le à vos besoins.
+2. Sélectionnez une arme à distance dans l'inventaire du personnage contenu dans sa fiche et faites un glisser-déposer dans votre barre de macros.
+3. Faites un clic-droit sur l'icône de la nouvelle macro puis éditez-là. Ajoutez-y les lignes suivantes (avant le code déjà présent précédemment généré par l'arme du personnage) :
 
 ```javascript
 //La macro de cette fonction dépends de la macro nommée "ranged-attack-generic"
@@ -26,9 +26,8 @@ ui.notifications.error("Cette macro dépends de la macro 'ranged-attack-generic'
 }
 ```
 
-Le contenu de votre macro devrait alors ressembler à quelque chose comme cela :
+Le contenu de votre macro devrait alors ressembler à quelque chose comme ça :
 
-*[add-to-macro-weapon.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/add-to-macro-weapon.js)*
 ```javascript
 //La macro de cette fonction dépends de la macro nommée "ranged-attack-generic"
 const macro = game.macros.entities.find(m => m.name === "ranged-attack-generic");
@@ -38,12 +37,12 @@ ui.notifications.error("Cette macro dépends de la macro 'ranged-attack-generic'
 }
 macro.execute("Arc court","Flèches",true);
 ```
+*[add-to-macro-weapon.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/add-to-macro-weapon.js)*
 
 Donnez un nom à cette nouvelle macro et enregistrez-là. Par exemple "Arc court".
 
 4. Créez maintenant une nouvelle macro en cliquant sur un des emplacements libres de votre barre de macros puis ajoutez-y le code suivant :
 
-*[ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js)*
 ```javascript
 let updates = [];
 let consumed = "";
@@ -92,12 +91,12 @@ if (updates.length > 0) {
     });
 }
 ```
+*[ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js)*
 
 5. Nommez de façon exacte cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
 
 6. Créez maintenant la dernière macro néccessaire à la collecte des flèches (dans le cas présent) et ajoutez-y le code suivant :
 
-*[munitionis-recover.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/munitionis-recover.js)*
 ```javascript
 if (!actor) {
     ui.notifications.warn(`no actor selected`);
@@ -156,6 +155,10 @@ new Dialog({
   }
 }).render(true);
 ```
+*[munitionis-recover.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/munitionis-recover.js)*
+
 7. Donnez le nom que vous souhaitez à cette nouvelle macro puis enregistrez-là.
 
-8. L'exemple d'arme utilisée pour cette macro est l'Arc court et ses munitions des Flèches. Si vous souhaitez paramétrer ces macros pour d'autres armes et/ou munitions, parcourez les lignes des macros nouvellement créées puis remplacer le nom de l'arme à distance utilisée ("Arc court") et le nom des munitions ("Flèches"). Ainsi, le nom des différentes armes et munitions utilisées dans cette macro doivent être les mêmes que ceux contenues dans l'inventaire du personnage.
+8. L'exemple d'arme utilisée pour cette macro est l'Arc court et ses munitions des Flèches. Si vous souhaitez paramétrer ces macros pour d'autres armes et/ou munitions, parcourez les lignes des macros nouvellement créées puis remplacez-y le nom de l'arme à distance utilisée ("Arc court") et le nom des munitions ("Flèches") par les noms de l'arme à distance et munitions que vous souhaitez utiliser. Ainsi, le nom des différentes armes et munitions dans cette macro doivent être les mêmes que ceux contenues dans l'inventaire du personnage.
+
+9. Placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Assurez-vous que ce token cible l'adversaire. Cliquez sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Lorsque la barre de message jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la denrière macro créée) pour les récupérer.
