@@ -59,7 +59,7 @@ Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. 
 
 ### LV-Torche
 
-Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans le chat indiquant vous permettant d'utiliser l'action associée à l'objet.
+Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans le chat vous permettant d'utiliser l'action associée à l'objet.
 
 ## Problèmes connus
 
