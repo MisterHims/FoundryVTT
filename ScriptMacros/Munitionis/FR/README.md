@@ -15,7 +15,16 @@ LumenVision est une collection de macros regroupée en une seule. Elle est en pa
 
 1. Installez le module [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master) et configurez-le à vos besoins
 2. Sélectionnez une arme à distance dans l'inventaire du personnage contenu dans sa fiche et faites un glisser-déposer dans votre barre de Macros
-3. Faites un clic-droit sur la nouvelle macro pour l'éditer. Ajoutez-y les lignes suivantes :
+3. Faites un clic-droit sur la nouvelle macro puis éditez-là. Ajoutez les lignes suivantes avant le code déjà présent dans la dite macro :
+
+```javascript
+//La macro de cette fonction dépends de la macro nommée "ranged-attack-generic"
+const macro = game.macros.entities.find(m => m.name === "ranged-attack-generic");
+if(!macro) {
+ui.notifications.error("Cette macro dépends de la macro 'ranged-attack-generic' qui ne peut être trouvée.");
+  return;
+}
+```
 
 * Sur Foundry VTT, cliquez sur un des bouton de la barre de macros
 * Sélectionnez le type de macro "Script"
