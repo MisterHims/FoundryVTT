@@ -6,11 +6,11 @@ new Dialog({
   content: `
     <form>
       <div class="form-group">
-        <label>Niveau de lumière :</label>
+        <label>Allumer/Eteindre</label>
         <select id="light-source" name="light-source">
           <option value="nochange">Pas de changement</option>
-          <option value="none">Eteindre</option>
-          <option value="torch">Allumer</option>
+          <option value="none">Allumer</option>
+          <option value="torch">Eteindre</option>
         </select>
       </div>
     </form>

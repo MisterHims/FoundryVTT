@@ -66,7 +66,7 @@ let updates = [];
 let consumed = "";
 let item = actor.items.find(i=> i.name==="Huile");
 if (item.data.data.quantity < 1) {
-  ui.notifications.warn(`${game.user.name} not enough ${name} remaining`);
+  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'Huile`);
 } else {
   updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
 consumed += `${item.data.data.quantity - 1} flasque(s) d'huile restante(s)<br>`;
