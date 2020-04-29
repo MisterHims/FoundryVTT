@@ -14,22 +14,10 @@ Munitionis est une petite collection de macros qui vous permettra d'utiliser l'a
 ## Installation
 
 1. Installez le module Minor Quality of Life et configurez-le à vos besoins.
-2. Sélectionnez une arme à distance dans l'inventaire du personnage contenu dans sa fiche et faites un glisser-déposer dans votre barre de macros.
-3. Faites un clic-droit sur l'icône de la nouvelle macro puis éditez-là. Ajoutez-y les lignes suivantes (avant le code déjà présent précédemment généré par l'arme du personnage) :
+2. Allez sur FoundryVTT puis sélectionnez une arme à distance dans l'inventaire de la fiche personnage. Faites un glisser-déposer de celle-ci dans votre barre de macros.
+3. Vous allez maintenant créer votre macro principale qui sera utilisée pour votre arme à distance. Faites un clic-droit sur l'icône de la nouvelle macro puis éditez-là. Ajoutez ou remplacez par le code suivant  :
 
 ```javascript
-//La macro de cette fonction dépends de la macro nommée "ranged-attack-generic"
-const macro = game.macros.entities.find(m => m.name === "ranged-attack-generic");
-if(!macro) {
-ui.notifications.error("Cette macro dépends de la macro 'ranged-attack-generic' qui ne peut être trouvée.");
-  return;
-}
-```
-
-Le contenu de votre macro devrait alors ressembler à quelque chose comme ça :
-
-```javascript
-//La macro de cette fonction dépends de la macro nommée "ranged-attack-generic"
 const macro = game.macros.entities.find(m => m.name === "ranged-attack-generic");
 if(!macro) {
 ui.notifications.error("Cette macro dépends de la macro 'ranged-attack-generic' qui ne peut être trouvée.");
@@ -39,9 +27,15 @@ macro.execute("Arc court","Flèches",true);
 ```
 *[add-to-macro-weapon.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/add-to-macro-weapon.js)*
 
-Donnez un nom à cette nouvelle macro et enregistrez-là. Par exemple "Arc court".
+Dans cet exemple, l'arme utilisée est un "Arc court" et ses munitions sont des "Flèches". Si vous souhaitez utiliser d'autres armes et/ou munitions, par exemple une "Arbalète légère" et des "Carreaux d'arbalète", changez simplement leurs noms à la ligne suivante :
+```javascript
+macro.execute("Arbalète légère","Carreaux d'arbalète",true);
+```
+Ainsi, le nom des différentes armes et munitions utilisées dans cette macro doivent être identiques à l'inventaire du personnage.
+Si vous avez utilisez le compendium AideDD Items, pensez à bien supprimer les chiffres entre parenthèses de vos munitions.
+Exemple : "Carreaux d'arbalète (20)" doit devenir "Carreaux d'arbalète".
 
-4. Créez maintenant une nouvelle macro en cliquant sur un des emplacements libres de votre barre de macros puis ajoutez-y le code suivant :
+4. Créez maintenant une nouvelle macro en cliquant sur un des emplacements libres de votre barre de macros et ajoutez-y le code suivant :
 
 ```javascript
 let updates = [];
@@ -51,8 +45,8 @@ if (!actor) {
     return;
 }
 
-let weaponName = "Arc court";
-let consumableName = "Flèches";
+let weaponName = args[0];
+let consumableName = args[1];
 let item = actor.items.find(i => i.name === consumableName);
 
 if (!item) {
@@ -93,24 +87,9 @@ if (updates.length > 0) {
 ```
 *[ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js)*
 
-___
-Dans le code ci-dessus, l'exemple d'arme à distance utilisée est un "Arc court" et ses munitions des "Flèches".
-Si vous souhaitez utiliser d'autres armes et/ou munitions à la place, par exemple un "Arc long", changez simplement leurs noms dans les lignes suivantes :
-```javascript
-let weaponName = "Arc court";
-```
-est alors remplacé par
-```javascript
-let weaponName = "Arc long";
-```
-Effectuez la même procédure si vous souhaitez changer les munitions utilisées (par exemple "Flèches" par "Carreaux").
+5. Nommez cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
 
-Ainsi, le nom des différentes armes et munitions dans cette macro doivent être les mêmes que ceux contenues dans l'inventaire du personnage.
-___
-
-5. Nommez de façon exacte cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
-
-6. Créez maintenant la dernière macro nécessaire à la collecte des flèches (dans le cas présent) et ajoutez-y le code suivant :
+6. Créez maintenant la dernière macro, celle-ci vous permettra de récupérer la moitié de vos munitions tirées. Ajoutez-y alors le code suivant :
 
 ```javascript
 if (!actor) {
@@ -172,9 +151,13 @@ new Dialog({
 ```
 *[munitionis-recover.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/munitionis-recover.js)*
 
-7. Donnez le nom que vous souhaitez à cette nouvelle macro puis enregistrez-là.
+7. Donnez le nom que vous souhaitez à cette nouvelle macro, par exemple "Munitionis-Recover" puis enregistrez-là.
 
-8. C'est terminé ! Vous pouvez maintenant tester si tout fonctionne. Pour cela, placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Cliquez ensuite sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Si la notification jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la dernière macro créée) pour les récupérer.
+8. C'est terminé ! Vous pouvez maintenant tester si tout fonctionne.
+
+* Placez le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Cliquez ensuite sur la première macro créer pour vérifier que tout fonctionne.
+* Si vous avez tiré toutes vos munitions, une notification jaune s'affiche pour vous avertir que vous ne disposez plus de munitions.
+* Cliquez alors sur la macro de collecte de munitions "Munitionis-Recover" pour récupérer la moitié (arrondi à l'inférieur).
 
 ## Faire jouer un son au tir
 
@@ -190,9 +173,3 @@ AudioHelper.play({ src: "sounds/weapons-impacts/mon-nouveau-fichier-audio.mp3", 
 ```
 
 Vous pouvez également modifier les paramètres de la lecture du fichier audio en question. Pour plus d'informations [cliquez-ici](https://www.w3schools.com/jsref/dom_obj_audio.asp).
-
-## Améliorations à venir
-
-* Utiliser plusieurs types d'armes et de munitions différentes actuellement défini par [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js).
-
-Idée à approfondir : Appliquer un nom différent pour le fichier [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js) pour chaque type d'arme
