@@ -5,8 +5,8 @@ if (!actor) {
     return;
 }
 
-let weaponName = "Arc court";
-let consumableName = "Flèches";
+let weaponName = args[0];
+let consumableName = args[1];
 let item = actor.items.find(i => i.name === consumableName);
 
 if (!item) {
