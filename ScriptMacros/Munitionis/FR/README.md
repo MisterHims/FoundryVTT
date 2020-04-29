@@ -6,14 +6,14 @@
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: Universal
-* **Module Requirement(s)**: Minor Quality of Life
+* **Module Requirement(s)**: [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master)
 
 ### Description
 Munitionis est une petite collection de macros qui vous permettra d'utiliser l'arme à distance de votre personnage, d'y inclure sa consommation de munitions, mais également de pouvoir récupérer la moitié de ces munitions utilisées. Elle est issue de la communauté Foundry VTT. Elle a par la suite été traduite en français.
 
 ## Installation
 
-1. Installez le module [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master) et configurez-le à vos besoins.
+1. Installez le module Minor Quality of Life et configurez-le à vos besoins.
 2. Sélectionnez une arme à distance dans l'inventaire du personnage contenu dans sa fiche et faites un glisser-déposer dans votre barre de macros.
 3. Faites un clic-droit sur l'icône de la nouvelle macro puis éditez-là. Ajoutez-y les lignes suivantes (avant le code déjà présent précédemment généré par l'arme du personnage) :
 
@@ -110,7 +110,7 @@ ___
 
 5. Nommez de façon exacte cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
 
-6. Créez maintenant la dernière macro néccessaire à la collecte des flèches (dans le cas présent) et ajoutez-y le code suivant :
+6. Créez maintenant la dernière macro nécessaire à la collecte des flèches (dans le cas présent) et ajoutez-y le code suivant :
 
 ```javascript
 if (!actor) {
