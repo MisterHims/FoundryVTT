@@ -1,5 +1,5 @@
 if (!actor) {
-    ui.notifications.warn(`no actor selected`);
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
     return;
 }
 let ammoDic = actor.getFlag("world", "fired-arrow");
