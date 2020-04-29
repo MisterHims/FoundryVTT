@@ -9,7 +9,7 @@
 * **Module Requirement(s)**: Minor Quality of Life
 
 ### Description
-LumenVision est une collection de macros regroupée en une seule. Elle est en partie issue de la communauté Foundry VTT. Cette version a été traduite en français, modifiée puis convertie au système métrique européen. Elle permet d'initialiser rapidement la vision et/ou lumière issue d'un token ou d'un objet.
+Munitionis est une petite collection de macros qui vous permettra d'utiliser l'arme à distance de votre personnage, d'y inclure sa consommation de munitions, mais également de pouvoir récupérer la moitié de ces munitions utilisées. Elle est issue de la communauté Foundry VTT. Elle a par la suite été traduite en français.
 
 ## Installation
 
