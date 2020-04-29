@@ -47,7 +47,7 @@ Donnez un nom à cette nouvelle macro et enregistrez-là. Par exemple "Arc court
 let updates = [];
 let consumed = "";
 if (!actor) {
-    ui.notifications.warn(`no actor selected`);
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
     return;
 }
 
@@ -56,15 +56,15 @@ let consumableName = "Flèches";
 let item = actor.items.find(i => i.name === consumableName);
 
 if (!item) {
-    ui.notifications.warn(`no ammo named ${consumableName} found`);
+    ui.notifications.warn(`Aucune munition nommée "${consumableName}" n'a été trouvée`);
     return;
 }
 
 if (item.data.data.quantity < 1) {
-    ui.notifications.warn(`${game.user.name} not enough ${consumableName} remaining`);
+    ui.notifications.warn(`${game.user.name}, vous n'avez pas assez de ${consumableName} restante(s)`);
 } else {
     updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity - 1 });
-    consumed += `${item.data.data.quantity - 1} arrows left<br>`;
+    consumed += `${item.data.data.quantity - 1} ${consumableName}(s) restante(s)<br>`;
 
     MinorQOL.doRoll(event, weaponName, { type: "weapon", versatile: false });
     AudioHelper.play({ src: "sounds/weapons-impacts/Arrow 1.mp3", volume: 0.8, autoplay: true, loop: false }, true);
@@ -114,7 +114,7 @@ ___
 
 ```javascript
 if (!actor) {
-    ui.notifications.warn(`no actor selected`);
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
     return;
 }
 let ammoDic = actor.getFlag("world", "fired-arrow");
@@ -125,11 +125,11 @@ let recover = false;
 let destroy = false;
 
 new Dialog({
-  title: `Recover Fired Ammo`,
+  title: `Récupérer les munitions utilisées`,
   content: `
     <form>
       <div class="form-group">
-        <label>${consumableName} Fired: ${firedAmmo}</label>
+        <label>${consumableName} tirées : ${firedAmmo}</label>
         </select>
       </div>
     </form>
@@ -137,12 +137,12 @@ new Dialog({
   buttons: {
     yes: {
       icon: "<i class='fas fa-check'></i>",
-      label: `Recover ammo`,
+      label: `Récupérer les munitions`,
       callback: () => recover = true
     },
     no: {
       icon: "<i class='fas fa-times'></i>",
-      label: `Lose unrecovered`,
+      label: `Perdre les munitions`,
       callback: () => destroy = true
     },
   },
@@ -153,7 +153,7 @@ new Dialog({
         ChatMessage.create({
             user: game.user._id,
             speaker: { actor: actor, alias: actor.name },
-            content: `has recovered ${recoveredAmmo} ammo<br>`,
+            content: `a récupéré ${recoveredAmmo} ${consumableName}(s)<br>`,
             type: CONST.CHAT_MESSAGE_TYPES.OTHER
         });
 
@@ -174,8 +174,8 @@ new Dialog({
 
 7. Donnez le nom que vous souhaitez à cette nouvelle macro puis enregistrez-là.
 
-8. C'est terminé ! Vous pouvez maintenant tester si tout fonctionne. Pour cela, placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Assurez-vous que ce token cible l'adversaire. Cliquez sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Lorsque la barre de message jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la denrière macro créée) pour les récupérer.
+8. C'est terminé ! Vous pouvez maintenant tester si tout fonctionne. Pour cela, placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Cliquez ensuite sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Si la notification jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la dernière macro créée) pour les récupérer.
 
 ## Améliorations à venir
 
-* Pouvoir utiliser plusieurs types d'armes et de munitions différentes définies par [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js).
+* Utiliser plusieurs types d'armes et de munitions différentes actuellement défini par [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js).
