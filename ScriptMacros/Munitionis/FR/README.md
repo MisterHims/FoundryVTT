@@ -190,8 +190,6 @@ AudioHelper.play({ src: "sounds/weapons-impacts/mon-nouveau-fichier-audio.mp3", 
 ```
 
 Vous pouvez également modifier les paramètres de la lecture du fichier audio en question. Pour plus d'informations [cliquez-ici](https://www.w3schools.com/jsref/dom_obj_audio.asp).
-]
-
 
 ## Améliorations à venir
 
