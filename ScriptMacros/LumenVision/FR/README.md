@@ -63,4 +63,4 @@ Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélecti
 
 ## Problèmes connus
 
-* L'utilisation d'un objet est possible même sans consommable. Toutefois, une notification apparaît pour l'utilisateur indiquant qu'il ne disposait assez de composants néccessaires.
+* L'utilisation d'un objet est possible même sans consommable(s). Néanmoins, une notification apparaît pour l'utilisateur qui lui indique qu'il ne disposait pas assez de composants.
