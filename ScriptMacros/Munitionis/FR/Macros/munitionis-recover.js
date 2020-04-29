@@ -10,11 +10,11 @@ let recover = false;
 let destroy = false;
 
 new Dialog({
-  title: `Recover Fired Ammo`,
+  title: `Récupérer les munitions utilisées`,
   content: `
     <form>
       <div class="form-group">
-        <label>${consumableName} Fired: ${firedAmmo}</label>
+        <label>${consumableName} tirées : ${firedAmmo}</label>
         </select>
       </div>
     </form>
@@ -22,12 +22,12 @@ new Dialog({
   buttons: {
     yes: {
       icon: "<i class='fas fa-check'></i>",
-      label: `Recover ammo`,
+      label: `Récupérer les munitions`,
       callback: () => recover = true
     },
     no: {
       icon: "<i class='fas fa-times'></i>",
-      label: `Lose unrecovered`,
+      label: `Perdre les munitions`,
       callback: () => destroy = true
     },
   },
@@ -38,7 +38,7 @@ new Dialog({
         ChatMessage.create({
             user: game.user._id,
             speaker: { actor: actor, alias: actor.name },
-            content: `has recovered ${recoveredAmmo} ammo<br>`,
+            content: `a récupéré ${recoveredAmmo} ${consumableName}(s)<br>`,
             type: CONST.CHAT_MESSAGE_TYPES.OTHER
         });
 

@@ -1,7 +1,7 @@
 let updates = [];
 let consumed = "";
 if (!actor) {
-    ui.notifications.warn(`no actor selected`);
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
     return;
 }
 
@@ -10,15 +10,15 @@ let consumableName = "Flèches";
 let item = actor.items.find(i => i.name === consumableName);
 
 if (!item) {
-    ui.notifications.warn(`no ammo named ${consumableName} found`);
+    ui.notifications.warn(`Aucune munition nommée "${consumableName}" n'a été trouvée`);
     return;
 }
 
 if (item.data.data.quantity < 1) {
-    ui.notifications.warn(`${game.user.name} not enough ${consumableName} remaining`);
+    ui.notifications.warn(`${game.user.name}, vous n'avez pas assez de ${consumableName} restante(s)`);
 } else {
     updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity - 1 });
-    consumed += `${item.data.data.quantity - 1} arrows left<br>`;
+    consumed += `${item.data.data.quantity - 1} ${consumableName}(s) restante(s)<br>`;
 
     MinorQOL.doRoll(event, weaponName, { type: "weapon", versatile: false });
     AudioHelper.play({ src: "sounds/weapons-impacts/Arrow 1.mp3", volume: 0.8, autoplay: true, loop: false }, true);
