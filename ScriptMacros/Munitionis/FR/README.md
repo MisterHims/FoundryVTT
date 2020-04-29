@@ -95,7 +95,7 @@ if (updates.length > 0) {
 
 ___
 Dans le code ci-dessus, l'exemple d'arme à distance utilisée est un "Arc court" et ses munitions des "Flèches".
-Si vous souhaitez utiliser d'autres armes et/ou munitions (par exemple un "Arc long") à la place, changez simplement leurs noms dans les lignes suivantes :
+Si vous souhaitez utiliser d'autres armes et/ou munitions à la place, par exemple un "Arc long", changez simplement leurs noms dans les lignes suivantes :
 ```javascript
 let weaponName = "Arc court";
 ```
@@ -176,6 +176,15 @@ new Dialog({
 
 8. C'est terminé ! Vous pouvez maintenant tester si tout fonctionne. Pour cela, placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Cliquez ensuite sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Si la notification jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la dernière macro créée) pour les récupérer.
 
+## Faire jouer un son au tir
+
+Vous pouvez faire jouer un son lorsque le personnage tir avec l'arme à distance qui a été définie. Pour cela, retournez simplement éditer votre macro issue du fichier [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js) et modifier la ligne
+
+Pour faire jouer un son (comme le son d'une flèche sifflante dans l'air)
+
+
 ## Améliorations à venir
 
 * Utiliser plusieurs types d'armes et de munitions différentes actuellement défini par [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js).
+
+Idée à approfondir : Appliquer un nom différent pour le fichier [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js) pour chaque type d'arme

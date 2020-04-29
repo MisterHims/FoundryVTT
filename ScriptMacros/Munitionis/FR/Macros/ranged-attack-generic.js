@@ -21,7 +21,7 @@ if (item.data.data.quantity < 1) {
     consumed += `${item.data.data.quantity - 1} ${consumableName}(s) restante(s)<br>`;
 
     MinorQOL.doRoll(event, weaponName, { type: "weapon", versatile: false });
-    AudioHelper.play({ src: "sounds/weapons-impacts/Arrow 1.mp3", volume: 0.8, autoplay: true, loop: false }, true);
+    //AudioHelper.play({ src: "sounds/weapons-impacts/Arrow 1.mp3", volume: 0.8, autoplay: true, loop: false }, true);
     let ammoDic = actor.getFlag("world", "fired-arrow");
     let ammoFired = 1;
 
