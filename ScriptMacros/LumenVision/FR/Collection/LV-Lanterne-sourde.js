@@ -64,15 +64,16 @@ new Dialog({
 function consumOil() {
 let updates = [];
 let consumed = "";
-let item = actor.items.find(i=> i.name==="Huile");
+let consumableName = "Huile";
+let item = actor.items.find(i => i.name === consumableName);
 if (item.data.data.quantity < 1) {
-  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'Huile`);
+  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'${consumableName}`);
 } else {
   updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
-consumed += `${item.data.data.quantity - 1} flasque(s) d'huile restante(s)<br>`;
+consumed += `${item.data.data.quantity - 1} flasque(s) d'${consumableName} restante(s)<br>`;
 }
 if (updates.length > 0) {
-  actor.updateManyEmbeddedEntities("OwnedItem", updates);
+    actor.updateEmbeddedEntity("OwnedItem", updates);
 }
 ChatMessage.create({
   user: game.user._id,

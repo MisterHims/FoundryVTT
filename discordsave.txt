@@ -1,0 +1,127 @@
+OK, so to pay it forward, here is how I got the Crossbow Firing / Arrow macro to work
+1. Install Minor Quality of Life Module
+2. After Minor QOL is installed and configured, select a Bow, Crossbow or a Ranged Attack weapon in an Actor / Character’s inventory and drag it onto the Macro Bar
+3. Open that Macro and, if you like, add the line that triggers an MP3 sound effect. It should look something like this:
+
+//This macro's function depends on the 'ranged-attack-generic' macro.
+
+const macro = game.macros.entities.find(m => m.name === "ranged-attack-generic");
+if(!macro) {
+ui.notifications.error("This macro depends on the 'ranged-attack-generic' macro, which could not be found.");
+return;
+}
+macro.execute("Crossbow, Light","Crossbow Bolts",true);
+
+4. Create a new Macro with the following code:
+
+let updates = [];
+let consumed = "";
+if (!actor) {
+    ui.notifications.warn(`no actor selected`);
+    return;
+}
+
+let weaponName = args[0];
+let consumableName = args[1];
+let item = actor.items.find(i => i.name === consumableName);
+
+if (!item) {
+    ui.notifications.warn(`no ammo named ${consumableName} found`);
+    return;
+}
+
+if (item.data.data.quantity < 1) {
+    ui.notifications.warn(`${game.user.name} not enough ${consumableName} remaining`);
+} else {
+    updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity - 1 });
+    consumed += `${item.data.data.quantity - 1} arrows left<br>`;
+
+    MinorQOL.doRoll(event, weaponName, { type: "weapon", versatile: false });
+    AudioHelper.play({ src: "sounds/weapons-impacts/Arrow 1.mp3", volume: 0.8, autoplay: true, loop: false }, true);
+    let ammoDic = actor.getFlag("world", "fired-arrow");
+    let ammoFired = 1;
+
+    if (ammoDic) {
+        console.log(ammoDic);
+        ammoFired = ammoDic.ammoAmount + 1 || 1;
+    }
+
+    let ammoFiredInfo = { ammoName: consumableName, ammoAmount: ammoFired };
+    actor.setFlag("world", "fired-arrow", ammoFiredInfo);
+}
+
+if (updates.length > 0) {
+    actor.updateEmbeddedEntity("OwnedItem", updates);
+
+    ChatMessage.create({
+        user: game.user._id,
+        speaker: { actor: actor, alias: actor.name },
+        content: consumed,
+        type: CONST.CHAT_MESSAGE_TYPES.OTHER
+    });
+}
+
+5. Make sure that the name of this new Macro is "ranged-attack-generic" exactly
+6. Now create the final Arrow Collecting Macrp and name it whatever you like. It should be this one here:
+
+if (!actor) {
+    ui.notifications.warn(`no actor selected`);
+    return;
+}
+let ammoDic = actor.getFlag("world", "fired-arrow");
+let firedAmmo = ammoDic.ammoAmount || 0;
+let consumableName = ammoDic.ammoName;
+
+let recover = false;
+let destroy = false;
+
+new Dialog({
+  title: `Recover Fired Ammo`,
+  content: `
+    <form>
+      <div class="form-group">
+        <label>${consumableName} Fired: ${firedAmmo}</label>
+        </select>
+      </div>
+    </form>
+    `,
+  buttons: {
+    yes: {
+      icon: "<i class='fas fa-check'></i>",
+      label: `Recover ammo`,
+      callback: () => recover = true
+    },
+    no: {
+      icon: "<i class='fas fa-times'></i>",
+      label: `Lose unrecovered`,
+      callback: () => destroy = true
+    },
+  },
+  default: "yes",
+  close: html => {
+    if (recover) {
+        let recoveredAmmo = Math.floor(firedAmmo / 2) || 0;
+        ChatMessage.create({
+            user: game.user._id,
+            speaker: { actor: actor, alias: actor.name },
+            content: `has recovered ${recoveredAmmo} ammo<br>`,
+            type: CONST.CHAT_MESSAGE_TYPES.OTHER
+        });
+
+        let updates = [];
+        let item = actor.items.find(i => i.name === consumableName);
+        updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity + recoveredAmmo });
+        actor.updateEmbeddedEntity("OwnedItem", updates);
+    }
+    if(recover || destroy) {
+        let ammoFiredInfo = { ammoName : consumableName, ammoAmount : 0};
+        actor.setFlag("world", "fired-arrow", ammoFiredInfo);
+        actor.unsetFlag("world", "fired-arrow");
+    }
+  }
+}).render(true);
+
+7. Make sure to scan through code of the Macro you will be clicking on to fire the ranged weapon and replace the ranged weapon and its ammo name to be the same as the items in the ffiring Character's inventory. For me it was "Crossbow, Light" and "Crossbow Bolts" respectively.
+
+
+Now place the Actor Token of the Character who will be firing the ranged weapon on your map. Click it to highlight it. Make sure it's opponent target token is Targeted. Click on the Crossbow/Bow Fire Macro to have it all work. When the yellow message bar appears warning you that there is no ammo left to fire, click on the Arrow / Bolt Gathering macro to recover it
