@@ -1,4 +1,4 @@
-// Utilisation de la Torche
+// Utilisation de la Lanterne sourde
 let applyChanges = false;
 new Dialog({
   title: `Lanterne sourde`,
