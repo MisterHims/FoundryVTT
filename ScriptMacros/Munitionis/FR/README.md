@@ -95,8 +95,7 @@ if (updates.length > 0) {
 
 ___
 Dans le code ci-dessus, l'exemple d'arme à distance utilisée est un "Arc court" et ses munitions des "Flèches".
-
-Si vous souhaitez utiliser d'autres armes et/ou munitions, par exemple un "Arc long" à la place, changez simplement leurs noms dans les lignes suivantes :
+Si vous souhaitez utiliser d'autres armes et/ou munitions (par exemple un "Arc long") à la place, changez simplement leurs noms dans les lignes suivantes :
 ```javascript
 let weaponName = "Arc court";
 ```
@@ -175,4 +174,8 @@ new Dialog({
 
 7. Donnez le nom que vous souhaitez à cette nouvelle macro puis enregistrez-là.
 
-8. Placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Assurez-vous que ce token cible l'adversaire. Cliquez sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Lorsque la barre de message jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la denrière macro créée) pour les récupérer.
+8. C'est terminé ! Vous pouvez maintenant tester si tout fonctionne. Pour cela, placez maintenant le token du personnage qui tirera avec l'arme à distance sur votre carte puis sélectionnez-le. Assurez-vous que ce token cible l'adversaire. Cliquez sur la macro de tir "Arc court" (la première macro créée) pour vérifier que tout fonctionne. Lorsque la barre de message jaune s'affiche pour vous avertir qu'il n'y a plus de munitions à tirer, cliquez sur la macro de collecte de munitions (la denrière macro créée) pour les récupérer.
+
+## Améliorations à venir
+
+* Pouvoir utiliser plusieurs types d'armes et de munitions différentes définies par [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js).
