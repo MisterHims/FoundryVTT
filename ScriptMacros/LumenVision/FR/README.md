@@ -13,7 +13,7 @@ LumenVision est une collection de macros regroupée en une seule. Elle est en pa
 ## Installation
 
 * Accédez à la Collection et copiez la macro souhaitée
-* Sur Foundry VTT, cliquez sur un des bouton de la barre de macros
+* Sur Foundry VTT, cliquez sur un des boutons de la barre de macros
 * Sélectionnez le type de macro "Script"
 * Collez le code précédement copié dans le champ prévu à cet effet
 

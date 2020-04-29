@@ -15,7 +15,7 @@ LumenVision est une collection de macros regroupée en une seule. Elle est en pa
 
 1. Installez le module [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master) et configurez-le à vos besoins
 2. Sélectionnez une arme à distance dans l'inventaire du personnage contenu dans sa fiche et faites un glisser-déposer dans votre barre de Macros
-3. Faites un clic-droit sur la nouvelle macro puis éditez-là. Ajoutez les lignes suivantes avant le code déjà présent dans la dite macro :
+3. Faites un clic-droit sur la nouvelle macro puis éditez-là. Ajoutez-y les lignes suivantes avant le code déjà présent précédemment généré par l'arme du personnage :
 
 ```javascript
 //La macro de cette fonction dépends de la macro nommée "ranged-attack-generic"
@@ -26,54 +26,136 @@ ui.notifications.error("Cette macro dépends de la macro 'ranged-attack-generic'
 }
 ```
 
-* Sur Foundry VTT, cliquez sur un des bouton de la barre de macros
-* Sélectionnez le type de macro "Script"
-* Collez le code précédement copié dans le champ prévu à cet effet
+Le contenu de votre macro devrait alors ressembler à quelque chose comme cela :
 
-## Collection de Macros
+*[add-to-macro-weapon.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/add-to-macro-weapon.js)*
+```javascript
+//La macro de cette fonction dépends de la macro nommée "ranged-attack-generic"
+const macro = game.macros.entities.find(m => m.name === "ranged-attack-generic");
+if(!macro) {
+ui.notifications.error("Cette macro dépends de la macro 'ranged-attack-generic' qui ne peut être trouvée.");
+  return;
+}
+macro.execute("Arc court","Flèches",true);
+```
 
-### LV-Initialiser
+Donnez un nom à cette nouvelle macro et enregistrez-là. Par exemple "Arc court".
 
-Permet de rapidement définir un type de vision ainsi qu'une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés.
+4. Créez maintenant une nouvelle macro en cliquant sur un des emplacements libres de votre barre de macros puis ajoutez-y le code suivant :
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/01.jpg?raw=true)
+*[ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js)*
+```javascript
+let updates = [];
+let consumed = "";
+if (!actor) {
+    ui.notifications.warn(`no actor selected`);
+    return;
+}
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/02.jpg?raw=true)
+let weaponName = "Arc court";
+let consumableName = "Flèches";
+let item = actor.items.find(i => i.name === consumableName);
 
-### LV-Bougie
+if (!item) {
+    ui.notifications.warn(`no ammo named ${consumableName} found`);
+    return;
+}
 
-Permet d'utiliser une Bougie dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre de Bougie(s) restante(s).
+if (item.data.data.quantity < 1) {
+    ui.notifications.warn(`${game.user.name} not enough ${consumableName} remaining`);
+} else {
+    updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity - 1 });
+    consumed += `${item.data.data.quantity - 1} arrows left<br>`;
 
-### LV-Lampe
+    MinorQOL.doRoll(event, weaponName, { type: "weapon", versatile: false });
+    AudioHelper.play({ src: "sounds/weapons-impacts/Arrow 1.mp3", volume: 0.8, autoplay: true, loop: false }, true);
+    let ammoDic = actor.getFlag("world", "fired-arrow");
+    let ammoFired = 1;
 
-Permet d'utiliser une Lampe dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre de Bougie(s) restante(s).
+    if (ammoDic) {
+        console.log(ammoDic);
+        ammoFired = ammoDic.ammoAmount + 1 || 1;
+    }
 
-### LV-Lanterne-a-capote
+    let ammoFiredInfo = { ammoName: consumableName, ammoAmount: ammoFired };
+    actor.setFlag("world", "fired-arrow", ammoFiredInfo);
+}
 
-Permet d'utiliser une Lanterne à capote dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'allumer la lanterne de deux façons différentes - à lumière vive ou à lumière forte -  dont chacune de ces actions néccesitent 1 Huile ou bien de l'éteindre. Un message apparaît également dans le chat indiquant le nombre de flasques d'Huile(s) restante(s).
+if (updates.length > 0) {
+    actor.updateEmbeddedEntity("OwnedItem", updates);
 
-#### Notes d'Installation
+    ChatMessage.create({
+        user: game.user._id,
+        speaker: { actor: actor, alias: actor.name },
+        content: consumed,
+        type: CONST.CHAT_MESSAGE_TYPES.OTHER
+    });
+}
+```
 
-Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
+5. Nommez de façon exacte cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
 
-### LV-Lanterne-de-revelation
+6. Créez maintenant la dernière macro néccessaire à la collecte des flèches (dans le cas présent) et ajoutez-y le code suivant :
 
-Permet d'utiliser une Lanterne de révélation dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'allumer la lanterne de deux façons différentes - à lumière vive ou à lumière forte - dont chacune de ces actions néccesitent 1 Huile ou bien de l'éteindre. Un message apparaît également dans le chat indiquant le nombre de flasques d'Huile(s) restante(s).
+*[munitionis-recover.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/munitionis-recover.js)*
+```javascript
+if (!actor) {
+    ui.notifications.warn(`no actor selected`);
+    return;
+}
+let ammoDic = actor.getFlag("world", "fired-arrow");
+let firedAmmo = ammoDic.ammoAmount || 0;
+let consumableName = ammoDic.ammoName;
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/07.jpg?raw=true)
+let recover = false;
+let destroy = false;
 
-#### Notes d'Installation
+new Dialog({
+  title: `Recover Fired Ammo`,
+  content: `
+    <form>
+      <div class="form-group">
+        <label>${consumableName} Fired: ${firedAmmo}</label>
+        </select>
+      </div>
+    </form>
+    `,
+  buttons: {
+    yes: {
+      icon: "<i class='fas fa-check'></i>",
+      label: `Recover ammo`,
+      callback: () => recover = true
+    },
+    no: {
+      icon: "<i class='fas fa-times'></i>",
+      label: `Lose unrecovered`,
+      callback: () => destroy = true
+    },
+  },
+  default: "yes",
+  close: html => {
+    if (recover) {
+        let recoveredAmmo = Math.floor(firedAmmo / 2) || 0;
+        ChatMessage.create({
+            user: game.user._id,
+            speaker: { actor: actor, alias: actor.name },
+            content: `has recovered ${recoveredAmmo} ammo<br>`,
+            type: CONST.CHAT_MESSAGE_TYPES.OTHER
+        });
 
-Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
+        let updates = [];
+        let item = actor.items.find(i => i.name === consumableName);
+        updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity + recoveredAmmo });
+        actor.updateEmbeddedEntity("OwnedItem", updates);
+    }
+    if(recover || destroy) {
+        let ammoFiredInfo = { ammoName : consumableName, ammoAmount : 0};
+        actor.setFlag("world", "fired-arrow", ammoFiredInfo);
+        actor.unsetFlag("world", "fired-arrow");
+    }
+  }
+}).render(true);
+```
+7. Donnez le nom que vous souhaitez à cette nouvelle macro puis enregistrez-là.
 
-### LV-Lanterne-sourde
-
-Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre de flasques d'Huile(s) restante(s).
-
-### LV-Torche
-
-Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans le chat vous permettant d'utiliser l'action associée à l'objet.
-
-## Problèmes connus
-
-* L'utilisation d'un objet est possible même sans consommable(s). Néanmoins, une notification apparaît pour l'utilisateur lui indiquant qu'il ne disposait pas assez de composants.
+8. L'exemple d'arme utilisée pour cette macro est l'Arc court et ses munitions des Flèches. Si vous souhaitez paramétrer ces macros pour d'autres armes et/ou munitions, parcourez les lignes des macros nouvellement créées puis remplacer le nom de l'arme à distance utilisée ("Arc court") et le nom des munitions ("Flèches"). Ainsi, le nom des différentes armes et munitions utilisées dans cette macro doivent être les mêmes que ceux contenues dans l'inventaire du personnage.
