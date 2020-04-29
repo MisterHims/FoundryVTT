@@ -93,7 +93,7 @@ if (updates.length > 0) {
 ```
 *[ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js)*
 
-5. L'exemple d'arme utilisée pour cette macro est l'Arc court et ses munitions des Flèches. Si vous souhaitez utiliser d'autres armes et/ou munitions, changez simplement leurs noms dans les lignes suivantes : ```javascript let weaponName = "Arc court"; ``` et ```javascript let consumableName = "Flèches"; ``` 
+5. L'exemple d'arme utilisée pour cette macro est l'Arc court et ses munitions des Flèches. Si vous souhaitez utiliser d'autres armes et/ou munitions, changez simplement leurs noms dans les lignes suivantes : ```let weaponName = "Arc court"; ``` et ```let consumableName = "Flèches"; ```
 
 
  remplacez-y le nom de l'arme à distance utilisée ("Arc court") et le nom des munitions ("Flèches") par les noms de l'arme à distance et munitions que vous souhaitez utiliser. Ainsi, le nom des différentes armes et munitions dans cette macro doivent être les mêmes que ceux contenues dans l'inventaire du personnage.
