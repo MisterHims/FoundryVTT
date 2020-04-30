@@ -17,6 +17,8 @@ Un outil principalement utilisé par le MJ. Il permet de rapidement définir un 
 
 ![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
 
+*Cette macro peut-être utilisée sans les modules [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master), [The Furnace](https://github.com/kakaroto/fvtt-module-furnace).*
+
 ### LV-Bougie
 Permet d'utiliser une Bougie dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de Bougie(s) restante(s).
 
@@ -86,3 +88,5 @@ Attention ! Vérifiez bien le nom de vos objets dans l'inventaire de votre perso
 ## Améliorations à venir
 
 * Création de la collection sous forme de modules, permettant l'ajout automatique de toute la collection LumenVision dans un compendium unique.
+
+* Utilisation du code générique pour appliquer ses divers effets sur des items et aptitudes en particulier.
