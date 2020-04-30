@@ -74,7 +74,7 @@ if (updates.length > 0) {
 
 2. Allez maintenant sur Foundry VTT puis cliquez sur un emplacement libre de la barre de macros afin d'en créer une nouvelle.
 3. Sélectionnez le type "Script" puis collez le code à l'intérieur.
-4. Donnez-lui exactement le nom suivant : ```js lv-consum-generic ``` et sauvegardez la macro.
+4. Donnez-lui exactement le nom suivant : ```lv-consum-generic ``` et sauvegardez la macro.
 5. Vous n'aurez pas besoin de la macro à cet emplacement et vous pouvez donc là retirer (mais pas supprimer).
 
 ### Installation de toutes les autres macros
