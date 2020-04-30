@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.5-informational)
-## LumenVision
+## LumenVision (instable)
 
 * **Author**: MisterHims, Foundry VTT Community
 * **Version**: 1.0.1
@@ -43,10 +43,6 @@ Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. 
 
 Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans le chat vous permettant d'utiliser l'action associée à l'objet.
 
-## Améliorations à venir
-
-* Création d'un module à installer permettant l'ajout automatique de toute la collection LumenVision dans un compendium.
-
 ## Installation
 1. Accédez à la [Collection](https://github.com/MisterHims/FoundryVTT/tree/master/ScriptMacros/LumenVision/FR/Collection) et copiez la macro de votre choix.
 2. Allez sur Foundry VTT, puis cliquez sur un des boutons de la barre de macros afin d'en créer une nouvelle.
@@ -55,3 +51,7 @@ Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélecti
 5. Répetez l'opération l'opération pour toutes les macros
 
 Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
+
+## Améliorations à venir
+
+* Création d'un module à installer permettant l'ajout automatique de toute la collection LumenVision dans un compendium.
