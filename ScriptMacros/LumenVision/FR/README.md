@@ -15,7 +15,7 @@ LumenVision est une collection de macros permettant d'initialiser rapidement la 
 ### LV-Initialiser
 Permet de rapidement définir un type de vision ainsi qu'une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés.
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem-02.gif?raw=true)
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem-01.gif?raw=true)
 
 ### LV-Bougie
 Permet d'utiliser une Bougie dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre de Bougie(s) restante(s).
