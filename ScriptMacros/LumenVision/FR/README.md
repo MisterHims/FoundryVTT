@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 ## LumenVision
 
-* **Author**: MisterHims, Foundry VTT Community
+* **Author**: Foundry VTT Community, MisterHims
 * **Version**: 1.0.1
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
