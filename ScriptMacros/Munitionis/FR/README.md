@@ -2,7 +2,7 @@
 # Munitionis
 
 * **Author**: Ultrakorne, Melchior, ChaoDjinn, Foundry VTT Community
-* **Traduction FR**: MisterHims
+* **Traduction**: MisterHims
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e

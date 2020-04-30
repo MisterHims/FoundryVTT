@@ -1,4 +1,9 @@
 let applyChanges = false;
+if (!actor) {
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+    return;
+}
+let item = actor.items.find(i => i.name === "Huile");
 const macro = game.macros.entities.find(m => m.name === "lv-consum-generic");
 if(!macro) {
 ui.notifications.error("Cette macro dépends de la macro 'lv-consum-generic' qui ne peut être trouvée.");
@@ -9,7 +14,7 @@ new Dialog({
   content: `
     <form>
       <div class="form-group">
-        <label>Allumer/Eteindre :</label>
+        <label>Action :</label>
         <select id="light-source" name="light-source">
           <option value="none">Eteindre</option>
           <option value="hooded-dim">Lumière faible</option>
@@ -42,15 +47,23 @@ new Dialog({
         let lockRotation = token.data.lockRotation;
         switch (lightSource) {
           case "hooded-dim":
-            dimLight = 1;
-            brightLight = 0;
             macro.execute("Huile",true);
-            break;
+            if (item.data.data.quantity < 1) {
+                return;
+              } else {
+                dimLight = 1;
+                brightLight = 0;
+                break;
+            }
           case "hooded-bright":
-            dimLight = 12;
-            brightLight = 6;
-            macro.execute("Huile",true);
-            break;
+          macro.execute("Huile",true);
+          if (item.data.data.quantity < 1) {
+              return;
+            } else {
+              dimLight = 12;
+              brightLight = 6;
+              break;
+          }
           case "none":
             dimLight = 0;
             brightLight = 0;

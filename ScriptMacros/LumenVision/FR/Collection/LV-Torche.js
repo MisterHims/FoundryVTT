@@ -9,10 +9,10 @@ new Dialog({
   content: `
     <form>
       <div class="form-group">
-        <label>Allumer/Eteindre</label>
+        <label>Action :</label>
         <select id="light-source" name="light-source">
-          <option value="torch">Allumer</option>
           <option value="none">Eteindre</option>
+          <option value="torch">Allumer</option>
         </select>
       </div>
     </form>

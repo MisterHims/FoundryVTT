@@ -1,11 +1,6 @@
 let updates = [];
 let consumed = "";
-if (!actor) {
-    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
-    return;
-}
-let itemName = args[0];
-let consumableName = args[1];
+let consumableName = args[0];
 let item = actor.items.find(i => i.name === consumableName);
 if (!item) {
     ui.notifications.warn(`Aucun consommable nommé "${consumableName}" n'a été trouvé`);
