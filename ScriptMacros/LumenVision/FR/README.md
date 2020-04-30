@@ -5,7 +5,7 @@
 * **Version**: 1.0.1
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
-* **Module Requirement(s)**: None
+* **Module Requirement(s)**: [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master), [The Furnace](https://github.com/kakaroto/fvtt-module-furnace)
 
 ### Description
 LumenVision est une collection de macros permettant d'initialiser rapidement la vision et/ou lumière issue d'un token ou d'un objet. Elle permet également la consommation automatique de ressources (bougies, flasques d'huile, etc.). Elle est en partie issue de la communauté Foundry VTT et a par la suite été traduite en français, modifiée puis convertie au système métrique européen.
