@@ -13,7 +13,7 @@ LumenVision est une collection de macros permettant d'initialiser rapidement la 
 ## Collection de Macros
 
 ### LV-Initializer
-Permet de rapidement définir un type de vision et une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés. Une notification apparaît si aucun token n'est sélectionné. Un exemple avec les différentes sources de lumières disponibles :
+Un outil principalement utilisé par le MJ. Il permet de rapidement définir un type de vision et une source de lumière utilisée pour un ou plusieurs tokens sélectionnés. Une notification apparaît si aucun token n'est alors sélectionné. Voici un exemple avec les différentes sources de lumières disponibles :
 
 ![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
 
@@ -39,13 +39,49 @@ Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. 
 Permet d'utiliser une Torche dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans la fenêtre de chat vous permettant d'utiliser l'action qui est associée à l'objet.
 
 ## Installation
-1. Accédez à la [Collection](https://github.com/MisterHims/FoundryVTT/tree/master/ScriptMacros/LumenVision/FR/Collection) et copiez la macro de votre choix.
-2. Allez sur Foundry VTT, puis cliquez sur un des boutons de la barre de macros afin d'en créer une nouvelle.
-3. Sélectionnez "Script" comme type de macro utilisé
-4. Collez alors le code précédement copié dans la zone prévue à cet effet
-5. Répetez l'opération pour les macros que vous souhaitez installés
+### Installation de LV-Consum-Generic
 
-Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
+Le code suivant est néccesaire à l'utilisation de toutes les autres macros de la collection.
+
+1. Copiez le code ci-dessous ou accédez-y depuis la accéder depuis la [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/LV-Consum-Generic.js) sous le nom de "LV-Consum-Generic.js" :
+```javascript
+let updates = [];
+let consumed = "";
+let consumableName = args[0];
+let item = actor.items.find(i => i.name === consumableName);
+if (!item) {
+    ui.notifications.warn(`Aucun consommable nommé "${consumableName}" n'a été trouvé`);
+    return;
+}
+if (item.data.data.quantity < 1) {
+    ui.notifications.warn(`Vous n'avez plus de ${consumableName} restante(s)`);
+} else {
+    updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity - 1 });
+    consumed += `${item.data.data.quantity - 1} ${consumableName}(s) restante(s)<br>`;
+    //AudioHelper.play({ src: "sounds/items-use/lantern.mp3", volume: 0.8, autoplay: true, loop: false }, true);
+}
+if (updates.length > 0) {
+    actor.updateEmbeddedEntity("OwnedItem", updates);
+    ChatMessage.create({
+        user: game.user._id,
+        speaker: { actor: actor, alias: actor.name },
+        content: consumed,
+        type: CONST.CHAT_MESSAGE_TYPES.OTHER
+    });
+}
+```
+*[LV-Consum-Generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/LV-Consum-Generic.js)*
+
+2. Allez maintenant sur Foundry VTT puis cliquez sur un emplacement libre de la barre de macros afin d'en créer une nouvelle.
+3. Sélectionnez le type "Script" puis collez le code à l'intérieur.
+4. Donnez-lui exactement le nom suivant : ```js lv-consum-generic ``` et sauvegardez la macro.
+5. Vous n'aurez pas besoin de la macro à cet emplacement et vous pouvez donc là retirer (mais pas supprimer).
+
+### Installation de toutes les autres macros
+
+* De la même façon que vu précédemment, vous pouvez répétez la même opération pour installer toutes les autres macros disponibles dans la collection. Vous êtes cependant libres de leurs donner le nom de votre choix.
+
+Attention ! Vérifiez bien le nom de vos objets dans l'inventaire de votre personnage. Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter des flasques d'Huile, renommez l'objet en "Huile" et non pas "Flasques d'huile (10)".
 
 ## Améliorations à venir
 
