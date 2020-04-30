@@ -48,7 +48,7 @@ Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélecti
 2. Allez sur Foundry VTT, puis cliquez sur un des boutons de la barre de macros afin d'en créer une nouvelle.
 3. Sélectionnez "Script" comme type de macro utilisé
 4. Collez alors le code précédement copié dans la zone prévue à cet effet
-5. Répetez l'opération l'opération pour toutes les macros
+5. Répetez l'opération pour les macros que vous souhaitez installés
 
 Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
 
