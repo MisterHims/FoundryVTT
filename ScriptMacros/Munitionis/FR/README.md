@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 # Munitionis
 
-* **Author**: Ultrakorne, Melchior, ChaoDjinn, Foundry VTT Community and all the family
+* **Author**: Ultrakorne, Melchior, ChaoDjinn, Foundry VTT Community
 * **Traduction**: MisterHims
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
