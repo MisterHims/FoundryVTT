@@ -10,14 +10,12 @@
 ### Description
 LumenVision est une collection de macros permettant d'initialiser rapidement la vision et/ou lumière issue d'un token ou d'un objet. Elle permet également la consommation automatique de ressources (bougies, flasques d'huile, etc.). Elle est en partie issue de la communauté Foundry VTT et a par la suite été traduite en français, modifiée puis convertie au système métrique européen.
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
-
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
-
 ## Collection de Macros
 
 ### LV-Initialiser
-Permet de rapidement définir un type de vision ainsi qu'une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés.
+Permet de rapidement définir un type de vision ainsi qu'une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés. Un petit exemple animé ci-dessous avez les sources de lumières disponibles :
+
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
 
 ### LV-Bougie
 Permet d'utiliser une Bougie dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît également dans le chat indiquant le nombre de Bougie(s) restante(s).
@@ -27,6 +25,8 @@ Permet d'utiliser une Lampe dans l'inventaire du token sélectionné. Cette util
 
 ### LV-Lanterne-a-capote
 Permet d'utiliser une Lanterne à capote dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'allumer la lanterne de deux façons différentes - à lumière vive ou à lumière forte -  dont chacune de ces actions néccesitent 1 Huile ou bien de l'éteindre. Un message apparaît également dans le chat indiquant le nombre de flasques d'Huile(s) restante(s).
+
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_02.gif)
 
 #### Notes d'Installation
 Attention à bien vérifier le nom de votre objet "Huile". Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter ces flasques d'huile, renommez l'objet en "Huile". Vérifiez également la valeur Quantité sur la fiche de l'objet.
