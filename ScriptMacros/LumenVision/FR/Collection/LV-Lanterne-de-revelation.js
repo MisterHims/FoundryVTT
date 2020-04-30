@@ -1,11 +1,15 @@
-// Utilisation de la Lanterne de révélation
 let applyChanges = false;
+const macro = game.macros.entities.find(m => m.name === "lv-consum-generic");
+if(!macro) {
+ui.notifications.error("Cette macro dépends de la macro 'lv-consum-generic' qui ne peut être trouvée.");
+  return;
+}
 new Dialog({
   title: `Lanterne de révélation`,
   content: `
     <form>
       <div class="form-group">
-        <label>Niveau de lumière :</label>
+        <label>Allumer/Eteindre :</label>
         <select id="light-source" name="light-source">
           <option value="none">Eteindre</option>
           <option value="light-dim">Lumière faible</option>
@@ -40,13 +44,13 @@ new Dialog({
           case "light-dim":
             dimLight = 1;
             brightLight = 0;
-            consumOil();
+            macro.execute("Huile",true);
             break;
 					case "light-bright":
-	           dimLight = 10;
-	           brightLight = 4;
-             consumOil();
-	           break;
+	          dimLight = 10;
+	          brightLight = 4;
+            macro.execute("Huile",true);
+	          break;
           case "none":
             dimLight = 0;
             brightLight = 0;
@@ -64,24 +68,3 @@ new Dialog({
     }
   }
 }).render(true);
-// Consommation d'une flasque d'Huile
-function consumOil() {
-let updates = [];
-let consumed = "";
-let item = actor.items.find(i=> i.name==="Huile");
-if (item.data.data.quantity < 1) {
-  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'Huile`);
-} else {
-  updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
-consumed += `${item.data.data.quantity - 1} flasque(s) d'huile restante(s)<br>`;
-}
-if (updates.length > 0) {
-  actor.updateManyEmbeddedEntities("OwnedItem", updates);
-}
-ChatMessage.create({
-  user: game.user._id,
-speaker: { actor: actor, alias: actor.name },
-  content: consumed,
-  type: CONST.CHAT_MESSAGE_TYPES.OTHER
-});
-}

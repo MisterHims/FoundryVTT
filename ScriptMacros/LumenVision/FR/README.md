@@ -2,7 +2,7 @@
 ## LumenVision
 
 * **Author**: MisterHims, Foundry VTT Community
-* **Version**: 1.0.0
+* **Version**: 1.0.1
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
 * **Module Requirement(s)**: None

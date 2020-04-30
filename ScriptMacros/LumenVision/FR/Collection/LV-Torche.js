@@ -1,5 +1,8 @@
+if (!actor) {
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+    return;
+}
 game.dnd5e.rollItemMacro("Torche");
-// Utilisation de la Torche
 let applyChanges = false;
 new Dialog({
   title: `Torche`,
@@ -8,9 +11,8 @@ new Dialog({
       <div class="form-group">
         <label>Allumer/Eteindre</label>
         <select id="light-source" name="light-source">
-          <option value="nochange">Pas de changement</option>
-          <option value="none">Allumer</option>
-          <option value="torch">Eteindre</option>
+          <option value="torch">Allumer</option>
+          <option value="none">Eteindre</option>
         </select>
       </div>
     </form>
@@ -46,7 +48,6 @@ new Dialog({
             dimLight = 0;
             brightLight = 0;
             break;
-          case "nochange":
         }
         console.log(token);
         token.update({

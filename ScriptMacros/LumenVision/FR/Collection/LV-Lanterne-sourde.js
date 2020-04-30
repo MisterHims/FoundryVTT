@@ -1,5 +1,9 @@
-// Utilisation de la Lanterne sourde
 let applyChanges = false;
+const macro = game.macros.entities.find(m => m.name === "lv-consum-generic");
+if(!macro) {
+ui.notifications.error("Cette macro dépends de la macro 'lv-consum-generic' qui ne peut être trouvée.");
+  return;
+}
 new Dialog({
   title: `Lanterne sourde`,
   content: `
@@ -41,7 +45,7 @@ new Dialog({
             brightLight = 12;
             lockRotation = false;
             lightAngle = 52.5;
-            consumOil();
+            macro.execute("Huile",true);
             break;
           case "none":
             dimLight = 0;
@@ -60,25 +64,3 @@ new Dialog({
     }
   }
 }).render(true);
-// Consommation d'une flasque d'Huile
-function consumOil() {
-let updates = [];
-let consumed = "";
-let consumableName = "Huile";
-let item = actor.items.find(i => i.name === consumableName);
-if (item.data.data.quantity < 1) {
-  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'${consumableName}`);
-} else {
-  updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
-consumed += `${item.data.data.quantity - 1} flasque(s) d'${consumableName} restante(s)<br>`;
-}
-if (updates.length > 0) {
-    actor.updateEmbeddedEntity("OwnedItem", updates);
-}
-ChatMessage.create({
-  user: game.user._id,
-speaker: { actor: actor, alias: actor.name },
-  content: consumed,
-  type: CONST.CHAT_MESSAGE_TYPES.OTHER
-});
-}

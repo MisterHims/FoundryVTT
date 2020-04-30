@@ -1,19 +1,14 @@
+// Utilisation de la Lanterne sourde
 let applyChanges = false;
-const macro = game.macros.entities.find(m => m.name === "lv-consum-generic");
-if(!macro) {
-ui.notifications.error("Cette macro dépends de la macro 'lv-consum-generic' qui ne peut être trouvée.");
-  return;
-}
 new Dialog({
-  title: `Lanterne à capote`,
+  title: `Lanterne sourde`,
   content: `
     <form>
       <div class="form-group">
         <label>Allumer/Eteindre :</label>
         <select id="light-source" name="light-source">
+          <option value="bullseye">Allumer</option>
           <option value="none">Eteindre</option>
-          <option value="hooded-dim">Lumière faible</option>
-          <option value="hooded-bright">Lumière vive</option>
         </select>
       </div>
     </form>
@@ -41,15 +36,12 @@ new Dialog({
         let lightAngle = 360;
         let lockRotation = token.data.lockRotation;
         switch (lightSource) {
-          case "hooded-dim":
-            dimLight = 1;
-            brightLight = 0;
-            macro.execute("Huile",true);
-            break;
-          case "hooded-bright":
-            dimLight = 12;
-            brightLight = 6;
-            macro.execute("Huile",true);
+          case "bullseye":
+            dimLight = 24;
+            brightLight = 12;
+            lockRotation = false;
+            lightAngle = 52.5;
+            consumOil();
             break;
           case "none":
             dimLight = 0;
@@ -68,3 +60,25 @@ new Dialog({
     }
   }
 }).render(true);
+// Consommation d'une flasque d'Huile
+function consumOil() {
+let updates = [];
+let consumed = "";
+let consumableName = "Huile";
+let item = actor.items.find(i => i.name === consumableName);
+if (item.data.data.quantity < 1) {
+  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'${consumableName}`);
+} else {
+  updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
+consumed += `${item.data.data.quantity - 1} flasque(s) d'${consumableName} restante(s)<br>`;
+}
+if (updates.length > 0) {
+    actor.updateEmbeddedEntity("OwnedItem", updates);
+}
+ChatMessage.create({
+  user: game.user._id,
+speaker: { actor: actor, alias: actor.name },
+  content: consumed,
+  type: CONST.CHAT_MESSAGE_TYPES.OTHER
+});
+}

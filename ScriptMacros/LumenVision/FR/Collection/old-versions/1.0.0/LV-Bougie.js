@@ -1,19 +1,14 @@
+// Utilisation de la Bougie
 let applyChanges = false;
-const macro = game.macros.entities.find(m => m.name === "lv-consum-generic");
-if(!macro) {
-ui.notifications.error("Cette macro dépends de la macro 'lv-consum-generic' qui ne peut être trouvée.");
-  return;
-}
 new Dialog({
-  title: `Lanterne à capote`,
+  title: `Bougie`,
   content: `
     <form>
       <div class="form-group">
         <label>Allumer/Eteindre :</label>
         <select id="light-source" name="light-source">
+          <option value="candle">Allumer</option>
           <option value="none">Eteindre</option>
-          <option value="hooded-dim">Lumière faible</option>
-          <option value="hooded-bright">Lumière vive</option>
         </select>
       </div>
     </form>
@@ -41,20 +36,16 @@ new Dialog({
         let lightAngle = 360;
         let lockRotation = token.data.lockRotation;
         switch (lightSource) {
-          case "hooded-dim":
-            dimLight = 1;
-            brightLight = 0;
-            macro.execute("Huile",true);
-            break;
-          case "hooded-bright":
-            dimLight = 12;
-            brightLight = 6;
-            macro.execute("Huile",true);
+          case "candle":
+            dimLight = 2;
+            brightLight = 1;
+            consumCandle();
             break;
           case "none":
             dimLight = 0;
             brightLight = 0;
             break;
+          case "nochange":
         }
         console.log(token);
         token.update({
@@ -68,3 +59,25 @@ new Dialog({
     }
   }
 }).render(true);
+
+function consumCandle() {
+// Consommation d'une Bougie
+let updates = [];
+let consumed = "";
+let item = actor.items.find(i=> i.name==="Bougie");
+if (item.data.data.quantity < 1) {
+  ui.notifications.warn(`${game.user.name} ne dispose pas assez de Bougie(s)`);
+} else {
+  updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
+consumed += `${item.data.data.quantity - 1} bougie(s) restante(s)<br>`;
+}
+if (updates.length > 0) {
+  actor.updateManyEmbeddedEntities("OwnedItem", updates);
+}
+ChatMessage.create({
+  user: game.user._id,
+speaker: { actor: actor, alias: actor.name },
+  content: consumed,
+  type: CONST.CHAT_MESSAGE_TYPES.OTHER
+});
+}

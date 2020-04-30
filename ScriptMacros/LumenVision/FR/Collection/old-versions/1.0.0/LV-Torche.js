@@ -1,19 +1,16 @@
+game.dnd5e.rollItemMacro("Torche");
+// Utilisation de la Torche
 let applyChanges = false;
-const macro = game.macros.entities.find(m => m.name === "lv-consum-generic");
-if(!macro) {
-ui.notifications.error("Cette macro dépends de la macro 'lv-consum-generic' qui ne peut être trouvée.");
-  return;
-}
 new Dialog({
-  title: `Lanterne à capote`,
+  title: `Torche`,
   content: `
     <form>
       <div class="form-group">
-        <label>Allumer/Eteindre :</label>
+        <label>Allumer/Eteindre</label>
         <select id="light-source" name="light-source">
-          <option value="none">Eteindre</option>
-          <option value="hooded-dim">Lumière faible</option>
-          <option value="hooded-bright">Lumière vive</option>
+          <option value="nochange">Pas de changement</option>
+          <option value="none">Allumer</option>
+          <option value="torch">Eteindre</option>
         </select>
       </div>
     </form>
@@ -41,20 +38,15 @@ new Dialog({
         let lightAngle = 360;
         let lockRotation = token.data.lockRotation;
         switch (lightSource) {
-          case "hooded-dim":
-            dimLight = 1;
-            brightLight = 0;
-            macro.execute("Huile",true);
-            break;
-          case "hooded-bright":
-            dimLight = 12;
-            brightLight = 6;
-            macro.execute("Huile",true);
+          case "torch":
+            dimLight = 8;
+            brightLight = 4;
             break;
           case "none":
             dimLight = 0;
             brightLight = 0;
             break;
+          case "nochange":
         }
         console.log(token);
         token.update({
