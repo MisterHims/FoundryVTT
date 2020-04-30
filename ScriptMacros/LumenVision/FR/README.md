@@ -12,7 +12,7 @@ LumenVision est une collection de macros permettant d'initialiser rapidement la 
 
 ## Collection de Macros
 
-### LV-Initialiser
+### LV-Initializer
 Permet de rapidement définir un type de vision et une source de lumière utilisée pour un ou plusieurs tokens actuellement sélectionnés. Une notification apparaît si aucun token n'est sélectionné. Un exemple avec les différentes sources de lumières disponibles :
 
 ![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
@@ -36,7 +36,7 @@ Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. 
 
 ### LV-Torche
 
-Permet d'utiliser une Torche Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans la fenêtre de chat vous permettant d'utiliser l'action qui est associée à l'objet.
+Permet d'utiliser une Torche dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans la fenêtre de chat vous permettant d'utiliser l'action qui est associée à l'objet.
 
 ## Installation
 1. Accédez à la [Collection](https://github.com/MisterHims/FoundryVTT/tree/master/ScriptMacros/LumenVision/FR/Collection) et copiez la macro de votre choix.
