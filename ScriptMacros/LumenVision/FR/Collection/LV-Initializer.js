@@ -1,4 +1,8 @@
 let applyChanges = false;
+if (!actor) {
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+    return;
+}
 new Dialog({
   title: `Configuration de la vision du token`,
   content: `
