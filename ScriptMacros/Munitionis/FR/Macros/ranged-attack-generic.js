@@ -15,7 +15,7 @@ if (!item) {
 }
 
 if (item.data.data.quantity < 1) {
-    ui.notifications.warn(`${game.user.name}, vous n'avez pas assez de ${consumableName} restante(s)`);
+    ui.notifications.warn(`Vous n'avez plus de ${consumableName} restante(s)`);
 } else {
     updates.push({ "_id": item._id, "data.quantity": item.data.data.quantity - 1 });
     consumed += `${item.data.data.quantity - 1} ${consumableName}(s) restante(s)<br>`;
