@@ -34,7 +34,7 @@ Dans cet exemple, l'arme utilisée est un "Arc court" et ses munitions sont des 
 macro.execute("Arbalète légère","Carreaux d'arbalète",true);
 ```
 Ainsi, le nom des différentes armes et munitions utilisées dans cette macro doivent être identiques à l'inventaire du personnage.
-Si vous avez utilisez le compendium AideDD Items, pensez à bien supprimer les chiffres entre parenthèses de vos munitions.
+Si vous avez utilisé le compendium AideDD Items, pensez à bien supprimer les chiffres entre parenthèses de vos munitions.
 Exemple : "Carreaux d'arbalète (20)" doit devenir "Carreaux d'arbalète".
 
 4. Créez maintenant une nouvelle macro en cliquant sur un des emplacements libres de votre barre de macros et ajoutez-y le code suivant :
@@ -180,4 +180,4 @@ Vous pouvez également modifier les paramètres de la lecture du fichier audio e
 
 ## Problèmes connus - Améliorations à venir
 
-* Le son joué au tir ne fonctionne pas pour des armes différentes, il est alors joué sur la totatilité des attaques effectués et peut importe les armes utilisés.
+* Le son joué au tir ne fonctionne pas pour des armes différentes, il est alors joué sur la totalité des attaques effectuées et peut importe les armes utilisés.
