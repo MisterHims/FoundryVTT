@@ -35,18 +35,18 @@ Permet d'utiliser une Lanterne à capote dans l'inventaire du token sélectionn�
 Permet d'utiliser une Lanterne de révélation dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'allumer la lanterne de deux façons différentes - à lumière vive ou à lumière forte - dont chacune de ces actions néccesitent 1 Huile ou bien de l'éteindre. Un message apparaît également dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
 
 ### LV-Lanterne-sourde
-Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'éteindre ou d'allumer la lanterne à lumière vive ou lumière forte, ce qui néccesite alors 1 Huile. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
+Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'éteindre ou d'allumer la lanterne à lumière vive ou lumière forte, ce qui nécessite alors 1 Huile. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
 
 ### LV-Torche
 
-Permet d'utiliser une Torche dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans la fenêtre de chat vous permettant d'utiliser l'action qui est associée à l'objet.
+Permet d'utiliser une Torche dans l'inventaire du token sélectionné. Cette utilisation vous offre le choix entre l'allumer, l'éteindre ou ne rien faire. Un message apparaît également dans la fenêtre de chat vous permettant d'utiliser l'action qui est associée à l'objet.
 
 ## Installation
 ### Installation de LV-Consum-Generic
 
-Le code suivant est néccesaire à l'utilisation de toutes les autres macros de la collection.
+Le code suivant est nécessaire à l'utilisation de toutes les autres macros de la collection.
 
-1. Copiez le code ci-dessous ou accédez-y depuis la accéder depuis la [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/LV-Consum-Generic.js) sous le nom de "LV-Consum-Generic.js" :
+1. Copiez le code ci-dessous ou accédez-y depuis la [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/LV-Consum-Generic.js) sous le nom de "LV-Consum-Generic.js" :
 ```javascript
 let updates = [];
 let consumed = "";
