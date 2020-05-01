@@ -1,4 +1,6 @@
-# LumenVision <div style="display: inline-block; text-align: right">![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)</div>
+# LumenVision
+
+![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 
 * **Author**: Foundry VTT Community, MisterHims
 * **Traduction**: MisterHims
