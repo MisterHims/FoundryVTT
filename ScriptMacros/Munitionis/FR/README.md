@@ -17,9 +17,9 @@ Munitionis est une petite collection de macros qui vous permettra d'utiliser l'a
 
 ## Installation
 
-**1.** Installez le module The Furnace puis Minor Quality of Life et configurez-le à vos besoins.
-**2.** Allez sur FoundryVTT puis sélectionnez une arme à distance dans l'inventaire de la fiche personnage. Faites un glisser-déposer de celle-ci dans votre barre de macros.
-**3.** Vous allez maintenant créer votre macro principale qui sera utilisée pour votre arme à distance. Faites un clic-droit sur l'icône de la nouvelle macro puis éditez-là. Ajoutez ou remplacez par le code suivant  :
+1. Installez le module The Furnace puis Minor Quality of Life et configurez-le à vos besoins.
+2. Allez sur FoundryVTT puis sélectionnez une arme à distance dans l'inventaire de la fiche personnage. Faites un glisser-déposer de celle-ci dans votre barre de macros.
+3. Vous allez maintenant créer votre macro principale qui sera utilisée pour votre arme à distance. Faites un clic-droit sur l'icône de la nouvelle macro puis éditez-là. Ajoutez ou remplacez par le code suivant  :
 
    ```javascript
    const macro = game.macros.entities.find(m => m.name === "ranged-attack-generic");
@@ -42,7 +42,7 @@ Munitionis est une petite collection de macros qui vous permettra d'utiliser l'a
    Si vous avez utilisé le compendium AideDD Items, pensez à bien supprimer les chiffres entre parenthèses de vos munitions.
    Exemple : "Carreaux d'arbalète (20)" doit devenir "Carreaux d'arbalète".
 
-**4.** Créez maintenant une nouvelle macro en cliquant sur un des emplacements libres de votre barre de macros et ajoutez-y le code suivant :
+4. Créez maintenant une nouvelle macro en cliquant sur un des emplacements libres de votre barre de macros et ajoutez-y le code suivant :
 
    ```javascript
    let updates = [];
