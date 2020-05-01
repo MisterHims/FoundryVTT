@@ -188,6 +188,6 @@ AudioHelper.play({ src: "sounds/weapons-impacts/mon-nouveau-fichier-audio.mp3", 
 
 Vous pouvez également modifier les paramètres de la lecture du fichier audio en question. Pour plus d'informations [cliquez-ici](https://www.w3schools.com/jsref/dom_obj_audio.asp).
 
-## Problèmes connus - Améliorations à venir
+## Problèmes connus
 
 * Le son joué au tir ne fonctionne pas pour des armes différentes, il est alors joué sur la totalité des attaques effectuées et peut importe les armes utilisés.
