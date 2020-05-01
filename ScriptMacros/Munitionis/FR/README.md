@@ -95,7 +95,7 @@ Munitionis est une petite collection de macros qui vous permettra d'utiliser l'a
   
    *[ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js)*
 
-5. Nommez cette nouvelle macro "ranged-attack-generic" puis enregistrez-là.
+5. Nommez cette nouvelle macro ``` ranged-attack-generic ``` puis sauvegardez-là.
 
 6. Créez maintenant la dernière macro, celle-ci vous permettra de récupérer la moitié de vos munitions tirées. Ajoutez-y alors le code suivant :
 
