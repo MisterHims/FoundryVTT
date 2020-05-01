@@ -165,6 +165,8 @@ new Dialog({
 
 Vous pouvez faire jouer un son lorsque le personnage tir avec l'arme à distance qui a été définie.
 
+Attention. Si vous avez choisi de faire jouer un son, alors celui-ci sera joué sur toutes les armes. Ainsi, si vous avez mis un son de flèches mais que vous avez également choisi d'utiliser cette macro pour une arme à feu, alors le son joué lors de l'utilisation par l'arme à feu sera un son de flèches.
+
 Pour cela, retournez simplement éditer votre macro issue du fichier [ranged-attack-generic.js](https://github.com/MisterHims/FoundryVTT/blob/130812cf0174cca1e3f3e2a15ca5241b2750c4fc/ScriptMacros/Munitionis/FR/Macros/ranged-attack-generic.js#L24) et modifiez la ligne suivante en supprimant les double-slash // du début et ajoutez votre chemin d'accès vers le fichier audio souhaité :
 ```javascript
 //AudioHelper.play({ src: "sounds/weapons-impacts/Arrow 1.mp3", volume: 0.8, autoplay: true, loop: false }, true);
@@ -175,3 +177,7 @@ AudioHelper.play({ src: "sounds/weapons-impacts/mon-nouveau-fichier-audio.mp3", 
 ```
 
 Vous pouvez également modifier les paramètres de la lecture du fichier audio en question. Pour plus d'informations [cliquez-ici](https://www.w3schools.com/jsref/dom_obj_audio.asp).
+
+## Problèmes connus - Améliorations à venir
+
+* Le son joué au tir ne fonctionne pas pour des armes différentes, il est alors joué sur la totatilité des attaques effectués et peut importe les armes utilisés.
