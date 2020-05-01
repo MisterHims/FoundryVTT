@@ -1,6 +1,4 @@
-# LumenVision
-
-![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
+# LumenVision ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 
 * **Author**: Foundry VTT Community, MisterHims
 * **Traduction**: MisterHims
