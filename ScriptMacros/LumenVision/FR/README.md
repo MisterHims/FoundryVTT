@@ -98,7 +98,7 @@ Le code suivant est nécessaire à l'utilisation de toutes les autres macros de 
 
 * De la même façon que vu précédemment, vous pouvez répéter la même opération pour installer toutes les autres macros disponibles dans la collection. Vous êtes cependant libres de donner à ces macros le nom de votre choix.
 
-**Attention !** Vérifiez bien le nom de vos objets dans l'inventaire de votre personnage. Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter des flasques d'Huile, renommez l'objet en "**Huile**" et non pas "Flasques d'huile (10)".
+**Attention !** Vérifiez bien le nom de vos objets dans l'inventaire de votre personnage. Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter des flasques d'Huile, renommez l'objet en "Huile" et non pas "Flasques d'huile (10)".
 
 ## Améliorations à venir
 
