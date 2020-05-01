@@ -90,6 +90,6 @@ Attention ! Vérifiez bien le nom de vos objets dans l'inventaire de votre perso
 
 * Ajouter la possibilité de pouvoir faire jouer un son lors de l'utilisation d'un objet. Par exemple, le son d'une lanterne que l'on allume.
 
-* Création de la collection sous forme de modules, permettant l'ajout automatique de toute la collection LumenVision dans un compendium unique.
+* Création de la collection sous forme de module, permettant l'ajout automatique de toute la collection LumenVision dans un compendium unique.
 
 * Utilisation du code générique pour appliquer ses divers effets sur des items et aptitudes en particulier.
