@@ -21,21 +21,21 @@ Un outil principalement utilisé par le MJ. Il permet de rapidement définir un 
 *Cette macro peut-être utilisée sans les modules [Minor Quality of Life](https://gitlab.com/tposney/minor-qol/tree/master), [The Furnace](https://github.com/kakaroto/fvtt-module-furnace).*
 
 ### LV-Bougie
-Permet d'utiliser une Bougie dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de Bougie(s) restante(s).
+Permet d'utiliser une Bougie dans l'inventaire du token sélectionné. Cette utilisation vous offre le choix entre l'allumer ou l'éteindre. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de Bougie(s) restante(s).
 
 ### LV-Lampe
-Permet d'utiliser une Lampe dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix entre l'allumer ou l'éteindre. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
+Permet d'utiliser une Lampe dans l'inventaire du token sélectionné. Cette utilisation vous offre le choix entre l'allumer ou l'éteindre. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
 
 ### LV-Lanterne-a-capote
-Permet d'utiliser une Lanterne à capote dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'éteindre ou d'allumer la lanterne à lumière vive ou lumière forte, ce qui néccesite alors 1 Huile. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
+Permet d'utiliser une Lanterne à capote dans l'inventaire du token sélectionné. Cette utilisation vous offre le choix d'éteindre ou d'allumer la lanterne à lumière vive ou lumière forte, ce qui néccesite alors 1 Huile. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
 
 ![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_02.gif)
 
 ### LV-Lanterne-de-revelation
-Permet d'utiliser une Lanterne de révélation dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'allumer la lanterne de deux façons différentes - à lumière vive ou à lumière forte - dont chacune de ces actions néccesitent 1 Huile ou bien de l'éteindre. Un message apparaît également dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
+Permet d'utiliser une Lanterne de révélation dans l'inventaire du token sélectionné. Cette utilisation vous offre le choix d'allumer la lanterne de deux façons différentes - à lumière vive ou à lumière forte - dont chacune de ces actions néccesitent 1 Huile ou bien de l'éteindre. Un message apparaît également dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
 
 ### LV-Lanterne-sourde
-Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offrera le choix d'éteindre ou d'allumer la lanterne à lumière vive ou lumière forte, ce qui nécessite alors 1 Huile. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
+Permet d'utiliser une Lanterne sourde dans l'inventaire du token sélectionné. Cette utilisation vous offre le choix d'éteindre ou d'allumer la lanterne à lumière vive ou lumière forte, ce qui nécessite alors 1 Huile. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
 
 ### LV-Torche
 
