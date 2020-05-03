@@ -257,3 +257,11 @@ AmbiantLightColor est une macro vous permettant d'ajouter très rapidement une l
 * La macro est configurée par défaut afin de positionner la lumière ambiante au milieu de votre scène si celle-ci possède une dimension de 3500x3500. Il est possible d'ajuster le positionnement de la lumière ambiante en remplaçant les valeurs ```x``` et ```y``` des couleurs de votre choix dans le code de la macro.
 
 * Si vous souhaitez supprimer la lumière ambiante de votre scène, accédez à l'outil de Lumière depuis votre menu de contrôle sur votre. Sélectionnez l'outil Source de Lumière et placez votre curseur sur l'icône de la lumière ambiante en question, cliquez ensuite sur la touche SUPPR de votre clavier.
+
+## Améliorations à venir
+
+* Choisir la couleur désirée directement depuis un menu déroulant (et non pas sous forme des boutons)
+
+* Positionner automatiquement la lumière ambiante au centre de la scène sans devoir y définir les valeurs de position.
+
+* Suppression automatique de la dernière lumière ambiante créer lorsqu'une autre est sélectionnée
