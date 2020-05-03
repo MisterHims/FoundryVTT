@@ -10,7 +10,7 @@
 
 ## Description
 
-EquipUnequip is a macro allowing to quickly equip or unequip an object of the inventory for the selected toek. A notification appear if no token has been selected and if the object sought has not been found.
+EquipUnequip is a macro allowing to quickly equip or unequip an object of the inventory for the selected token. A notification appear if no token has been selected and if the object sought has not been found.
 
 ![EquipUnequip-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/images/dem-en-1.gif)
 
