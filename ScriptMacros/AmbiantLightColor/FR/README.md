@@ -13,7 +13,7 @@
 
 AmbiantLightColor est une macro vous permettant d'ajouter très rapidement une lumière ambiante de couleur à votre scène.
 
-![AmbiantLightColor-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
+![AmbiantLightColor-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/AmbiantLightColor/FR/images/dem-01.gif)
 
 ### Couleurs disponibles
 
