@@ -13,7 +13,7 @@
 
 EquipUnequip est une macro permettant d'équiper ou de déséquiper rapidement un objet de l'inventaire du personnage sélectionné. Une notification apparaîtra si aucun personnage n'a été séléctionné et si l'objet recherché n'a pas été trouvé.
 
-![EquipUnequip-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/images/dem-fr-01.gif)
+![EquipUnequip-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/images/dem-fr-1.gif)
 
 ## Installation
 
