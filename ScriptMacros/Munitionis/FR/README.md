@@ -38,7 +38,7 @@ Munitionis est une petite collection de macros qui vous permettra d'utiliser l'a
    macro.execute("Arbalète légère","Carreaux d'arbalète",true);
    ```
 
-   Ainsi, le nom des différentes armes et munitions utilisées dans cette macro doivent être identiques à l'inventaire du personnage.
+   Ainsi, le nom des différentes armes et munitions utilisées dans cette macro doivent être identiques à ceux de l'inventaire du personnage.
    Si vous avez utilisé le compendium AideDD Items, pensez à bien supprimer les chiffres entre parenthèses de vos munitions.
    Exemple : "Carreaux d'arbalète (20)" doit devenir "Carreaux d'arbalète".
 
