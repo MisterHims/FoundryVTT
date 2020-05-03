@@ -13,6 +13,8 @@
 
 LightItems est une collection de macros qui permettra de simuler la lumière générée par divers objects comme une torche, une lampe ou encore une lanterne utilisée par un personnage. L'utilisation de ces objets consomment autimatique les ressources nécéssaires à leur utilisation (bougies, flasques d'huile, etc.). Cette collection est en partie issue de la communauté Foundry VTT mais a été traduite en français, modifiée puis convertie au système métrique.
 
+![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LightItems/FR/images/dem_01.gif)
+
 ## Collection de Macros
 
 ### Bougie
@@ -26,8 +28,6 @@ Permet d'utiliser une Lampe dans l'inventaire du token sélectionné. Cette util
 ### Lanterne-a-capote
 
 Permet d'utiliser une Lanterne à capote dans l'inventaire du token sélectionné. Cette utilisation vous offre le choix d'éteindre ou d'allumer la lanterne à lumière vive ou lumière forte, ce qui nécessite alors 1 Huile. Un message apparaît dans la fenêtre de chat indiquant alors le nombre de flasques d'Huile(s) restante(s).
-
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LightItems/FR/images/dem_01.gif)
 
 ### Lanterne-de-revelation
 
