@@ -13,7 +13,7 @@
 
 LumenVision est un outil permettant d'initialiser rapidement la vision, la lumière et sa couleur issue d'un ou plusieurs tokens sélectionnés, une notification apparaît alors dans le cas contraire. Cette macro est en partie issue de la communauté Foundry VTT et a par la suite été traduite en français, modifiée puis convertie au système métrique européen. C'est un outil principalement utile pour le MJ. Voici un exemple avec les différentes sources de lumières disponibles :
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
+![LumenVision-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
 
 ## Installation
 

@@ -13,7 +13,7 @@
 
 Munitionis est une petite collection de macros qui vous permettra d'utiliser l'arme à distance de votre personnage, d'y inclure sa consommation de munitions, mais également de pouvoir récupérer la moitié de ces munitions utilisées. Elle est issue de la communauté Foundry VTT. Elle a par la suite été traduite en français.
 
-![alt text](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/images/dem-01.gif?raw=true)
+![Munitionis-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/Munitionis/FR/images/dem-01.gif?raw=true)
 
 ## Installation
 
