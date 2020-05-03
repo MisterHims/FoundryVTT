@@ -66,7 +66,7 @@ The following code is necessary to use the second macro which will allow you to 
 
 3. Select the "Script" type then paste the code inside.
 
-4. For example, give it the following name: ``` Equiper/Déséquiper Bouclier ``` and save the macro.
+4. For example, give it the following name: ``` Equip/Unequip Shield ``` and save the macro.
 
 It is with the macro above that you will have to interact to equip or unequip the desired object (in this example a Shield).
 
