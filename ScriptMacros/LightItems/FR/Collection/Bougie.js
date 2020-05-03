@@ -4,9 +4,9 @@ if (!actor) {
     return;
 }
 let item = actor.items.find(i => i.name === "Bougie");
-const macro = game.macros.entities.find(m => m.name === "lv-consum-generic");
+const macro = game.macros.entities.find(m => m.name === "consum-generic");
 if(!macro) {
-ui.notifications.error("Cette macro dépends de la macro 'lv-consum-generic' qui ne peut être trouvée.");
+ui.notifications.error("Cette macro dépends de la macro 'consum-generic' qui ne peut être trouvée.");
   return;
 }
 new Dialog({

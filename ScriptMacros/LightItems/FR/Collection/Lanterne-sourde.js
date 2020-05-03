@@ -1,14 +1,23 @@
-// Utilisation de la Lanterne sourde
 let applyChanges = false;
+if (!actor) {
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+    return;
+}
+let item = actor.items.find(i => i.name === "Huile");
+const macro = game.macros.entities.find(m => m.name === "consum-generic");
+if(!macro) {
+ui.notifications.error("Cette macro dépends de la macro 'consum-generic' qui ne peut être trouvée.");
+  return;
+}
 new Dialog({
   title: `Lanterne sourde`,
   content: `
     <form>
       <div class="form-group">
-        <label>Allumer/Eteindre :</label>
+        <label>Action :</label>
         <select id="light-source" name="light-source">
-          <option value="bullseye">Allumer</option>
           <option value="none">Eteindre</option>
+          <option value="bullseye">Allumer</option>
         </select>
       </div>
     </form>
@@ -37,12 +46,16 @@ new Dialog({
         let lockRotation = token.data.lockRotation;
         switch (lightSource) {
           case "bullseye":
-            dimLight = 24;
-            brightLight = 12;
-            lockRotation = false;
-            lightAngle = 52.5;
-            consumOil();
-            break;
+          macro.execute("Huile",true);
+          if (item.data.data.quantity < 1) {
+              return;
+            } else {
+              dimLight = 24;
+              brightLight = 12;
+              lockRotation = false;
+              lightAngle = 52.5;
+              break;
+          }
           case "none":
             dimLight = 0;
             brightLight = 0;
@@ -60,25 +73,3 @@ new Dialog({
     }
   }
 }).render(true);
-// Consommation d'une flasque d'Huile
-function consumOil() {
-let updates = [];
-let consumed = "";
-let consumableName = "Huile";
-let item = actor.items.find(i => i.name === consumableName);
-if (item.data.data.quantity < 1) {
-  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'${consumableName}`);
-} else {
-  updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
-consumed += `${item.data.data.quantity - 1} flasque(s) d'${consumableName} restante(s)<br>`;
-}
-if (updates.length > 0) {
-    actor.updateEmbeddedEntity("OwnedItem", updates);
-}
-ChatMessage.create({
-  user: game.user._id,
-speaker: { actor: actor, alias: actor.name },
-  content: consumed,
-  type: CONST.CHAT_MESSAGE_TYPES.OTHER
-});
-}

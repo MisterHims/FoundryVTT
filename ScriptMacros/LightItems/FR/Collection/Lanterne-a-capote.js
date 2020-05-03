@@ -1,15 +1,24 @@
-// Utilisation de la Lanterne de révélation
 let applyChanges = false;
+if (!actor) {
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+    return;
+}
+let item = actor.items.find(i => i.name === "Huile");
+const macro = game.macros.entities.find(m => m.name === "consum-generic");
+if(!macro) {
+ui.notifications.error("Cette macro dépends de la macro 'consum-generic' qui ne peut être trouvée.");
+  return;
+}
 new Dialog({
-  title: `Lanterne de révélation`,
+  title: `Lanterne à capote`,
   content: `
     <form>
       <div class="form-group">
-        <label>Niveau de lumière :</label>
+        <label>Action :</label>
         <select id="light-source" name="light-source">
           <option value="none">Eteindre</option>
-          <option value="light-dim">Lumière faible</option>
-          <option value="light-bright">Lumière vive</option>
+          <option value="hooded-dim">Lumière faible</option>
+          <option value="hooded-bright">Lumière vive</option>
         </select>
       </div>
     </form>
@@ -37,16 +46,24 @@ new Dialog({
         let lightAngle = 360;
         let lockRotation = token.data.lockRotation;
         switch (lightSource) {
-          case "light-dim":
-            dimLight = 1;
-            brightLight = 0;
-            consumOil();
-            break;
-					case "light-bright":
-	           dimLight = 10;
-	           brightLight = 4;
-             consumOil();
-	           break;
+          case "hooded-dim":
+            macro.execute("Huile",true);
+            if (item.data.data.quantity < 1) {
+                return;
+              } else {
+                dimLight = 1;
+                brightLight = 0;
+                break;
+            }
+          case "hooded-bright":
+          macro.execute("Huile",true);
+          if (item.data.data.quantity < 1) {
+              return;
+            } else {
+              dimLight = 12;
+              brightLight = 6;
+              break;
+          }
           case "none":
             dimLight = 0;
             brightLight = 0;
@@ -64,24 +81,3 @@ new Dialog({
     }
   }
 }).render(true);
-// Consommation d'une flasque d'Huile
-function consumOil() {
-let updates = [];
-let consumed = "";
-let item = actor.items.find(i=> i.name==="Huile");
-if (item.data.data.quantity < 1) {
-  ui.notifications.warn(`${game.user.name} ne dispose pas assez de flasque(s) d'Huile`);
-} else {
-  updates.push({"_id": item._id, "data.quantity": item.data.data.quantity - 1});
-consumed += `${item.data.data.quantity - 1} flasque(s) d'huile restante(s)<br>`;
-}
-if (updates.length > 0) {
-  actor.updateManyEmbeddedEntities("OwnedItem", updates);
-}
-ChatMessage.create({
-  user: game.user._id,
-speaker: { actor: actor, alias: actor.name },
-  content: consumed,
-  type: CONST.CHAT_MESSAGE_TYPES.OTHER
-});
-}
