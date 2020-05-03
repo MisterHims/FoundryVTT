@@ -46,7 +46,7 @@ Le code suivant est nécessaire à l'utilisation de la seconde macro qui vous pe
 
 ### Installation de la macro de l'objet à utiliser
 
-1. Copiez le code ci-dessous ou accédez-y depuis la [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/FR/Macros/equip-unequip-item.js) sous le nom de "equip-unequip-item.js" :
+1. Copiez le code ci-dessous ou accédez-y depuis les [Macros](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/FR/Macros/equip-unequip-item.js) sous le nom de "equip-unequip-item.js" :
 
    ```javascript
     const macro = game.macros.entities.find(m => m.name === "equip-unequip-generic");
