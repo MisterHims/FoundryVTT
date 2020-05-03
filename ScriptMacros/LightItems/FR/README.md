@@ -86,7 +86,7 @@ Le code suivant est nécessaire à l'utilisation de toutes les autres macros de 
 
 5. Vous n'aurez pas besoin de la macro à cet emplacement et vous pouvez donc là retirer (mais pas supprimer).
 
-### Installation de toutes les autres macros
+### Installation des macros objets
 
 * De la même façon que vu précédemment, vous pouvez répéter la même opération pour installer toutes les autres macros disponibles dans la collection. Vous êtes cependant libres de donner à ces macros le nom de votre choix.
 
