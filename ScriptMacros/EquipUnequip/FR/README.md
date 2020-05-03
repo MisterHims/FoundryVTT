@@ -1,4 +1,4 @@
-# LumenVision
+# EquipUnequip
 
 ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 

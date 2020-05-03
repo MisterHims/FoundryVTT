@@ -1,6 +1,6 @@
 const macro = game.macros.entities.find(m => m.name === "equip-unequip-generic");
 if (!actor) {
-    ui.notifications.warn(`Vous n'avez pas sélectionné de personnage !`);
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
     return;
 }
 if (!macro) {
