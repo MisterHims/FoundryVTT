@@ -6,7 +6,7 @@
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
-* **Module Requirement(s)**: None
+* **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace)
 
 ## Description
 
@@ -72,6 +72,12 @@ It is with the macro above that you will have to interact to equip or unequip th
 
 Thus, the name of the object in this macro must be identical to the token's inventory. For example, replace "Shield" with "Trident" if you want to equip or remove your trident.
 
+Warning ! Before using the macro with the desired object, it's advisable to unequip the object. Otherwise, the macro may warn you that the object has been equipped when it was actually unequipped. To solve this problem, all you need to do is to access in your token's inventory and manually equip / unequip the item once.
+
 ## Upcoming improvements
 
 * Possibility to equip or unequip several objects at the same time
+
+## Problems encountered
+
+* It's possible that the macro signals you that the object has been equipped when it was actually unequipped or vice versa. If this is the case, you only need to manually equip or unequip the desired object once in your character's inventory.

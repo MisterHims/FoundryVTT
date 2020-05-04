@@ -7,7 +7,7 @@
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
-* **Module Requirement(s)**: None
+* **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace)
 
 ## Description
 
@@ -73,6 +73,12 @@ C'est avec la macro ci-dessus que vous devrez intéragir pour équiper ou désé
 
 Ainsi, le nom de l'objet dans cette macro doit être identique à celui de l'inventaire du personnage. Remplacez par exemple "Bouclier" par "Trident" si vous souhaitez vous équiper ou vous déséquiper de votre trident.
 
+Attention ! Avant d'utiliser la macro avec l'objet en question, il est conseillé de déséquiper l'objet. Dans le cas contraire, la macro risque de vous signaler que l'objet a été équipé alors qu'il a été en réalité déséquipé. Pour résoudre ce problème, il vous suffit d'accéder à l'inventaire de votre personnage et de d'équiper/déséquipement manuellement l'objet une seule fois.
+
 ## Améliorations à venir
 
 * Possibilité d'équiper ou de déséquiper plusieurs objets en même temps
+
+## Problèmes rencontrés
+
+* Il est possible que la macro vous signale que l'objet à été équiper alors qu'il a été en réalité déséquiper ou vice-versa. Si tel est le cas, il vous suffit d'équiper ou déséquiper manuellement une seule fois l'objet dans l'inventaire de votre personnage.
