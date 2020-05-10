@@ -21,7 +21,7 @@ I started the project to be able to roll on "Treasure Hoard" Tables from the DMG
 2. Create a template Loot sheet. if you have Loot sheet NPC, create a new actor -> npc and then change the sheet to the Lootsheet
 3. Have the main RollTable to generate your loot
 
-![loot-generator-1](/img/loot-generator-1.png)
+![loot-generator-1](ScriptMacros\LootGenerator\EN\img\loot-generator-1.png)
 
 * In the Table Description you can add some currency that will always be awarded when generating the loot. The schema is, as shown in the image above: `|` to divide currencies; a roll formula and the currency type in `()`
 * You can setup your table to roll random dices on multiple other tables. Just set an entry as text and use the following syntax
