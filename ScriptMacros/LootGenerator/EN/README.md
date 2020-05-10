@@ -21,7 +21,7 @@ I started the project to be able to roll on "Treasure Hoard" Tables from the DMG
 2. Create a template Loot sheet. if you have Loot sheet NPC, create a new actor -> npc and then change the sheet to the Lootsheet
 3. Have the main RollTable to generate your loot
 
-![loot-generator-1](ScriptMacros\LootGenerator\EN\img\loot-generator-1.png)
+![loot-generator-1](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LootGenerator/EN/img/loot-generator-1.png)
 
 * In the Table Description you can add some currency that will always be awarded when generating the loot. The schema is, as shown in the image above: `|` to divide currencies; a roll formula and the currency type in `()`
 * You can setup your table to roll random dices on multiple other tables. Just set an entry as text and use the following syntax
@@ -37,7 +37,7 @@ I started the project to be able to roll on "Treasure Hoard" Tables from the DMG
 4. Have some additional rolltables setup if needed (the one that are references by the main rolltable).
 Here an example of "Magic Item Table A", loot table entries can contain link to compendium items, items or text
 
-![loot-generator-4](/img/loot-generator-4.png)
+![loot-generator-4](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LootGenerator/EN/img/loot-generator-4.png)
 
 5. Execute the macro.
 	* In Table Name, put the name of the main rolltable, as per step 3.
@@ -45,20 +45,20 @@ Here an example of "Magic Item Table A", loot table entries can contain link to 
 	* New Loot Name can be any name you like, this will be the name of the loot actor that will be created by the script. It will be created in the same folder as the template sheet.
 	* Click generate loot
 	
-![loot-generator-2](/img/loot-generator-2.png)
+![loot-generator-2](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LootGenerator/EN/img/loot-generator-2.png)
 	
 6. A new npc actor will be created containing random loot generated using the provided table
 
 It might look something like this:
 
-![loot-generator-3](/img/loot-generator-3.png)
+![loot-generator-3](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LootGenerator/EN/img/loot-generator-3.png)
 
 ### Roll Random Spells for scrolls ###
 
 In the loot generator view you can select a compendium to use to randomly pick spells (default is set to dnd5e.spells)
 When a loot scroll is found with the syntax "Spell Scroll Cantrip Level", "Spell Scroll 1st Level", ... a random spell is picked for the scroll and the loot is generated as shown in the image below
 
-![loot-generator-5](/img/loot-generator-5.png)
+![loot-generator-5](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LootGenerator/EN/img/loot-generator-5.png)
 
 ### Contacts ###
 
