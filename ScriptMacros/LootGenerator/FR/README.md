@@ -3,6 +3,13 @@
 This Macro can be used to generate random loot using tables with some additional syntax available to support random rolls on multiple tables at once.
 I started the project to be able to roll on "Treasure Hoard" Tables from the DMG but will expand to support more use cases.
 
+## Features ##
+
+* Roll on multiple tables with roll formulas
+* Auto create a loot actor to store generated loot
+* Auto roll random spells when a scroll is selected as loot
+* A table can specify multiple currencies to always award in the table description
+
 ### Requirements ###
 
 * Strongly suggest to use loot sheet NPC (https://github.com/jopeek/fvtt-loot-sheet-npc-5e)
@@ -45,6 +52,13 @@ Here an example of "Magic Item Table A", loot table entries can contain link to 
 It might look something like this:
 
 ![loot-generator-3](/img/loot-generator-3.png)
+
+### Roll Random Spells for scrolls ###
+
+In the loot generator view you can select a compendium to use to randomly pick spells (default is set to dnd5e.spells)
+When a loot scroll is found with the syntax "Spell Scroll Cantrip Level", "Spell Scroll 1st Level", ... a random spell is picked for the scroll and the loot is generated as shown in the image below
+
+![loot-generator-5](/img/loot-generator-5.png)
 
 ### Contacts ###
 

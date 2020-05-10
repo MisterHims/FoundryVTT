@@ -8,6 +8,7 @@ let currenciesToAdd = {};
 let tableName;
 let lootTemplateName;
 let newLootName;
+let spellCompendiumName;
 
 new Dialog({
     title: `Loot Generator`,
@@ -24,6 +25,10 @@ new Dialog({
         <div class="form-group">
           <label>New Loot Name</label>
           <input type="text" id="loot-filename" name="loot-filename" value="New Loot">
+        </div>
+        <div class="form-group">
+          <label>Spell Compendium to use</label>
+          <input type="text" id="spell-compendium" name="spell-compendium" value="dnd5e.spells">
         </div>
       </form>
       `,
@@ -43,6 +48,7 @@ new Dialog({
         tableName = html.find('[name="table-name"]')[0].value;
         lootTemplateName = html.find('[name="loot-template"]')[0].value;
         newLootName = html.find('[name="loot-filename"]')[0].value;
+        spellCompendiumName = html.find('[name="spell-compendium"]')[0].value;
 
         if (generateLoot) {
             const tableEntry = rollOnTable(tableName);
@@ -87,22 +93,82 @@ async function addCurrencies(actor, currenciesToAdd) {
 
 //create an item holded by this lootNPC actor.
 async function createLootItem(item, lootNPC) {
+    let itemToCreateData;
     if (item.compendium) { //item belongs to a compendium
         const compendium = game.packs.find(t => t.collection === item.compendium);
         let indexes = await compendium.getIndex();
         let entry = indexes.find(e => e.name.toLowerCase() === item.item.text.toLowerCase());
         const itemEntity = await compendium.getEntity(entry._id);
-        await lootNPC.createOwnedItem(itemEntity.data);
+        itemToCreateData = itemEntity.data;
     } else if (item.item) { //item is not in a compendium
         const itemEntity = game.items.entities.find(t => t.name.toLowerCase() === item.item.text.toLowerCase());
-        await lootNPC.createOwnedItem(itemEntity.data);
+        itemToCreateData = itemEntity.data;
     } else if (item.text) { //there is no item, just a text name
         let itemData = { name: item.text, type: "loot", img: "icons/svg/mystery-man.svg" };
-        await lootNPC.createOwnedItem(itemData);
+        itemToCreateData = itemData;
     }
+
+    if(!itemToCreateData) return;
+    itemToCreateData = await preItemCreationDataManipulation(itemToCreateData);
+    await lootNPC.createOwnedItem(itemToCreateData);
+}
+
+
+let rndSpellIdx = [];
+async function getSpellCompendiumIndex() {
+    let spellCompendiumIndex = await game.packs.find(t => t.collection === spellCompendiumName).getIndex();
+    console.log(`compenidum ${spellCompendiumName} has ${spellCompendiumIndex.length} index entries.`)
+
+    for (var i = 0; i < spellCompendiumIndex.length; i++) {
+        rndSpellIdx[i] = i;
+    }
+
+    rndSpellIdx.sort(() => Math.random() - 0.5);
+    return spellCompendiumIndex;
+}
+
+async function preItemCreationDataManipulation(itemData) {
+    const match = /\s*Spell\s*Scroll\s*(\d+|cantrip)/gi.exec(itemData.name);
+    if (!match) {
+        return itemData; //not a scroll
+    }
+
+    //if its a scorll then open compendium
+    let level = match[1].toLowerCase() === "cantrip" ? 0 : match[1];
+    console.log("Spell Scroll found of level", level);
+
+    const compendium = game.packs.find(t => t.collection === spellCompendiumName);
+    let index = await getSpellCompendiumIndex();
+
+    let spellFound = false;
+    let itemEntity;
+    let i = 0;
+    while (rndSpellIdx.length > 0 && !spellFound) {
+        i++;
+        let rnd = rndSpellIdx.pop();
+        let entry = await compendium.getEntity(index[rnd]._id);
+        const spellLevel = entry.data.data.level
+        if (spellLevel == level) {
+            itemEntity = entry;
+            spellFound = true;
+        }
+    }
+
+    if (!itemEntity) {
+        ui.notifications.warn(`no spell of level ${level} found in compendium  ${spellCompendiumName} `);
+        return itemData;
+    }
+
+    console.log(`spell ${itemEntity.data.name} of level ${itemEntity.data.data.level} after ${i} iterations`);
+    console.log(itemEntity);
+
+    itemData.name += ` (${itemEntity.data.name})`
+
+    return itemData;
 }
 
 function processTableEntry(tableEntry) {
+    console.log("Process table entry, ", tableEntry);
     if (!tableEntry) return;
 
     if (tableEntry.type == 2) { //collection type
@@ -170,19 +236,22 @@ function processTextTableEntry(complexText) {
 }
 
 function rollOnTable(tableName) {
+    console.log("Rolling on table: ", tableName);
     const table = game.tables.entities.find(t => t.name.toLowerCase() === tableName.toLowerCase());
     if (!table) { ui.notifications.warn(`no table named ${tableName} found, Please create a table`); return; }
 
-    const tableDescription = table.data.description.split("|"); //using description to add gold on top of any roll 6d6*100 (cp) | 3d6*100 (sp) | 2d6*100 (gp)
-    for (const currency of tableDescription) {
-        const currencyMatch = currency.match(/\((.*?)\)/);
-        if (currencyMatch) {
-            const currencyString = currencyMatch[1];
-            const amount = tryToRollString(currency);
-            currenciesToAdd[currencyString] = (currenciesToAdd[currencyString] || 0) + amount;
+    console.log("table.data.description ", table.data.description);
+    if (table.data.description) {
+        const tableDescription = table.data.description.split("|"); //using description to add gold on top of any roll 6d6*100 (cp) | 3d6*100 (sp) | 2d6*100 (gp)
+        for (const currency of tableDescription) {
+            const currencyMatch = currency.match(/\((.*?)\)/);
+            if (currencyMatch) {
+                const currencyString = currencyMatch[1];
+                const amount = tryToRollString(currency);
+                currenciesToAdd[currencyString] = (currenciesToAdd[currencyString] || 0) + amount;
+            }
         }
     }
-
     let tableTreasureRoll = table.roll();
     return tableTreasureRoll[1];
 }
