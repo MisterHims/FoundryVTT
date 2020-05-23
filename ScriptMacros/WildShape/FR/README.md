@@ -1,197 +1,148 @@
-# LumenVision
+# WildShape
 
 ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 
-* **Author**: Sky-Captain-13, Foundry VTT Community
+* **Author**: DocQuantic, Foundry VTT Community
 * **Traduction**: MisterHims
-* **Version**: 1.0.1
+* **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
 * **Module Requirement(s)**: None
 
 ## Description
 
-LumenVision est un outil permettant d'initialiser rapidement la vision, la lumière et sa couleur issue d'un ou plusieurs tokens sélectionnés, une notification apparaît alors dans le cas contraire. Cette macro est en partie issue de la communauté Foundry VTT et a par la suite été traduite en français, modifiée puis convertie au système métrique européen. C'est un outil principalement utile pour le MJ. Voici un exemple avec les différentes sources de lumières disponibles :
-
-![LumenVision-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
+WildShape est une macro permettant de rapidement changer la forme de votre druide, les statistiques du druide seront ainsi remplacées par celles de la bête et celui-ci verra alors son token remplacé. Cette macro est ainsi particulièrement utile pour les druides souhaitant utiliser leur Forme sauvage.
 
 ## Installation
 
-1. Copiez le code ci-dessous ou accédez-y depuis le fichier [LumenVision.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/LumenVision.js) :
+Attention ! La macro ne fonctionnera certainement pas après son installation, il vous faudra alors y faire quelques modification afin de là rendre fonctionnelle et de l'adapter à vos besoins. Mais ne vous découragez pas, c'est bien plus simple que ça en a l'air !
+
+1. Copiez le code ci-dessous ou accédez-y depuis le fichier [WildShape-without-consum.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-without-consum.js) :
 
    ```javascript
 
-    let applyChanges = false;
-    if (!actor) {
-        ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
-        return;
-    }
-    new Dialog({
-    title: `Configuration de la vision du token`,
-    content: `
+   let changeForm = false;
+   let messageContent;
+   actor = actor ? actor : game.user.character;
+   if (!token && game.user.character) token = actor.getActiveTokens()[0];
+   let characterName = actor.data.name;
+   let characterToken = actor.data.token;
+   let characterId = characterToken.actorId;
+   let formActorId;
+   let formActor;
+   let startScene = canvas.scene.id;
+   let x = token._validPosition.x;
+   let y = token._validPosition.y;
+   let d = new Dialog({
+     title: "Forme sauvage",
+     content: `
         <form>
         <div class="form-group">
-            <label>Type de vision :</label>
-            <select id="vision-type" name="vision-type">
-            <option value="nochange">Pas de changement</option>
-            <option value="dim0">Aucune</option>
-            <option value="dim30">Vision dans le noir (9 m)</option>
-            <option value="dim60">Vision dans le noir (18 m)</option>
-            <option value="dim90">Vision dans le noir (27 m)</option>
-            <option value="dim120">Vision dans le noir (36 m)</option>
-            <option value="dim150">Vision dans le noir (45 m)</option>
-            <option value="dim180">Vision dans le noir (54 m)</option>
-            <option value="bright120">Vision du diable (36 m dans les ténèbres)</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Source de lumière :</label>
-            <select id="light-source" name="light-source">
-            <option value="nochange">Pas de changement</option>
-            <option value="none">Aucune</option>
-            <option value="candle">Bougie</option>
-            <option value="lamp">Lampe</option>
-            <option value="bullseye">Lanterne sourde</option>
-            <option value="hooded-dim">Lanterne à capote (lumière faible)</option>
-            <option value="hooded-bright">Lanterne à capote (lumière vive)</option>
-            <option value="light-dim">Lanterne de révélation (lumière faible)</option>
-            <option value="light-bright">Lanterne de révélation (lumière vive)</option>
-            <option value="torch">Torche</option>
+            <label>Choix de la forme :</label>
+            <select id="form-type" name="form-type">
+            <option value="forme-originale">Forme originale</option>
+            <option value="forme-ours">Forme d'Ours</option> 
             </select>
         </div>
         </form>
         `,
-    buttons: {
-        yes: {
-        icon: "<i class='fas fa-check'></i>",
-        label: `Appliquer`,
-        callback: () => applyChanges = true
-        },
-        no: {
-        icon: "<i class='fas fa-times'></i>",
-        label: `Annuler`
-        },
-    },
-    default: "yes",
-    close: html => {
-        if (applyChanges) {
-        for ( let token of canvas.tokens.controlled ) {
-            let visionType = html.find('[name="vision-type"]')[0].value || "none";
-            let lightSource = html.find('[name="light-source"]')[0].value || "none";
-            let dimSight = 0;
-            let brightSight = 0;
-            let dimLight = 0;
-            let brightLight = 0;
-            let lightAngle = 360;
-            let lockRotation = token.data.lockRotation;
-            // Get Vision Type Values
-            switch (visionType) {
-            case "dim0":
-                dimSight = 0;
-                brightSight = 0;
-                break;
-            case "dim30":
-                dimSight = 9;
-                brightSight = 0;
-                break;
-            case "dim60":
-                dimSight = 18;
-                brightSight = 0;
-                break;
-            case "dim90":
-                dimSight = 27;
-                brightSight = 0;
-                break;
-            case "dim120":
-                dimSight = 36;
-                brightSight = 0;
-                break;
-            case "dim150":
-                dimSight = 45;
-                brightSight = 0;
-                break;
-            case "dim180":
-                dimSight = 54;
-                brightSight = 0;
-                break;
-            case "bright120":
-                dimSight = 0;
-                brightSight= 36;
-                break;
-            case "nochange":
-            default:
-                dimSight = token.data.dimSight;
-                brightSight = token.data.brightSight;
-            }
-            // Get Light Source Values
-            switch (lightSource) {
-            case "none":
-                dimLight = 0;
-                brightLight = 0;
-                break;
-            case "candle":
-                dimLight = 2;
-                brightLight = 1;
-                break;
-            case "lamp":
-                dimLight = 9;
-                brightLight = 3;
-                break;
-            case "bullseye":
-                dimLight = 24;
-                brightLight = 12;
-                lockRotation = false;
-                lightAngle = 52.5;
-                break;
-            case "hooded-dim":
-                dimLight = 1;
-                brightLight = 0;
-                break;
-            case "hooded-bright":
-                dimLight = 12;
-                brightLight = 6;
-                break;
-            case "light-dim":
-                dimLight = 1;
-                brightLight = 0;
-                break;
-            case "light-bright":
-                dimLight = 10;
-                brightLight = 4;
-                break;
-            case "torch":
-                dimLight = 8;
-                brightLight = 4;
-                break;
-            case "nochange":
-            default:
-                dimLight = token.data.dimLight;
-                brightLight = token.data.brightLight;
-                lightAngle = token.data.lightAngle;
-                lockRotation = token.data.lockRotation;
-            }
-            // Update Token
-            console.log(token);
-            token.update({
-            vision: true,
-            dimSight: dimSight,
-            brightSight: brightSight,
-            dimLight: dimLight,
-            brightLight:  brightLight,
-            lightAngle: lightAngle,
-            lockRotation: lockRotation
-            });
-        }
-        }
-    }
-    }).render(true);
+     buttons: {
+       yes: {
+         icon: '<i class="fas fa-check"></i>',
+         label: "Lancer",
+         callback: () => changeForm = true
+       },
+       no: {
+         icon: '<i class="fas fa-times"></i>',
+         label: "Annuler"
+       }
+     },
+     default: "yes",
+     close: html => {
+       if (changeForm) {
+         let formType = html.find('[name="form-type"]')[0].value || "none";
+         switch (formType) {
+           case "original-shape":
+             formActorId = "vSlsRdK5e1gJcIhg";
+             break;
+           case "forme-ours":
+             formActorId = "k29xejd9bksJF9t2";
+             break;
+         }
+         formActor = game.actors.get(formActorId);
+         game.macros.getName("deleteToken")?.execute(startScene, token.id);
+         let formToken = formActor.data.token;
+         game.macros.getName("createToken")?.execute(startScene, x, y, formToken);
+       }
+     }
+   }).render(true);
 
    ```
 
-   *[LumenVision.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/LumenVision.js)*
+   *[WildShape-without-consum.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-without-consum.js)*
 
 2. Allez maintenant sur Foundry VTT puis cliquez sur un emplacement libre de la barre de macros afin d'en créer une nouvelle.
 
 3. Sélectionnez le type "Script" puis collez le code à l'intérieur.
 
-4. Donnez-lui le nom de votre choix, par exemple : ``` LumenVision ``` et sauvegardez la macro.
+4. Donnez-lui le nom de votre choix, par exemple : ``` WildShape ``` et sauvegardez la macro.
+
+## Configuration
+
+Après avoir effectué l'installation de WildShape, vous devez là configurer.
+
+1. Dans un premier temps, vous devez disposer de la fiche du personnage dont vous souhaitez y faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes".
+
+2. Récupérez l'ID alors du personnage en question, pour cela il existe plusieurs méthodes mais je vous propose celle-ci afin de rester sur FoundryVTT :
+   2. Ouvrez ou créez un nouvel article dans votre journal et passez en mode édition (en cliquant sur l'icône représentant un carré avec un crayon).
+   2. Ouvrez le menu Personnages puis faites un glisser-déposer de la fiche du personnage à l'intérieur, vous devriez obtenir quelque chose comme cela : ``` @Actor[vSlsRdK5e1gJcIhg]{NomDuPersonnage} ```, l'ID de votre personnage se trouve alors entre les crochets, c'est à dire ``` vSlsRdK5e1gJcIhg ``` dans ce cas présent.
+   2. Notez cet ID, il vous permettra de pouvoir récupérer votre forme originale.
+
+3. Créez les fiches personnages des différentes formes que vous souhaitez ajouter à la macro. Pour cela, je vous propose de directement utiliser une solution intégrée à FoundryVTT :
+   3. Faites un glisser-déposer de la bête dont vous souhaitez adopter la forme depuis le compendium "Monstres" vers la fiche du personnage précédemment créée à l'étape 1.
+   3. Une fenêtre s'ouvre alors, cochez les cases "Conserver l'équipement", "Conserver le bonus de maîtrise", "Conservez les aptitudes",  "Conserver les sorts", "Conservez sa biographie", "Garder la vision" et "Transformer tous les tokens liés". De cette façon, une nouvelle fiche personnage a été créée dans votre liste du menu Personnages, vous pouvez alors là modifier à votre guise.
+   3. Récupérez alors l'ID de cette nouvelle fiche de personnage de la même manière que vu précédemment et notez-là.
+
+4. Après avoir récupérer les différents IDs nécessaires à vos besoins, vous devrez alors modifier le code de la macro afin d'y ajouter ces IDs. Dans le bout de code suivant, remplacez alors ``` vSlsRdK5e1gJcIhg ``` par l'ID du personnage dont vous souhaitez changer la forme :
+
+   ```javascript
+
+    case "forme-originale":
+     formActorId = "vSlsRdK5e1gJcIhg";
+     break;
+
+   ```
+
+5. Répétez l'opération avec l'ID utilisée pour la forme d'ours par exemple en remplaçant l'ID à la "case" suivante :
+
+   ```javascript
+
+    case "forme-ours":
+     formActorId = "k29xejd9bksJF9t2";
+     break;
+
+   ```
+
+Vous êtes ici limités à deux formes (dont la forme originale), si vous souhaitez en ajouter davantage prenez connaissance de la méthode ci-dessous : 
+
+### Ajoutez davantage de formes à la macro
+
+Si vous avez besoin d'ajouter une autre forme à la macro, vous pouvez alors vous y prendre de cette façon :
+
+1. Vous trouverez en haut du code contenu dans la macro les options de la fenêtre qui apparaître lors de l'interaction avec la macro, pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="forme-ours">Forme d'Ours</option> ``` puis collez là après un retour à la ligne.
+
+2. Modifiez ensuite la valeur de cette option et son nom. Si vous souhaitez ajouter par exemple une forme d'aigle, cette nouvelle ligne devrait alors ressembler à quelque chose comme cela : ``` <option value="forme-aigle">Forme d'Aigle</option> ```
+
+3. Allez ensuite en bas du code contenu dans la macro, vous y trouverez les "cases". De la même manière que précédemment, copiez-coller une nouvelle case après un retour à la ligne :
+   3. Modifiez-y le nom de la case, par exemple ``` case "forme-ours": ``` en ``` case "forme-aigle": ```
+   3. Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Aigle en question, par exemple ``` formActorId = "k29xejd9bksJF9t2"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
+
+4. C'est fait, vous avez rajoutez une forme à la macro. Répétez alors l'opération autant de fois que nécessaire.
+
+## Améliorations à venir
+
+* Proposer plusieurs macro-types par nombre de formes souhaitées, afin de rendre plus facile sa configuration.
+
+* Ajouter la possibilité d'y inclure la consommation de ressources.
+
+* Améliorer la macro afin de remplacer le personnage dans la liste de déroulement du combat (Combat Tracker).
