@@ -164,7 +164,6 @@ Le code suivant est nécessaire à l'utilisation de toutes les autres macros de 
       }
     }
     }).render(true);
-
    ```
 
    *[Lampe.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/Lampe.js)*
