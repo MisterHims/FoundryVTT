@@ -15,7 +15,7 @@ WildShape est une macro permettant de rapidement changer la forme de votre druid
 
 ## Installation
 
-Attention ! La macro ne fonctionnera certainement pas après son installation, il vous faudra alors y faire quelques modification afin de là rendre fonctionnelle et de l'adapter à vos besoins. Mais ne vous découragez pas, c'est bien plus simple que ça en a l'air.
+Attention ! La macro ne fonctionnera certainement pas après son installation, il vous faudra alors y faire quelques modifications afin de là rendre fonctionnelle et de l'adapter à vos besoins. Mais ne vous découragez pas, c'est bien plus simple que ça en a l'air.
 
 1. Copiez le code ci-dessous ou accédez-y depuis le fichier [WildShape-without-consum.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-without-consum.js) :
 
