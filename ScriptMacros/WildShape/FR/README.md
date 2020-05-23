@@ -125,7 +125,7 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
 Vous êtes ici limités à deux formes (dont la forme originale), si vous souhaitez en ajouter davantage prenez connaissance de la méthode ci-dessous : 
 
-### Ajoutez davantage de formes à la macro
+### Ajoutez davantage de formes
 
 Si vous avez besoin d'ajouter une autre forme à la macro, vous pouvez alors vous y prendre de cette façon :
 
@@ -134,7 +134,9 @@ Si vous avez besoin d'ajouter une autre forme à la macro, vous pouvez alors vou
 2. Modifiez ensuite la valeur de cette option et son nom. Si vous souhaitez ajouter par exemple une forme d'aigle, cette nouvelle ligne devrait alors ressembler à quelque chose comme cela : ``` <option value="forme-aigle">Forme d'Aigle</option> ```
 
 3. Allez ensuite en bas du code contenu dans la macro, vous y trouverez les "cases". De la même manière que précédemment, copiez-coller une nouvelle case après un retour à la ligne :
+
    * Modifiez-y le nom de la case, par exemple ``` case "forme-ours": ``` en ``` case "forme-aigle": ```
+
    * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Aigle en question, par exemple ``` formActorId = "k29xejd9bksJF9t2"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
 
 4. C'est fait, vous avez rajoutez une forme à la macro. Répétez alors l'opération autant de fois que nécessaire.
