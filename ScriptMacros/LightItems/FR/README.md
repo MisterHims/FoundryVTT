@@ -86,89 +86,88 @@ Le code suivant est nécessaire à l'utilisation de toutes les autres macros de 
 
 5. Vous n'aurez pas besoin de la macro à cet emplacement et vous pouvez donc là retirer (mais pas supprimer).
 
-### Installation de la Bougie
+### Installation de la Lampe
 
-1. Copiez le code ci-dessous ou accédez-y depuis la [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/Bougie.js) sous le nom de "Bougie.js" :
+1. Copiez le code ci-dessous ou accédez-y depuis la [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/Lampe.js) sous le nom de "Lampe.js" :
 
    ```javascript
-    let applyChanges = false;
-    if (!actor) {
-        ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
-        return;
-    }
-    let item = actor.items.find(i => i.name === "Bougie");
-    const macro = game.macros.entities.find(m => m.name === "consum-generic");
-    if(!macro) {
-    ui.notifications.error("Cette macro dépends de la macro 'consum-generic' qui ne peut être trouvée.");
+  let applyChanges = false;
+  if (!actor) {
+      ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+      return;
+  }
+  let item = actor.items.find(i => i.name === "Huile");
+  const macro = game.macros.entities.find(m => m.name === "consum-generic");
+  if(!macro) {
+  ui.notifications.error("Cette macro dépends de la macro 'consum-generic' qui ne peut être trouvée.");
     return;
-    }
-    new Dialog({
-    title: `Bougie`,
+  }
+  new Dialog({
+    title: `Lampe`,
     content: `
-        <form>
+      <form>
         <div class="form-group">
-            <label>Action :</label>
-            <select id="light-source" name="light-source">
+          <label>Action :</label>
+          <select id="light-source" name="light-source">
             <option value="none">Eteindre</option>
-            <option value="candle">Allumer</option>
-            </select>
+            <option value="lamp">Allumer</option>
+          </select>
         </div>
-        </form>
-        `,
+      </form>
+      `,
     buttons: {
-        yes: {
+      yes: {
         icon: "<i class='fas fa-check'></i>",
         label: `Appliquer`,
         callback: () => applyChanges = true
-        },
-        no: {
+      },
+      no: {
         icon: "<i class='fas fa-times'></i>",
         label: `Annuler`
-        },
+      },
     },
     default: "yes",
     close: html => {
-        if (applyChanges) {
+      if (applyChanges) {
         for ( let token of canvas.tokens.controlled ) {
-            let lightSource = html.find('[name="light-source"]')[0].value || "none";
-            let dimSight = 0;
-            let brightSight = 0;
-            let dimLight = 0;
-            let brightLight = 0;
-            let lightAngle = 360;
-            let lockRotation = token.data.lockRotation;
-            switch (lightSource) {
-            case "candle":
-            macro.execute("Bougie",true);
+          let lightSource = html.find('[name="light-source"]')[0].value || "none";
+          let dimSight = 0;
+          let brightSight = 0;
+          let dimLight = 0;
+          let brightLight = 0;
+          let lightAngle = 360;
+          let lockRotation = token.data.lockRotation;
+          switch (lightSource) {
+            case "lamp":
+            macro.execute("Huile",true);
             if (item.data.data.quantity < 1) {
                 return;
-                } else {
+              } else {
                 dimLight = 9;
                 brightLight = 3;
                 break;
             }
             case "none":
-                dimLight = 0;
-                brightLight = 0;
-                break;
-            case "nochange":
-            }
-            console.log(token);
-            token.update({
+              dimLight = 0;
+              brightLight = 0;
+              break;
+          }
+          console.log(token);
+          token.update({
             vision: true,
             dimLight: dimLight,
             brightLight:  brightLight,
             lightAngle: lightAngle,
             lockRotation: lockRotation
-            });
+          });
         }
-        }
+      }
     }
     }).render(true);
 
    ```
 
-   *[Bougie.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/Bougie.js)*
+   *[Lampe.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/Lampe.js)*
 
 2. Allez maintenant sur Foundry VTT puis cliquez sur un emplacement libre de la barre de macros afin d'en créer une nouvelle.
 
@@ -178,11 +177,19 @@ Le code suivant est nécessaire à l'utilisation de toutes les autres macros de 
 
 C'est avec la macro ci-dessus que vous devrez intéragir pour utilisé l'objet souhaité (dans cet exemple une Bougie).
 
-### Installation de la macro de l'objet à utiliser (lanterne sourde, lampe, etc.)
+### Installation des autres objets (lanterne sourde, bougie, etc.)
 
 * De la même façon que vu précédemment, vous pouvez répéter la même opération pour installer toutes les autres macros disponibles dans la collection. Vous êtes libres de donner à ces macros le nom de votre choix.
 
 **Attention !** Vérifiez bien le nom de vos objets dans l'inventaire de votre personnage. Si vous avez par exemple utilisé le compendium AideDD Items pour ajouter des flasques d'Huile, renommez l'objet en "Huile" et non pas "Flasques d'huile (10)".
+
+## Configuration
+
+Vous pouvez changer le consommable utilisé par un objet en remplaçant simplement le nom ``` Huile ``` (dans le cas de Lampe.js) par le consommable de votre choix à la ligne suivante :
+
+```javascript
+let item = actor.items.find(i => i.name === "Huile");
+```
 
 ## Améliorations à venir
 
