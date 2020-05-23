@@ -90,7 +90,8 @@ Le code suivant est nécessaire à l'utilisation de toutes les autres macros de 
 
 1. Copiez le code ci-dessous ou accédez-y depuis la [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/Lampe.js) sous le nom de "Lampe.js" :
 
-   ```javascript
+   ``` javascript
+
   let applyChanges = false;
   if (!actor) {
       ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
@@ -164,6 +165,7 @@ Le code suivant est nécessaire à l'utilisation de toutes les autres macros de 
       }
     }
     }).render(true);
+
    ```
 
    *[Lampe.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/Collection/Lampe.js)*
