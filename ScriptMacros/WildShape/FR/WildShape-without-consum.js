@@ -18,8 +18,8 @@ let d = new Dialog({
      <div class="form-group">
          <label>Choix de la forme :</label>
          <select id="form-type" name="form-type">
-         <option value="original-shape">Forme originale</option>
-         <option value="bear">Ours</option> 
+         <option value="forme-originale">Forme originale</option>
+         <option value="forme-ours">Ours</option> 
          </select>
      </div>
      </form>
@@ -40,11 +40,11 @@ let d = new Dialog({
     if (changeForm) {
       let formType = html.find('[name="form-type"]')[0].value || "none";
       switch (formType) {
-        case "bear":
-          formActorId = "k29xejd9bksJF9t2";
-          break;
-        case "original-shape":
+        case "forme-originale":
           formActorId = "vSlsRdK5e1gJcIhg";
+          break;
+        case "forme-ours":
+          formActorId = "k29xejd9bksJF9t2";
           break;
       }
       formActor = game.actors.get(formActorId);
