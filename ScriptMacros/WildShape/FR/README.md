@@ -158,15 +158,15 @@ Après avoir effectué l'installation de WildShape, vous devez la configurer.
 
 Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage, prenez connaissance de la méthode proposée dans la section "Ajouter davantage de formes" ou choisissez plutôt l'une des macros suivantes :
 
-* 1 forme : *[WildShape-1-shape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-1-shape.js)*
-* 2 formes : *[WildShape-2-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-2-shapes.js)*
-* 3 formes : *[WildShape-3-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-3-shapes.js)*
-* 4 formes : *[WildShape-4-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-4-shapes.js)*
-* 5 formes : *[WildShape-5-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-5-shapes.js)*
-* 6 formes : *[WildShape-6-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-6-shapes.js)*
-* 7 formes : *[WildShape-7-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-7-shapes.js)*
-* 8 formes : *[WildShape-8-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-8-shapes.js)*
-* 9 formes : *[WildShape-9-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-9-shapes.js)*
+* 1 forme : *[WildShape-1-shape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-1-shape.js)*
+* 2 formes : *[WildShape-2-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-2-shapes.js)*
+* 3 formes : *[WildShape-3-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-3-shapes.js)*
+* 4 formes : *[WildShape-4-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-4-shapes.js)*
+* 5 formes : *[WildShape-5-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-5-shapes.js)*
+* 6 formes : *[WildShape-6-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-6-shapes.js)*
+* 7 formes : *[WildShape-7-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-7-shapes.js)*
+* 8 formes : *[WildShape-8-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-8-shapes.js)*
+* 9 formes : *[WildShape-9-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-9-shapes.js)*
 
 ### Ajoutez davantage de formes
 
