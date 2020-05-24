@@ -7,7 +7,7 @@
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
-* **Module Requirement(s)**: None
+* **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace)
 
 ## Description
 
@@ -19,75 +19,84 @@ WildShape est une macro permettant de rapidement changer la forme du personnage 
 
 Attention ! La macro ne fonctionnera certainement pas après son installation, il vous faudra alors y faire quelques modifications afin de là rendre fonctionnelle et de l'adapter à vos besoins. Mais ne vous découragez pas, c'est bien plus simple que ça en a l'air.
 
-1. Copiez le code ci-dessous ou accédez-y depuis le fichier [WildShape-without-consum.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-without-consum.js) :
+1. Copiez le code ci-dessous ou accédez-y depuis le fichier [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js) :
 
    ```javascript
 
+   if (!actor) {
+       ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+       return;
+   }
    let changeForm = false;
-   let messageContent;
    actor = actor ? actor : game.user.character;
-   if (!token && game.user.character) token = actor.getActiveTokens()[0];
-   let characterName = actor.data.name;
-   let characterToken = actor.data.token;
-   let characterId = characterToken.actorId;
    let formActorId;
    let formActor;
-   let startScene = canvas.scene.id;
-   let x = token._validPosition.x;
-   let y = token._validPosition.y;
+   let cost = 1;
+   
+   if (actor.isPolymorphed) {
+       actor.revertOriginalForm();
+       return;
+   }
+   
+   let remainingShapes = actor.data.data.resources.primary.value;
+   if (remainingShapes < 1) return;
+   
    let d = new Dialog({
-     title: "Forme sauvage",
-     content: `
+       title: "Forme sauvage",
+       content: `
         <form>
         <div class="form-group">
-            <label>Choix de la forme :</label>
+            <label>Choix de la forme sauvage :</label>
             <select id="form-type" name="form-type">
-            <option value="forme-originale">Forme originale</option>
-            <option value="forme-ours">Forme d'Ours</option> 
+            <option value="loup">Forme de Loup</option>
+            <option value="crocodile">Forme de Crocodile</option>
+            <option value="aigle">Forme d'Aigle'</option>
             </select>
         </div>
         </form>
         `,
-     buttons: {
-       yes: {
-         icon: '<i class="fas fa-check"></i>',
-         label: "Lancer",
-         callback: () => changeForm = true
+       buttons: {
+           yes: {
+               icon: '<i class="fas fa-check"></i>',
+               label: "Lancer",
+               callback: () => changeForm = true
+           },
+           no: {
+               icon: '<i class="fas fa-times"></i>',
+               label: "Annuler"
+           }
        },
-       no: {
-         icon: '<i class="fas fa-times"></i>',
-         label: "Annuler"
+       default: "yes",
+       close: html => {
+           if (changeForm) {
+               let formType = html.find('[name="form-type"]')[0].value || "none";
+               switch (formType) {
+                   case "loup":
+                       formActorId = "ID_du_personnage";
+                       break;
+                   case "crocodile":
+                       formActorId = "ID_du_personnage";
+                       break;
+                   case "aigle":
+                       formActorId = "ID_du_personnage";
+                       break;
+               }
+               formActor = game.actors.get(formActorId);
+               actor.data.data.resources.primary.value = remainingShapes - cost;
+               actor.transformInto(formActor, { keepMental: true, mergeSaves: true, mergeSkills: true, keepBio: true });
+           }
        }
-     },
-     default: "yes",
-     close: html => {
-       if (changeForm) {
-         let formType = html.find('[name="form-type"]')[0].value || "none";
-         switch (formType) {
-           case "forme-originale":
-             formActorId = "vSlsRdK5e1gJcIhg";
-             break;
-           case "forme-ours":
-             formActorId = "k29xejd9bksJF9t2";
-             break;
-         }
-         formActor = game.actors.get(formActorId);
-         game.macros.getName("deleteToken")?.execute(startScene, token.id);
-         let formToken = formActor.data.token;
-         game.macros.getName("createToken")?.execute(startScene, x, y, formToken);
-       }
-     }
    }).render(true);
 
    ```
 
-   *[WildShape-without-consum.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-without-consum.js)*
+   *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)*
 
 2. Allez maintenant sur Foundry VTT puis cliquez sur un emplacement libre de la barre de macros afin d'en créer une nouvelle.
 
 3. Sélectionnez le type "Script" puis collez le code à l'intérieur.
 
-4. Donnez-lui le nom de votre choix, par exemple : ``` WildShape ``` et sauvegardez la macro.
+4. Donnez-lui le nom de votre choix, par exemple : ``` Wild Shape ``` et sauvegardez la macro.
 
 ## Configuration
 
@@ -95,7 +104,7 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
 1. Dans un premier temps vous devez disposer du personnage dont vous souhaitez faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes". Par la suite, vous devrez ajouter un nouveau slot de ressource à celui-ci :
 
-![WildShape-New-Slot](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/new-slot.jpg)
+   ![WildShape-New-Slot](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/new-slot.jpg)
 
 2. Créez les fiches personnages des différentes formes que vous souhaitez ajouter à la macro. Pour cela, je vous propose de directement utiliser une solution intégrée à FoundryVTT :
     * Faites un glisser-déposer de la bête dont vous souhaitez adopter la forme (par exemple un Loup) depuis le compendium "Monstres" vers la fiche du personnage précédemment créée à l'étape 1.
