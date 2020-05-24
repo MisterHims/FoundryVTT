@@ -32,15 +32,12 @@ Attention ! La macro ne fonctionnera certainement pas après son installation, i
    let formActorId;
    let formActor;
    let cost = 1;
-   
    if (actor.isPolymorphed) {
        actor.revertOriginalForm();
        return;
    }
-   
    let remainingShapes = actor.data.data.resources.primary.value;
    if (remainingShapes < 1) return;
-   
    let d = new Dialog({
        title: "Forme sauvage",
        content: `
@@ -161,7 +158,7 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
 Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage, prenez connaissance de la méthode proposée dans la section "Ajouter davantage de formes" ou choisissez plutôt l'une des macros suivantes :
 
-* 1 forme : *[WildShape-1-shape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-1-shapes.js)*
+* 1 forme : *[WildShape-1-shape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-1-shape.js)*
 * 2 formes : *[WildShape-2-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-2-shapes.js)*
 * 3 formes : *[WildShape-3-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-3-shapes.js)*
 * 4 formes : *[WildShape-4-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-4-shapes.js)*
