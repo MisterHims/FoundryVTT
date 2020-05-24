@@ -21,7 +21,7 @@ let d = new Dialog({
     content: `
      <form>
      <div class="form-group">
-         <label>Choix de la forme sauvage :</label>
+         <label>Choix de la forme :</label>
          <select id="form-type" name="form-type">
          <option value="shape-1">Forme 1</option>
          <option value="shape-2">Forme 2</option>
@@ -38,7 +38,7 @@ let d = new Dialog({
     buttons: {
         yes: {
             icon: '<i class="fas fa-check"></i>',
-            label: "Lancer",
+            label: "Appliquer",
             callback: () => changeForm = true
         },
         no: {

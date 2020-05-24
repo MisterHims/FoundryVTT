@@ -55,7 +55,7 @@ Attention ! La macro ne fonctionnera certainement pas après son installation, i
        buttons: {
            yes: {
                icon: '<i class="fas fa-check"></i>',
-               label: "Lancer",
+               label: "Appliquer",
                callback: () => changeForm = true
            },
            no: {

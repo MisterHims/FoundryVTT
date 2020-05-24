@@ -33,7 +33,7 @@ let d = new Dialog({
     buttons: {
         yes: {
             icon: '<i class="fas fa-check"></i>',
-            label: "Lancer",
+            label: "Appliquer",
             callback: () => changeForm = true
         },
         no: {
