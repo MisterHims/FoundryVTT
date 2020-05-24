@@ -13,7 +13,7 @@
 
 WildShape est une macro permettant de rapidement changer la forme du personnage sélectionné puis de revenir sous sa forme originale. Si le personnage n'est pas sélectionné, une notification apparaîtra le cas échéant. Les statistiques du druide seront ainsi remplacées par celles de la bête et celui-ci verra alors son token remplacé. De plus, la macro prend en compte le coût en ressource de l'action Forme sauvage. C'est une macro particulièrement utile pour les druides souhaitant utiliser leur Forme sauvage.
 
-[![WildShape-Demonstration-01](https://img.youtube.com/vi/VID/0.jpg)](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_01.mp4)
+![WildShape-Demonstration-01](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_01.gif)
 
 ## Installation
 
