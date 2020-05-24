@@ -21,7 +21,7 @@ let d = new Dialog({
     content: `
      <form>
      <div class="form-group">
-         <label>Choix de la forme sauvage :</label>
+         <label>Choix de la forme :</label>
          <select id="form-type" name="form-type">
          <option value="loup">Forme de Loup</option>
          <option value="crocodile">Forme de Crocodile</option>
