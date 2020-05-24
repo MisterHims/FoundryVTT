@@ -172,14 +172,28 @@ Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage,
 
 Si vous avez besoin d'ajouter une autre forme à la macro, vous pouvez alors vous y prendre de cette façon :
 
-1. Vous trouverez en haut du code contenu dans la macro les options de la fenêtre qui apparaître lors de l'interaction avec la macro, pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="forme-ours">Forme d'Ours</option> ``` puis collez là après un retour à la ligne.
+1. Vous trouverez en haut du code contenu dans la macro les options de la fenêtre qui apparaître lors de l'interaction avec la macro, pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="loup">Forme de Loup</option> ``` puis collez là après un retour à la ligne.
 
-2. Modifiez ensuite la valeur de cette option et son nom. Si vous souhaitez ajouter par exemple une forme d'aigle, cette nouvelle ligne devrait alors ressembler à quelque chose comme cela : ``` <option value="forme-aigle">Forme d'Aigle</option> ```
+2. Modifiez ensuite la valeur de cette option et son nom. Si vous souhaitez ajouter par exemple une forme d'ours, cette nouvelle ligne devrait alors ressembler à quelque chose comme cela : ``` <option value="ours">Forme d'Ours</option> ```
 
 3. Allez ensuite en bas du code contenu dans la macro, vous y trouverez les "cases". De la même manière que précédemment, copiez-coller une nouvelle case après un retour à la ligne :
 
-   * Modifiez-y le nom de la case, par exemple ``` case "forme-ours": ``` en ``` case "forme-aigle": ```
+   * Modifiez-y le nom de la case, par exemple ``` case "loup": ``` en ``` case "ours": ```
 
-   * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Aigle en question, par exemple ``` formActorId = "k29xejd9bksJF9t2"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
+   * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Aigle en question, par exemple ``` formActorId = "5K4RGyiivnSg1jFe"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
 
 4. C'est fait, vous avez rajoutez une forme à la macro. Répétez alors l'opération autant de fois que nécessaire.
+
+### Choisir de garder son équipement lors du changement de forme
+
+Pour celà, rien de plus simple. Il vous suffit de changer la ligne suivante :
+
+```javascript
+actor.transformInto(formActor, {keepMental: true, mergeSaves: true, mergeSkills: true, keepBio: true});
+```
+
+par cette nouvelle ligne :
+
+```javascript
+actor.transformInto(formActor, {keepMental: true, mergeSaves: true, mergeSkills: true, keepItems: true, keepBio: true})
+```
