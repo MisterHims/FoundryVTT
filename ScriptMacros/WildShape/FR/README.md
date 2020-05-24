@@ -93,7 +93,7 @@ Attention ! La macro ne fonctionnera certainement pas après son installation, i
 
 3. Sélectionnez le type "Script" puis collez le code à l'intérieur.
 
-4. Donnez-lui le nom de votre choix, par exemple : ``` Wild Shape ``` et sauvegardez la macro.
+4. Donnez-lui le nom de votre choix, par exemple : ``` WildShape ``` et sauvegardez la macro.
 
 ## Configuration
 
@@ -117,7 +117,7 @@ Après avoir effectué l'installation de WildShape, vous devez la configurer.
 3. Récupérez l'ID des différentes fiches personnages des formes en question, pour cela il existe plusieurs méthodes mais je vous propose celle-ci afin de rester sur FoundryVTT :
     * Ouvrez ou créez un nouvel article dans le menu Articles et passez en mode édition (en cliquant sur l'icône représentant un carré avec un crayon).
 
-    * Ouvrez le menu Personnages puis faites un glisser-déposer de la fiche du personnage de la forme, vous devriez obtenir quelque chose comme cela : ``` @Actor[vSlsRdK5e1gJcIhg]{Erendil le Loup} ```, l'ID se trouve alors entre les crochets, c'est à dire ``` vSlsRdK5e1gJcIhg ``` dans ce cas présent.
+    * Ouvrez le menu Personnages puis faites un glisser-déposer de la fiche du personnage de la forme, vous devriez obtenir quelque chose comme cela : ``` @Actor[5K4RGyiivnSg1jFe]{Erendil le Loup} ```, l'ID se trouve alors entre les crochets, c'est à dire ``` 5K4RGyiivnSg1jFe ``` dans ce cas présent.
 
     * Notez alors cet ID quelque part, il vous permettra d'ajouter cette forme à la macro.
 
