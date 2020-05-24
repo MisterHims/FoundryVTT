@@ -102,7 +102,7 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
     * Répétez l'opération pour toutes les formes que vous souhaitez ajouter, par exemple le Crocodile et l'Aigle.
 
-    ![WildShape-Polymorph](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_polymorph.gif)
+     ![WildShape-Polymorph](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_polymorph.gif)
 
 3. Récupérez l'ID des différentes fiches personnages des formes en question, pour cela il existe plusieurs méthodes mais je vous propose celle-ci afin de rester sur FoundryVTT :
     * Ouvrez ou créez un nouvel article dans le menu Articles et passez en mode édition (en cliquant sur l'icône représentant un carré avec un crayon).
@@ -111,7 +111,7 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
     * Notez alors cet ID quelque part, il vous permettra d'ajouter cette forme à la macro.
 
-    ![WildShape-RécupérerIDs](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_id.gif)
+     ![WildShape-RécupérerIDs](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_id.gif)
 
 4. Après avoir récupérer les différents IDs nécessaires à vos besoins des différentes fiches personnages (par exemple : Erendil le Loup, Erendil le Crocodile et Erendil l'Aigle), vous devrez alors modifier le code de la macro afin d'y ajouter ces IDs. Dans le bout de code suivant, remplacez alors ``` ID_du_personnage ``` par l'ID du personnage dont vous souhaitez changer la forme :
 
