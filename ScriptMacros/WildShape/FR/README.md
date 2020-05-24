@@ -128,12 +128,12 @@ Après avoir effectué l'installation de WildShape, vous devez la configurer.
    ```javascript
 
     case "loup":
-     formActorId = "ID_du_loup";
+     formActorId = "ID_du_personnage";
      break;
 
    ```
 
-5. Vous devriez obtenir quelque chose comme ça :
+   Deviendrait alors :
 
    ```javascript
 
@@ -143,10 +143,13 @@ Après avoir effectué l'installation de WildShape, vous devez la configurer.
 
    ```
 
-6. Répétez l'opération avec l'ID utilisé pour les formes de Crocodile et d'Aigle, vous devriez obtenir quelque chose comme ça :
+5. Répétez l'opération avec les IDs utilisés pour les formes de Crocodile et d'Aigle, vous devriez obtenir quelque chose comme ça :
 
    ```javascript
 
+    case "loup":
+     formActorId = "5K4RGyiivnSg1jFe";
+     break;
     case "crocodile":
      formActorId = "I2CjA2taEWxY03aR";
      break;
@@ -156,7 +159,11 @@ Après avoir effectué l'installation de WildShape, vous devez la configurer.
 
    ```
 
-Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage, prenez connaissance de la méthode proposée dans la section "Ajouter davantage de formes" ou choisissez plutôt l'une des macros suivantes :
+C'est terminé ! Vous voilà avec une macro fonctionnelle pour changer la forme de votre personnage sous 3 différentes formes !
+
+### Ajoutez davantage de formes
+
+Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage prenez connaissance de la méthode proposée ci-dessous, sinon choisissez plutôt l'une des macros suivantes déjà pré-configurées :
 
 * 1 forme : *[WildShape-1-shape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-1-shape.js)*
 * 2 formes : *[WildShape-2-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-2-shapes.js)*
@@ -168,9 +175,9 @@ Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage,
 * 8 formes : *[WildShape-8-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-8-shapes.js)*
 * 9 formes : *[WildShape-9-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-9-shapes.js)*
 
-### Ajoutez davantage de formes
+---
 
-Si vous avez besoin d'ajouter une autre forme à la macro, vous pouvez alors vous y prendre de cette façon :
+Si vous avez besoin d'ajouter encore une autre forme à la macro, vous pouvez alors vous y prendre de cette façon :
 
 1. Vous trouverez en haut du code contenu dans la macro les options de la fenêtre qui apparaître lors de l'interaction avec la macro, pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="loup">Forme de Loup</option> ``` puis collez là après un retour à la ligne.
 
