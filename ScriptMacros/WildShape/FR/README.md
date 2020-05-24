@@ -145,7 +145,7 @@ Après avoir effectué l'installation de WildShape, vous devez la configurer.
 
 5. Répétez alors l'opération avec les IDs utilisés pour les formes de Crocodile et d'Aigle :
 
-   ```json
+   ```javascript
 
     case "loup":
      formActorId = "5K4RGyiivnSg1jFe";
