@@ -47,7 +47,7 @@ Attention ! La macro ne fonctionnera certainement pas après son installation, i
             <select id="form-type" name="form-type">
             <option value="loup">Forme de Loup</option>
             <option value="crocodile">Forme de Crocodile</option>
-            <option value="aigle">Forme d'Aigle'</option>
+            <option value="aigle">Forme d'Aigle</option>
             </select>
         </div>
         </form>
