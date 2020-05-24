@@ -1,3 +1,7 @@
+if (!actor) {
+    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+    return;
+}
 let changeForm = false;
 actor = actor ? actor : game.user.character;
 let formActorId;
@@ -43,13 +47,13 @@ let d = new Dialog({
             let formType = html.find('[name="form-type"]')[0].value || "none";
             switch (formType) {
                 case "loup":
-                    formActorId = "k29xejd9bksJF9t2";
+                    formActorId = "ID_du_personnage";
                     break;
                 case "crocodile":
-                    formActorId = "Y0d0Hy8FcBNYC79u";
+                    formActorId = "ID_du_personnage";
                     break;
                 case "aigle":
-                    formActorId = "fTqB8K3WDossT1dE";
+                    formActorId = "ID_du_personnage";
                     break;
             }
             formActor = game.actors.get(formActorId);

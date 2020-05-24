@@ -11,7 +11,9 @@
 
 ## Description
 
-WildShape est une macro permettant de rapidement changer la forme de votre druide, les statistiques du druide seront ainsi remplacées par celles de la bête et celui-ci verra alors son token remplacé. Cette macro est ainsi particulièrement utile pour les druides souhaitant utiliser leur Forme sauvage.
+WildShape est une macro permettant de rapidement changer la forme du personnage sélectionné puis de revenir sous sa forme originale. Si le personnage n'est pas sélectionné, une notification apparaîtra le cas échéant. Les statistiques du druide seront ainsi remplacées par celles de la bête et celui-ci verra alors son token remplacé. De plus, la macro prend en compte le coût en ressource de l'action Forme sauvage. C'est une macro particulièrement utile pour les druides souhaitant utiliser leur Forme sauvage.
+
+![WildShape-Demonstration-01](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_01.mp4)
 
 ## Installation
 
@@ -91,7 +93,9 @@ Attention ! La macro ne fonctionnera certainement pas après son installation, i
 
 Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
-1. Dans un premier temps vous devez disposer du personnage dont vous souhaitez faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes".
+1. Dans un premier temps vous devez disposer du personnage dont vous souhaitez faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes". Par la suite, vous devrez ajouter un nouveau slot de ressource à celui-ci :
+
+![WildShape-New-Slot](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/new-slot.jpg)
 
 2. Créez les fiches personnages des différentes formes que vous souhaitez ajouter à la macro. Pour cela, je vous propose de directement utiliser une solution intégrée à FoundryVTT :
     * Faites un glisser-déposer de la bête dont vous souhaitez adopter la forme (par exemple un Loup) depuis le compendium "Monstres" vers la fiche du personnage précédemment créée à l'étape 1.
@@ -117,8 +121,8 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
    ```javascript
 
-    case "forme-originale":
-     formActorId = "ID_du_personnage";
+    case "loup":
+     formActorId = "ID_du_loup";
      break;
 
    ```
@@ -127,23 +131,36 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
    ```javascript
 
-    case "forme-originale":
-     formActorId = "k29xejd9bksJF9t2";
+    case "loup":
+     formActorId = "5K4RGyiivnSg1jFe";
      break;
 
    ```
 
-6. Répétez l'opération avec l'ID utilisé pour les formes de Loup, Crocodile et Aigle, vous devriez obtenir quelque chose comme ça :
+6. Répétez l'opération avec l'ID utilisé pour les formes de Crocodile et d'Aigle, vous devriez obtenir quelque chose comme ça :
 
    ```javascript
 
-    case "forme-originale":
-     formActorId = "k29xejd9bksJF9t2";
+    case "crocodile":
+     formActorId = "I2CjA2taEWxY03aR";
+     break;
+    case "aigle":
+     formActorId = "Y0d0Hy8FcBNYC79u";
      break;
 
    ```
 
-Vous êtes ici limités à deux formes (dont la forme originale), si vous souhaitez en ajouter davantage prenez connaissance de la méthode ci-dessous : 
+Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage, prenez connaissance de la méthode proposée dans la section "Ajouter davantage de formes" ou choisissez plutôt l'une des macros suivantes :
+
+* 1 forme : *[WildShape-1-shape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-1-shapes.js)*
+* 2 formes : *[WildShape-2-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-2-shapes.js)*
+* 3 formes : *[WildShape-3-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-3-shapes.js)*
+* 4 formes : *[WildShape-4-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-4-shapes.js)*
+* 5 formes : *[WildShape-5-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-5-shapes.js)*
+* 6 formes : *[WildShape-6-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-6-shapes.js)*
+* 7 formes : *[WildShape-7-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-7-shapes.js)*
+* 8 formes : *[WildShape-8-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-8-shapes.js)*
+* 9 formes : *[WildShape-9-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape-9-shapes.js)*
 
 ### Ajoutez davantage de formes
 
@@ -160,11 +177,3 @@ Si vous avez besoin d'ajouter une autre forme à la macro, vous pouvez alors vou
    * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Aigle en question, par exemple ``` formActorId = "k29xejd9bksJF9t2"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
 
 4. C'est fait, vous avez rajoutez une forme à la macro. Répétez alors l'opération autant de fois que nécessaire.
-
-## Améliorations à venir
-
-* Proposer plusieurs macro-types par nombre de formes souhaitées, afin de rendre plus facile sa configuration.
-
-* Ajouter la possibilité d'y inclure la consommation de ressources.
-
-* Améliorer la macro afin de remplacer le personnage dans la liste de déroulement du combat (Combat Tracker).
