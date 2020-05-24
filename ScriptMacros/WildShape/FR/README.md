@@ -97,7 +97,7 @@ Attention ! La macro ne fonctionnera certainement pas après son installation, i
 
 ## Configuration
 
-Après avoir effectué l'installation de WildShape, vous devez là configurer.
+Après avoir effectué l'installation de WildShape, vous devez la configurer.
 
 1. Dans un premier temps vous devez disposer du personnage dont vous souhaitez faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes". Par la suite, vous devrez ajouter un nouveau slot de ressource à celui-ci :
 
