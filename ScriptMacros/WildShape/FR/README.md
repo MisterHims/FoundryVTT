@@ -98,9 +98,11 @@ Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
     * Une fenêtre s'ouvre alors, cochez les cases "Conserver l'équipement", "Conserver le bonus de maîtrise", "Conservez les aptitudes",  "Conserver les sorts", "Conservez sa biographie", "Garder la vision" et "Transformer tous les tokens liés".
 
-    * De cette façon, une nouvelle fiche personnage sera temporairement créée dans votre liste du menu Personnages, vous pouvez alors là modifier à votre guise. Faites-en une copie puis renommez-là afin de la sauvegarder.
+    * De cette façon, une nouvelle fiche personnage sera temporairement créée dans votre liste du menu Personnages, vous pouvez alors là modifier à votre guise. Faites-en une copie puis renommez-là afin de la sauvegarder. Vous pouvez alors supprimer la première fiche personnage temporaire.
 
     * Répétez l'opération pour toutes les formes que vous souhaitez ajouter, par exemple le Crocodile et l'Aigle.
+
+    ![WildShape-Polymorph](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_polymorph.gif)
 
 3. Récupérez l'ID des différentes fiches personnages des formes en question, pour cela il existe plusieurs méthodes mais je vous propose celle-ci afin de rester sur FoundryVTT :
     * Ouvrez ou créez un nouvel article dans le menu Articles et passez en mode édition (en cliquant sur l'icône représentant un carré avec un crayon).
