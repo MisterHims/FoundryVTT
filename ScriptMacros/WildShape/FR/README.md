@@ -91,37 +91,51 @@ Attention ! La macro ne fonctionnera certainement pas après son installation, i
 
 Après avoir effectué l'installation de WildShape, vous devez là configurer.
 
-1. Dans un premier temps, vous devez disposer de la fiche du personnage dont vous souhaitez y faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes".
+1. Dans un premier temps vous devez disposer du personnage dont vous souhaitez faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes".
 
-2. Récupérez l'ID alors du personnage en question, pour cela il existe plusieurs méthodes mais je vous propose celle-ci afin de rester sur FoundryVTT :
-    * Ouvrez ou créez un nouvel article dans votre journal et passez en mode édition (en cliquant sur l'icône représentant un carré avec un crayon).
+2. Créez les fiches personnages des différentes formes que vous souhaitez ajouter à la macro. Pour cela, je vous propose de directement utiliser une solution intégrée à FoundryVTT :
+    * Faites un glisser-déposer de la bête dont vous souhaitez adopter la forme (par exemple un Loup) depuis le compendium "Monstres" vers la fiche du personnage précédemment créée à l'étape 1.
 
-    * Ouvrez le menu Personnages puis faites un glisser-déposer de la fiche du personnage à l'intérieur, vous devriez obtenir quelque chose comme cela : ``` @Actor[vSlsRdK5e1gJcIhg]{NomDuPersonnage} ```, l'ID de votre personnage se trouve alors entre les crochets, c'est à dire ``` vSlsRdK5e1gJcIhg ``` dans ce cas présent.
+    * Une fenêtre s'ouvre alors, cochez les cases "Conserver l'équipement", "Conserver le bonus de maîtrise", "Conservez les aptitudes",  "Conserver les sorts", "Conservez sa biographie", "Garder la vision" et "Transformer tous les tokens liés".
 
-    * Notez cet ID, il vous permettra de pouvoir récupérer votre forme originale.
+    * De cette façon, une nouvelle fiche personnage sera temporairement créée dans votre liste du menu Personnages, vous pouvez alors là modifier à votre guise. Faites-en une copie puis renommez-là afin de la sauvegarder.
 
-3. Créez les fiches personnages des différentes formes que vous souhaitez ajouter à la macro. Pour cela, je vous propose de directement utiliser une solution intégrée à FoundryVTT :
-    * Faites un glisser-déposer de la bête dont vous souhaitez adopter la forme depuis le compendium "Monstres" vers la fiche du personnage précédemment créée à l'étape 1.
+    * Répétez l'opération pour toutes les formes que vous souhaitez ajouter, par exemple le Crocodile et l'Aigle.
 
-    * Une fenêtre s'ouvre alors, cochez les cases "Conserver l'équipement", "Conserver le bonus de maîtrise", "Conservez les aptitudes",  "Conserver les sorts", "Conservez sa biographie", "Garder la vision" et "Transformer tous les tokens liés". De cette façon, une nouvelle fiche personnage a été créée dans votre liste du menu Personnages, vous pouvez alors là modifier à votre guise.
+3. Récupérez l'ID des différentes fiches personnages des formes en question, pour cela il existe plusieurs méthodes mais je vous propose celle-ci afin de rester sur FoundryVTT :
+    * Ouvrez ou créez un nouvel article dans le menu Articles et passez en mode édition (en cliquant sur l'icône représentant un carré avec un crayon).
 
-    * Récupérez alors l'ID de cette nouvelle fiche de personnage de la même manière que vu précédemment et notez-là.
+    * Ouvrez le menu Personnages puis faites un glisser-déposer de la fiche du personnage de la forme, vous devriez obtenir quelque chose comme cela : ``` @Actor[vSlsRdK5e1gJcIhg]{Erendil le Loup} ```, l'ID se trouve alors entre les crochets, c'est à dire ``` vSlsRdK5e1gJcIhg ``` dans ce cas présent.
 
-4. Après avoir récupérer les différents IDs nécessaires à vos besoins, vous devrez alors modifier le code de la macro afin d'y ajouter ces IDs. Dans le bout de code suivant, remplacez alors ``` vSlsRdK5e1gJcIhg ``` par l'ID du personnage dont vous souhaitez changer la forme :
+    * Notez alors cet ID quelque part, il vous permettra d'ajouter cette forme à la macro.
+
+![WildShape-RécupérerIDs](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_id.gif)
+
+4. Après avoir récupérer les différents IDs nécessaires à vos besoins des différentes fiches personnages (par exemple : Erendil le Loup, Erendil le Crocodile et Erendil l'Aigle), vous devrez alors modifier le code de la macro afin d'y ajouter ces IDs. Dans le bout de code suivant, remplacez alors ``` ID_du_personnage ``` par l'ID du personnage dont vous souhaitez changer la forme :
 
    ```javascript
 
     case "forme-originale":
-     formActorId = "vSlsRdK5e1gJcIhg";
+     formActorId = "ID_du_personnage";
      break;
 
    ```
 
-5. Répétez l'opération avec l'ID utilisée pour la forme d'ours par exemple en remplaçant l'ID à la "case" suivante :
+5. Vous devriez obtenir quelque chose comme ça :
 
    ```javascript
 
-    case "forme-ours":
+    case "forme-originale":
+     formActorId = "k29xejd9bksJF9t2";
+     break;
+
+   ```
+
+6. Répétez l'opération avec l'ID utilisé pour les formes de Loup, Crocodile et Aigle, vous devriez obtenir quelque chose comme ça :
+
+   ```javascript
+
+    case "forme-originale":
      formActorId = "k29xejd9bksJF9t2";
      break;
 
