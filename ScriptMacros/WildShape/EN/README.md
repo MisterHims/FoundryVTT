@@ -17,7 +17,7 @@ WildShape is a macro allowing you to quickly change the shape of the selected ch
 
 ## Installation
 
-Warning ! The macro will certainly not work after its installation, you will then have to make some modifications in order to make it functional and to adapt it to your needs. But do not be discouraged, it is much simpler than it seems.
+The macro will certainly not work after its installation, you will then have to make some modifications in order to make it functional and to adapt it to your needs. But do not be discouraged, it is much simpler than it seems.
 
 1. Copy the code below or access it from [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js) :
 
@@ -99,7 +99,7 @@ Warning ! The macro will certainly not work after its installation, you will the
 
 After installing WildShape, you need to configure it.
 
-1. First, you must have the character whose shape you want to change. Make sure he has the Wild Form ability in his sheet. If it's not the case, you will have to add it from the "Class Capabilities" compendium. Thereafter, you will need to add a new resource slot to it:
+1. First, you must have the character whose shape you want to change. Make sure he has the Wild Form ability in his sheet. If it's not the case, you need to add it from the "Class Features" compendium. Thereafter, you will need to add a new resource slot to it:
 
    ![WildShape-New-Slot](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/images/new-slot.jpg)
 
@@ -137,7 +137,7 @@ After installing WildShape, you need to configure it.
 
    ```javascript
 
-    case "louwolfp":
+    case "wolf":
      formActorId = "5K4RGyiivnSg1jFe";
      break;
 
@@ -183,23 +183,23 @@ If you need to add yet another shape to the macro then you can do it this way:
 
 2. Then change the value of this option and its name. If you want to add a bear shape, for example, this new line should look something like this: ``` <option value="bear">Bear shape</option> ```
 
-3. Then go to the bottom of the code contained in the macro, you will find the "boxes" there. In the same way as before, copy and paste a new box after a line break:
+3. Then go to the bottom of the code contained in the macro, you will find the "cases" there. In the same way as before, copy and paste a new case after a line break:
 
-   * Modifiez-y le nom de la case, par exemple ``` case "loup": ``` en ``` case "ours": ```
+   * Change the name of the box, for example ``` case "wolf": ``` to ``` case "bear": ```
 
-   * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Aigle en question, par exemple ``` formActorId = "5K4RGyiivnSg1jFe"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
+   * Then replace the ID with that of your character sheet for the shape of the Eagle in question, for example ``` formActorId = "5K4RGyiivnSg1jFe"; ``` to ``` formActorId = "x82ahds4sazDF2s3"; ```
 
-4. C'est fait, vous avez rajoutez une forme à la macro. Répétez alors l'opération autant de fois que nécessaire.
+4. It's done, you've added a shape to the macro. Then repeat the operation as many times you need.
 
-### Choisir de garder son équipement lors du changement de forme
+### Choose to keep your equipment when changing shape
 
-Pour celà, rien de plus simple. Il vous suffit de changer la ligne suivante :
+You just have to change the following line: :
 
 ```javascript
 actor.transformInto(formActor, {keepMental: true, mergeSaves: true, mergeSkills: true, keepBio: true});
 ```
 
-par cette nouvelle ligne :
+by this new line:
 
 ```javascript
 actor.transformInto(formActor, {keepMental: true, mergeSaves: true, mergeSkills: true, keepItems: true, keepBio: true})

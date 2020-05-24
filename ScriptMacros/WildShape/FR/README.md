@@ -187,7 +187,7 @@ Si vous avez besoin d'ajouter encore une autre forme à la macro, vous pouvez al
 
    * Modifiez-y le nom de la case, par exemple ``` case "loup": ``` en ``` case "ours": ```
 
-   * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Aigle en question, par exemple ``` formActorId = "5K4RGyiivnSg1jFe"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
+   * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Ours en question, par exemple ``` formActorId = "5K4RGyiivnSg1jFe"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
 
 4. C'est fait, vous avez rajoutez une forme à la macro. Répétez alors l'opération autant de fois que nécessaire.
 
