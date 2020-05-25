@@ -1,5 +1,5 @@
 if (!actor) {
-    ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
+    ui.notifications.warn(`No token selected`);
     return;
 }
 let changeForm = false;
@@ -7,38 +7,35 @@ actor = actor ? actor : game.user.character;
 let formActorId;
 let formActor;
 let cost = 1;
-
 if (actor.isPolymorphed) {
     actor.revertOriginalForm();
     return;
 }
-
 let remainingShapes = actor.data.data.resources.primary.value;
 if (remainingShapes < 1) return;
-
 let d = new Dialog({
-    title: "Forme sauvage",
+    title: "Wild Shape",
     content: `
-     <form>
-     <div class="form-group">
-         <label>Choix de la forme :</label>
-         <select id="form-type" name="form-type">
-         <option value="loup">Forme de Loup</option>
-         <option value="crocodile">Forme de Crocodile</option>
-         <option value="aigle">Forme d'Aigle</option>
-         </select>
-     </div>
-     </form>
-     `,
+        <form>
+        <div class="form-group">
+            <label>Choice of shape:</label>
+            <select id="form-type" name="form-type">
+            <option value="wolf">Wolf shape</option>
+            <option value="crocodile">Crocodile shape</option>
+            <option value="eagle">Eagle shape</option>
+            </select>
+        </div>
+        </form>
+        `,
     buttons: {
         yes: {
             icon: '<i class="fas fa-check"></i>',
-            label: "Lancer",
+            label: "Apply",
             callback: () => changeForm = true
         },
         no: {
             icon: '<i class="fas fa-times"></i>',
-            label: "Annuler"
+            label: "Cancel"
         }
     },
     default: "yes",
@@ -47,13 +44,13 @@ let d = new Dialog({
             let formType = html.find('[name="form-type"]')[0].value || "none";
             switch (formType) {
                 case "loup":
-                    formActorId = "ID_du_personnage";
+                    formActorId = "Character_ID";
                     break;
                 case "crocodile":
-                    formActorId = "ID_du_personnage";
+                    formActorId = "Character_ID";
                     break;
                 case "aigle":
-                    formActorId = "ID_du_personnage";
+                    formActorId = "Character_ID";
                     break;
             }
             formActor = game.actors.get(formActorId);
