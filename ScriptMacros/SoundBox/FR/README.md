@@ -19,7 +19,7 @@ SoundBox est une macro qui vous permet de faire apparaître une boite à sons. V
 
 1. Copiez le code ci-dessous ou accédez-y depuis le fichier [SoundBox.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/SoundBox/FR/SoundBox.js) :
 
-   ```javascript
+   ```js
 
    let applyChanges = false;
    new Dialog({
@@ -205,7 +205,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Vous devez alors rajouter votre nouvelle playlist dans ``` myPlaylists ```, pour cela procédez comme suit :
 
-   ```javascript
+   ```js
 
     myPlaylists = [
       document.getElementById("playlist-content-1"),
@@ -217,7 +217,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Deviendrait alors comme ci-dessous (n'oubliez pas la nouvelle virgule en fin de ligne de la précédente playlist) :
 
-   ```javascript
+   ```js
 
     myPlaylists = [
       document.getElementById("playlist-content-1"),
@@ -230,7 +230,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Vous devez ensuite ajouter un second bloc de liste déroulante. Ainsi, un peu plus bas dans le code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
 
-   ```javascript
+   ```js
 
       } else if (dropDown.value === "3") {
     myPlaylists[i].style.display = "none";
@@ -242,7 +242,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Vous devrez ensuite changer la valeur de ``` dropDown.value ``` et ``` myPlaylists ``` à 4 pour une quatrième playlist à titre d'exemple :
 
-   ```javascript
+   ```js
 
       } else if (dropDown.value === "4") {
     myPlaylists[i].style.display = "none";
@@ -267,7 +267,7 @@ Des sons systèmes sont installés par défaut à titre d'exemple. Si vous souha
 
    Par exemple :
 
-   ```javascript
+   ```js
 
    <option value="mon-chemin/fichier-audio.wav">Drums</option>
 
