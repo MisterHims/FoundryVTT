@@ -4,7 +4,7 @@ new Dialog({
   content: `
     <form>
       <div class="form-group">
-        <label>Choose category</label>
+        <label>Catégorie</label>
           <select id="dropDown" onchange="SoundBox()">
             <option value="1" id="playlist-1" selected="selected">Playlist 1</option>
             <option value="2" id="playlist-2">Playlist 2</option>
@@ -12,7 +12,7 @@ new Dialog({
           </select>
       </div>
       <div class="form-group">
-        <label>Choose song</label>
+        <label>Son</label>
           <select id="playlist-content-1" name="selected-playlist">
             <option value="sounds/dice.wav">Dice</option>
             <option value="sounds/lock.wav">Door</option>
@@ -76,12 +76,12 @@ slider.oninput = function() {output.innerHTML = this.value;}
   buttons: {
     yes: {
       icon: "<i class='fas fa-check'></i>",
-      label: `Apply`,
+      label: `Appliquer`,
       callback: () => applyChanges = true
     },
     no: {
       icon: "<i class='fas fa-times'></i>",
-      label: `Cancel`
+      label: `Annuler`
     },
   },
   default: "yes",
