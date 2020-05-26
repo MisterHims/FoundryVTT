@@ -32,6 +32,7 @@ SoundBox is a macro that allows you to display a sound box. You can play a sound
                <option value="1" id="playlist-1" selected="selected">Playlist 1</option>
                <option value="2" id="playlist-2">Playlist 2</option>
                <option value="3" id="playlist-3">Playlist 3</option>
+               <option value="4" id="playlist-4">Playlist 4</option>
              </select>
          </div>
          <div class="form-group">
@@ -54,6 +55,12 @@ SoundBox is a macro that allows you to display a sound box. You can play a sound
                <option value="sounds/lock.wav">Door</option>
                <option value="sounds/dice.wav">Dice</option>
              </select>
+             <select id="playlist-content-4" style="display: none;">
+               <option value="sounds/lock.wav">Lock</option>
+               <option value="sounds/dice.wav">Dice</option>
+               <option value="sounds/notify.wav">Notify</option>
+               <option value="sounds/drums.wav">Drums</option>
+             </select>
         </div>
         <div class="form-group">
            <label for="vol">Volume</label>
@@ -72,7 +79,8 @@ SoundBox is a macro that allows you to display a sound box. You can play a sound
        myPlaylists = [
          document.getElementById("playlist-content-1"),
          document.getElementById("playlist-content-2"),
-         document.getElementById("playlist-content-3")
+         document.getElementById("playlist-content-3"),
+         document.getElementById("playlist-content-4"),
        ];
      function SoundBox() {
        for (i = 0; i < myPlaylists.length; i++) {
@@ -91,6 +99,11 @@ SoundBox is a macro that allows you to display a sound box. You can play a sound
            myPlaylists[i].removeAttribute("name", "selected-playlist");
            myPlaylists[2].style.display = "flex";
            myPlaylists[2].setAttribute("name", "selected-playlist");
+         } else if (dropDown.value === "4") {
+           myPlaylists[i].style.display = "none";
+           myPlaylists[i].removeAttribute("name", "selected-playlist");
+           myPlaylists[3].style.display = "flex";
+           myPlaylists[3].setAttribute("name", "selected-playlist");
          }
        }
      }
@@ -207,12 +220,12 @@ You can configure the macro to manage your sounds in multiple defined playlists.
     myPlaylists = [
       document.getElementById("playlist-content-1"),
       document.getElementById("playlist-content-2"),
-      document.getElementById("playlist-content-3")
+      document.getElementById("playlist-content-3"),
     ];
 
    ```
 
-   Then would become as below (don't forget the new comma at the end of the line of the previous playlist):
+   Then would become as below:
 
    ```js
 
@@ -220,7 +233,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
       document.getElementById("playlist-content-1"),
       document.getElementById("playlist-content-2"),
       document.getElementById("playlist-content-3"),
-      document.getElementById("playlist-content-4")
+      document.getElementById("playlist-content-4"),
     ];
 
    ```

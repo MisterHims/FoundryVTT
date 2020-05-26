@@ -49,7 +49,7 @@ slider.oninput = function() {output.innerHTML = this.value;}
     myPlaylists = [
       document.getElementById("playlist-content-1"),
       document.getElementById("playlist-content-2"),
-      document.getElementById("playlist-content-3")
+      document.getElementById("playlist-content-3"),
     ];
   function SoundBox() {
     for (i = 0; i < myPlaylists.length; i++) {
