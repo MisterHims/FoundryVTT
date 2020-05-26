@@ -155,77 +155,77 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
 ### Ajouter une playlist
 
-   1. Ajouter une nouvelle option de playlist
+1. Ajouter une nouvelle option de playlist
 
-      Pour ajouter une ajouter une nouvelle playlist, vous devrez dans un premier temps copier-coller une nouvelle ligne option comme ci-dessous après un retour à la ligne dans la    partie catégorie :
+   Pour ajouter une ajouter une nouvelle playlist, vous devrez dans un premier temps copier-coller une nouvelle ligne option comme ci-dessous après un retour à la ligne dans la partie catégorie :
 
-      ```javascript
+   ```javascript
 
-      <option value="3" id="playlist-3">Playlist 3</option>
+   <option value="3" id="playlist-3">Playlist 3</option>
 
-      ```
+   ```
 
-      Vous devrez ensuite lui donner une nouvelle valeur, un nouvel ID et là renommer, évitez tout espaces et caractères spéciaux pour le nouvel ID. En gardant notre exemple donné    ci-dessus, cette nouvelle ligne devrait alors ressembler à ça :
+   Vous devrez ensuite lui donner une nouvelle valeur, un nouvel ID et là renommer, évitez tout espaces et caractères spéciaux pour le nouvel ID. En gardant notre exemple donné ci-dessus, cette nouvelle ligne devrait alors ressembler à ça :
 
-      ```javascript
+   ```javascript
 
-      <option value="4" id="playlist-4">Playlist 4</option>
+   <option value="4" id="playlist-4">Playlist 4</option>
 
-      ```
+   ```
 
-   2. Ajouter une nouvelle liste de sons
+2. Ajouter une nouvelle liste de sons
 
-      Il vous sera ensuite nécessaire de créer votre nouvelle liste de sons, vous devrez alors copier-coller un nouveau bloc-sélection comme ci-dessous après un retour à la ligne :
+   Il vous sera ensuite nécessaire de créer votre nouvelle liste de sons, vous devrez alors copier-coller un nouveau bloc-sélection comme ci-dessous après un retour à la ligne :
 
-      ```javascript
+   ```javascript
 
-      <select id="playlist-content-3" style="display: none;">
-        <option value="sounds/lock.wav">Lock</option>
-        <option value="sounds/dice.wav">Dice</option>
-        <option value="sounds/notify.wav">Notify</option>
-        <option value="sounds/drums.wav">Drums</option>
-      </select>
+   <select id="playlist-content-3" style="display: none;">
+     <option value="sounds/lock.wav">Lock</option>
+     <option value="sounds/dice.wav">Dice</option>
+     <option value="sounds/notify.wav">Notify</option>
+     <option value="sounds/drums.wav">Drums</option>
+   </select>
 
-      ```
+   ```
 
-      Vous devriez alors obtenir quelque chose comme ça après avoir renommé son ID. Dans cet exemple nous avons renommé ``` id="playlist-content-3" ``` en ``` id="playlist-content-4" ``` :
+   Vous devriez alors obtenir quelque chose comme ça après avoir renommé son ID. Dans cet exemple nous avons renommé ``` id="playlist-content-3" ``` en ``` id="playlist-content-4" ``` :
 
-      ```javascript
+   ```javascript
 
-      <select id="playlist-content-4" style="display: none;">
-        <option value="sounds/lock.wav">Lock</option>
-        <option value="sounds/dice.wav">Dice</option>
-        <option value="sounds/notify.wav">Notify</option>
-        <option value="sounds/drums.wav">Drums</option>
-      </select>
+   <select id="playlist-content-4" style="display: none;">
+     <option value="sounds/lock.wav">Lock</option>
+     <option value="sounds/dice.wav">Dice</option>
+     <option value="sounds/notify.wav">Notify</option>
+     <option value="sounds/drums.wav">Drums</option>
+   </select>
 
-      ```
+   ```
 
-   3. Automatiser la liste déroulante
+3. Automatiser la liste déroulante
 
-      Pour terminer, vous devrez ajouter un second bloc de liste déroulante afin d'automatiser le script le script permettant de faire jouer un son. Ainsi, un peu plus bas dans le    code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
+   Pour terminer, vous devrez ajouter un second bloc de liste déroulante afin d'automatiser le script le script permettant de faire jouer un son. Ainsi, un peu plus bas dans le code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
 
-      ```javascript
+   ```javascript
 
-         } else if (dropDown.value === "3") {
-       myPlaylists[i].style.display = "none";
-       myPlaylists[i].removeAttribute("name", "selected-playlist");
-       myPlaylists[3].style.display = "flex";
-       myPlaylists[3].setAttribute("name", "selected-playlist");
+      } else if (dropDown.value === "3") {
+    myPlaylists[i].style.display = "none";
+    myPlaylists[i].removeAttribute("name", "selected-playlist");
+    myPlaylists[3].style.display = "flex";
+    myPlaylists[3].setAttribute("name", "selected-playlist");
 
-      ```
+   ```
 
-      Vous devrez ensuite changer la valeur de ``` dropDown.value ``` et de ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
+   Vous devrez ensuite changer la la valeur de ``` dropDown.value ``` et de ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
 
-      ```javascript
+   ```javascript
 
-         } else if (dropDown.value === "4") {
-       myPlaylists[i].style.display = "none";
-       myPlaylists[i].removeAttribute("name", "selected-playlist");
-       myPlaylists[4].style.display = "flex";
-       myPlaylists[4].setAttribute("name", "selected-playlist");
+      } else if (dropDown.value === "4") {
+    myPlaylists[i].style.display = "none";
+    myPlaylists[i].removeAttribute("name", "selected-playlist");
+    myPlaylists[4].style.display = "flex";
+    myPlaylists[4].setAttribute("name", "selected-playlist");
 
-      ```
+   ```
 
 ### Ajouter des sons
 
@@ -233,4 +233,6 @@ Des sons systèmes sont installés par défaut à titre d'exemple. Si vous souha
 
 1. Ajouter une nouvelle ligne option :
 
-Pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="sounds/lock.wav">Lock</option> ``` puis collez là après un retour à la ligne dans la playlist de votre choix.
+   Pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="sounds/lock.wav">Lock</option> ``` puis collez là après un retour à la ligne dans la playlist de votre choix.
+
+2. Ajouter une nouvelle ligne option :
