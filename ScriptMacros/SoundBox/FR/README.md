@@ -7,7 +7,7 @@
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
-* **Module Requirement(s)**: None
+* **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace)
 
 ## Description
 
