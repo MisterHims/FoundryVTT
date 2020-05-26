@@ -234,7 +234,14 @@ Des sons systèmes sont installés par défaut à titre d'exemple. Si vous souha
 1. Ajouter une nouvelle ligne option :
 
    Ajouter une nouvelle ligne option vous permettra de rajouter un son dans la playlist en question.
-   Pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="sounds/lock.wav">Lock</option> ``` puis collez là après un retour à la ligne dans la playlist de votre choix.
+   Pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="sounds/drums.wav">Drums</option> ``` puis collez là après un retour à la ligne dans la playlist de votre choix.
 
 2. Choisir le son à faire jouer :
 
+   Pour choisir le son à faire jouer lorsque vous sélectionnerez l'option en question dans le menu déroulant (l'option appelée Drums dans l'exemple ci-dessus), vous devrez simplement changer son chemin d'accès vers le fichier audio en question. Le chemin d'accès se trouve entre les guillemets juste après ````value= ``` Par exemple :
+
+   ```javascript
+
+   <option value="mon-chemin/fichier-audio.wav">Drums</option>
+
+   ```
