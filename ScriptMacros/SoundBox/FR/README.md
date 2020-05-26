@@ -139,7 +139,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
    Pour renommer une playlist, il vous suffit de changer son nom qui est contenu les premières lignes options de la macro.
    Si nous prenons comme exemple la première playlist, cette ligne devrait correspondre à ça :
 
-   ```html
+   ```javascript
 
    <option value="3" id="playlist-3">Playlist 3</option>
 
@@ -147,65 +147,79 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Il vous suffit alors de remplacer ``` Playlist 3 ``` par le nom de votre choix, par exemple ``` Bruits de monstres ```
 
+   ```javascript
+
+   <option value="3" id="playlist-3">Bruits de monstres</option>
+
+   ```
+
 ### Ajouter une playlist
 
-   Pour ajouter une ajouter une nouvelle playlist, vous devrez dans un premier temps copier-coller une nouvelle ligne option comme celle-ci après un retour à la ligne dans la partie catégorie :
+   Pour ajouter une ajouter une nouvelle playlist, vous devrez dans un premier temps copier-coller une nouvelle ligne option comme ci-dessous après un retour à la ligne dans la partie catégorie :
 
-   ```html
+   ```javascript
 
    <option value="3" id="playlist-3">Playlist 3</option>
 
-    ```
+   ```
 
-    Vous devrez ensuite lui donner une nouvelle valeur, un nouvel ID et là renommer, évitez tout espaces et caractères spéciaux pour le nouvel ID. En gardant notre exemple donné ci-dessous, cette nouvelle ligne devrait alors ressembler à ça :
+   Vous devrez ensuite lui donner une nouvelle valeur, un nouvel ID et là renommer, évitez tout espaces et caractères spéciaux pour le nouvel ID. En gardant notre exemple donné ci-dessous, cette nouvelle ligne devrait alors ressembler à ça :
 
-   ```html
+   ```javascript
 
-   <option value="4" id="bruits-de-monstres">Bruits de monstres</option>
+   <option value="4" id="playlist-4">Bruits de monstres</option>
 
-    ```  
+   ```
 
-   Il vous sera ensuite nécessaire de créer votre nouvelle liste de sons, vous devrez alors copier-coller un nouveau bloc-sélection après un retour à la ligne :
+   Il vous sera ensuite nécessaire de créer votre nouvelle liste de sons, vous devrez alors copier-coller un nouveau bloc-sélection comme ci-dessous après un retour à la ligne :
 
-   ```html
+   ```javascript
+
    <select id="playlist-content-3" style="display: none;">
      <option value="sounds/lock.wav">Lock</option>
      <option value="sounds/dice.wav">Dice</option>
      <option value="sounds/notify.wav">Notify</option>
      <option value="sounds/drums.wav">Drums</option>
    </select>
-    ```
+
+   ```
 
    Vous devriez alors obtenir quelque chose comme ça après avoir renommé son ID, dans cet exemple nous avons renommé ``` id="playlist-content-3" ``` en ``` id="playlist-content-4" ``` :
 
-    ```html
+   ```javascript
+
    <select id="playlist-content-4" style="display: none;">
      <option value="sounds/lock.wav">Lock</option>
      <option value="sounds/dice.wav">Dice</option>
      <option value="sounds/notify.wav">Notify</option>
      <option value="sounds/drums.wav">Drums</option>
    </select>
-    ```
 
-    Pour terminer, vous devrez ajouter un second bloc de liste déroulante un peu plus bas dans le code en faisant un copier-coller de la ligne suivante :
+   ```
 
-    ```javascript
+   Pour terminer, vous devrez ajouter un second bloc de liste déroulante un peu plus bas dans le code en faisant un copier-coller de la ligne suivante :
+
+   ```javascript
+
       } else if (dropDown.value === "3") {
     myPlaylists[i].style.display = "none";
     myPlaylists[i].removeAttribute("name", "selected-playlist");
     myPlaylists[3].style.display = "flex";
     myPlaylists[3].setAttribute("name", "selected-playlist");
-    ```
 
-    Puis en changeant la valeur de ``` dropDown.value ``` et de ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
+   ```
 
-    ```javascript
+   Puis en changeant la valeur de ``` dropDown.value ``` et de ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
+
+   ```javascript
+
       } else if (dropDown.value === "4") {
     myPlaylists[i].style.display = "none";
     myPlaylists[i].removeAttribute("name", "selected-playlist");
     myPlaylists[4].style.display = "flex";
     myPlaylists[4].setAttribute("name", "selected-playlist");
-    ```
+
+   ```
 
 ### Ajouter des sons
 
