@@ -79,18 +79,18 @@ SoundBox est une macro qui vous permet de faire apparaître une boite à sons. V
          if (dropDown.value === "1") {
            myPlaylists[i].style.display = "none";
            myPlaylists[i].removeAttribute("name", "selected-playlist");
+           myPlaylists[0].style.display = "flex";
+           myPlaylists[0].setAttribute("name", "selected-playlist");
+         } else if (dropDown.value === "2") {
+           myPlaylists[i].style.display = "none";
+           myPlaylists[i].removeAttribute("name", "selected-playlist");
            myPlaylists[1].style.display = "flex";
            myPlaylists[1].setAttribute("name", "selected-playlist");
-         } else if (dropDown.value === "2") {
+         } else if (dropDown.value === "3") {
            myPlaylists[i].style.display = "none";
            myPlaylists[i].removeAttribute("name", "selected-playlist");
            myPlaylists[2].style.display = "flex";
            myPlaylists[2].setAttribute("name", "selected-playlist");
-         } else if (dropDown.value === "3") {
-           myPlaylists[i].style.display = "none";
-           myPlaylists[i].removeAttribute("name", "selected-playlist");
-           myPlaylists[3].style.display = "flex";
-           myPlaylists[3].setAttribute("name", "selected-playlist");
          }
        }
      }
@@ -110,7 +110,7 @@ SoundBox est une macro qui vous permet de faire apparaître une boite à sons. V
      default: "yes",
      close: html => {
        if (applyChanges) {
-           let canzone = html.find('[name="selected-playlist"]')[0].value || "none";
+         let canzone = html.find('[name="selected-playlist"]')[0].value || "none";
          let vol1 = html.find('[name="vol"]')[0].value || "none";
          AudioHelper.play({ src: canzone, volume: vol1, autoplay: true, loop: false }, true);
        }
@@ -202,7 +202,6 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 3. Automatiser la liste déroulante
 
    Il vous reste une dernière étape afin d'automatiser le script permettant la gestion de vos sons des playlists.
-
    Vous devez alors rajouter votre nouvelle playlist dans ``` myPlaylists ```, pour cela procédez comme suit :
 
    ```js
@@ -235,20 +234,20 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
       } else if (dropDown.value === "3") {
     myPlaylists[i].style.display = "none";
     myPlaylists[i].removeAttribute("name", "selected-playlist");
-    myPlaylists[3].style.display = "flex";
-    myPlaylists[3].setAttribute("name", "selected-playlist");
+    myPlaylists[2].style.display = "flex";
+    myPlaylists[2].setAttribute("name", "selected-playlist");
 
    ```
 
-   Vous devrez ensuite changer la valeur de ``` dropDown.value ``` et ``` myPlaylists ``` à 4 pour une quatrième playlist à titre d'exemple :
+   Vous devrez ensuite changer la valeur de ``` dropDown.value ``` à 4 et la valeur de ``` myPlaylists ``` à 3 pour une quatrième playlist. Effectuez le même procédé en rajoutant +1 aux valeur pour une cinquième playlist et ainsi de suite :
 
    ```js
 
       } else if (dropDown.value === "4") {
     myPlaylists[i].style.display = "none";
     myPlaylists[i].removeAttribute("name", "selected-playlist");
-    myPlaylists[4].style.display = "flex";
-    myPlaylists[4].setAttribute("name", "selected-playlist");
+    myPlaylists[3].style.display = "flex";
+    myPlaylists[3].setAttribute("name", "selected-playlist");
 
    ```
 

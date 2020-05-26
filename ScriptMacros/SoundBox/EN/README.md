@@ -19,7 +19,7 @@ SoundBox is a macro that allows you to display a sound box. You can play a sound
 
 1. Copy the code below or access it from [SoundBox.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/SoundBox/EN/SoundBox.js) :
 
-   ```javascript
+   ```js
 
    let applyChanges = false;
    new Dialog({
@@ -79,18 +79,18 @@ SoundBox is a macro that allows you to display a sound box. You can play a sound
          if (dropDown.value === "1") {
            myPlaylists[i].style.display = "none";
            myPlaylists[i].removeAttribute("name", "selected-playlist");
+           myPlaylists[0].style.display = "flex";
+           myPlaylists[0].setAttribute("name", "selected-playlist");
+         } else if (dropDown.value === "2") {
+           myPlaylists[i].style.display = "none";
+           myPlaylists[i].removeAttribute("name", "selected-playlist");
            myPlaylists[1].style.display = "flex";
            myPlaylists[1].setAttribute("name", "selected-playlist");
-         } else if (dropDown.value === "2") {
+         } else if (dropDown.value === "3") {
            myPlaylists[i].style.display = "none";
            myPlaylists[i].removeAttribute("name", "selected-playlist");
            myPlaylists[2].style.display = "flex";
            myPlaylists[2].setAttribute("name", "selected-playlist");
-         } else if (dropDown.value === "3") {
-           myPlaylists[i].style.display = "none";
-           myPlaylists[i].removeAttribute("name", "selected-playlist");
-           myPlaylists[3].style.display = "flex";
-           myPlaylists[3].setAttribute("name", "selected-playlist");
          }
        }
      }
@@ -110,7 +110,7 @@ SoundBox is a macro that allows you to display a sound box. You can play a sound
      default: "yes",
      close: html => {
        if (applyChanges) {
-           let canzone = html.find('[name="selected-playlist"]')[0].value || "none";
+         let canzone = html.find('[name="selected-playlist"]')[0].value || "none";
          let vol1 = html.find('[name="vol"]')[0].value || "none";
          AudioHelper.play({ src: canzone, volume: vol1, autoplay: true, loop: false }, true);
        }
@@ -135,7 +135,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    To rename a playlist, you just have to change its name which is contained in the first lines of the macro options. If we take the first playlist as an example, this line should correspond to this:
 
-   ```javascript
+   ```html
 
    <option value="3" id="playlist-3">Playlist 3</option>
 
@@ -143,7 +143,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    You just need to replace ``` Playlist 3 ``` by the name of your choice, for example ``` Sounds of monsters ```
 
-   ```javascript
+   ```html
 
    <option value="3" id="playlist-3">Sounds of monsters</option>
 
@@ -155,7 +155,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    To add an add a new playlist, you will first have to copy and paste a new line option as below after a line break in the category part:
 
-   ```javascript
+   ```html
 
    <option value="3" id="playlist-3">Playlist 3</option>
 
@@ -163,7 +163,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    Then you need to give it a new value, a new ID and rename it, avoid any spaces and special characters for the new ID. Keeping our example given above, this new line should look like this:
 
-   ```javascript
+   ```html
 
    <option value="4" id="playlist-4">Playlist 4</option>
 
@@ -173,7 +173,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    Then create your new list of sounds, you will then have to copy and paste a new selection block as below after a line break:
 
-   ```javascript
+   ```html
 
    <select id="playlist-content-3" style="display: none;">
      <option value="sounds/lock.wav">Lock</option>
@@ -186,7 +186,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    You should then get something like that after renaming its ID. In this example we have renamed ``` id="playlist-content-3" ``` to ``` id="playlist-content-4" ``` :
 
-   ```javascript
+   ```html
 
    <select id="playlist-content-4" style="display: none;">
      <option value="sounds/lock.wav">Lock</option>
@@ -199,9 +199,35 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
 3. Automate drop-down list
 
-   To finish, you will have to add a second block of drop-down list in order to automate the script allowing to play a sound. So, a little further down in the code, you will find the following line to copy and paste into a new line:
+   You have one last step to automate the script for managing your playlist sounds.
+   You must then add your new playlist in myPlaylists, for this proceed as follows:
 
-   ```javascript
+   ```js
+
+    myPlaylists = [
+      document.getElementById("playlist-content-1"),
+      document.getElementById("playlist-content-2"),
+      document.getElementById("playlist-content-3")
+    ];
+
+   ```
+
+   Then would become as below (don't forget the new comma at the end of the line of the previous playlist):
+
+   ```js
+
+    myPlaylists = [
+      document.getElementById("playlist-content-1"),
+      document.getElementById("playlist-content-2"),
+      document.getElementById("playlist-content-3"),
+      document.getElementById("playlist-content-4")
+    ];
+
+   ```
+  
+   You must then add a second drop-down list block. So, a little further down in the code, you will find the following line to copy and paste into a new line:
+
+   ```js
 
       } else if (dropDown.value === "3") {
     myPlaylists[i].style.display = "none";
@@ -211,9 +237,9 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    ```
 
-   Then you need to change the value of ``` dropDown.value ``` to ``` myPlaylists ``` to 4 for a fourth playlist as an example:
+   You will then have to change the value of ``` dropDown.value ``` and ``` myPlaylists ``` to 4 for a fourth playlist as an example:
 
-   ```javascript
+   ```js
 
       } else if (dropDown.value === "4") {
     myPlaylists[i].style.display = "none";
@@ -237,7 +263,7 @@ Some system sounds are installed by default as an example. If you want to add yo
 
    Par exemple :
 
-   ```javascript
+   ```js
 
    <option value="my-path/audio-file.wav">Drums</option>
 
