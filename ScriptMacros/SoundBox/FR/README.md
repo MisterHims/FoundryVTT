@@ -238,7 +238,7 @@ Des sons systèmes sont installés par défaut à titre d'exemple. Si vous souha
 
 2. Choisir le son à faire jouer :
 
-   Pour choisir le son à faire jouer lorsque vous sélectionnerez l'option en question dans le menu déroulant (l'option appelée Drums dans l'exemple ci-dessus), vous devrez simplement changer son chemin d'accès vers le fichier audio en question. Le chemin d'accès se trouve entre les guillemets juste après ````value= ``` Par exemple :
+   Pour choisir le son à faire jouer lorsque vous sélectionnerez l'option en question dans le menu déroulant (l'option appelée Drums dans l'exemple ci-dessus), vous devrez simplement changer son chemin d'accès vers le fichier audio en question. Le chemin d'accès se trouve entre les guillemets juste après ``` value= ``` Par exemple :
 
    ```javascript
 
