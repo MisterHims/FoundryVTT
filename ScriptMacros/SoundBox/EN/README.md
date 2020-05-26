@@ -213,7 +213,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 3. Automate drop-down list
 
    You have one last step to automate the script for managing your playlist sounds.
-   You must then add your new playlist in myPlaylists, for this proceed as follows:
+   You must then add your new playlist in ``` myPlaylists ```, for this proceed as follows:
 
    ```js
 
