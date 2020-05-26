@@ -232,8 +232,8 @@ You can configure the macro to manage your sounds in multiple defined playlists.
       } else if (dropDown.value === "3") {
     myPlaylists[i].style.display = "none";
     myPlaylists[i].removeAttribute("name", "selected-playlist");
-    myPlaylists[3].style.display = "flex";
-    myPlaylists[3].setAttribute("name", "selected-playlist");
+    myPlaylists[2].style.display = "flex";
+    myPlaylists[2].setAttribute("name", "selected-playlist");
 
    ```
 
@@ -244,8 +244,8 @@ You can configure the macro to manage your sounds in multiple defined playlists.
       } else if (dropDown.value === "4") {
     myPlaylists[i].style.display = "none";
     myPlaylists[i].removeAttribute("name", "selected-playlist");
-    myPlaylists[4].style.display = "flex";
-    myPlaylists[4].setAttribute("name", "selected-playlist");
+    myPlaylists[3].style.display = "flex";
+    myPlaylists[3].setAttribute("name", "selected-playlist");
 
    ```
 
