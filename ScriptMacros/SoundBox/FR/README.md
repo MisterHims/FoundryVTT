@@ -215,7 +215,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-   Vous devrez ensuite changer la la valeur de ``` dropDown.value ``` et de ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
+   Vous devrez ensuite changer la la valeur de ``` dropDown.value ``` et ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
 
    ```javascript
 
@@ -229,10 +229,12 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
 ### Ajouter des sons
 
-Des sons systèmes sont installés par défaut à titre d'exemple. Si vous souhaitez ajouter vos propres sons, voici la marche à suivre :
+Des sons systèmes sont installés par défaut à titre d'exemple. Si vous souhaitez ajouter vos propres sons, vous devrez vous y prendre comme ci-dessous :
 
 1. Ajouter une nouvelle ligne option :
 
+   Ajouter une nouvelle ligne option vous permettra de rajouter un son dans la playlist en question.
    Pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="sounds/lock.wav">Lock</option> ``` puis collez là après un retour à la ligne dans la playlist de votre choix.
 
-2. Ajouter une nouvelle ligne option :
+2. Choisir le son à faire jouer :
+
