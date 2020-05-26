@@ -201,7 +201,34 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
 3. Automatiser la liste déroulante
 
-   Pour terminer, vous devrez ajouter un second bloc de liste déroulante afin d'automatiser le script permettant de faire jouer un son. Ainsi, un peu plus bas dans le code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
+   Il vous reste une dernière étape afin d'automatiser le script permettant la gestion de vos sons des playlists.
+
+   Vous devez alors rajouter votre nouvelle playlist dans ``` myPlaylists ```, pour cela procédez comme suit :
+
+   ```javascript
+
+    myPlaylists = [
+      document.getElementById("playlist-content-1"),
+      document.getElementById("playlist-content-2"),
+      document.getElementById("playlist-content-3")
+    ];
+
+   ```
+
+   Deviendrait alors comme ci-dessous (n'oubliez pas la nouvelle virgule en fin de ligne de la précédente playlist) :
+
+   ```javascript
+
+    myPlaylists = [
+      document.getElementById("playlist-content-1"),
+      document.getElementById("playlist-content-2"),
+      document.getElementById("playlist-content-3"),
+      document.getElementById("playlist-content-4")
+    ];
+
+   ```
+
+   Vous devez ensuite ajouter un second bloc de liste déroulante. Ainsi, un peu plus bas dans le code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
 
    ```javascript
 
@@ -213,7 +240,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-   Vous devrez ensuite changer la la valeur de ``` dropDown.value ``` et ``` myPlaylists ``` à 4 pour une quatrième playlist à titre d'exemple :
+   Vous devrez ensuite changer la valeur de ``` dropDown.value ``` et ``` myPlaylists ``` à 4 pour une quatrième playlist à titre d'exemple :
 
    ```javascript
 
