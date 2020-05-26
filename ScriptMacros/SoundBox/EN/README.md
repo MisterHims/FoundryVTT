@@ -1,197 +1,244 @@
-# LumenVision
+# SoundBox
 
 ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 
-* **Author**: Sky-Captain-13, Foundry VTT Community
+* **Author**: Rockshow, MisterHims, Foundry VTT Community
 * **Traduction**: MisterHims
-* **Version**: 1.0.1
+* **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
 * **Module Requirement(s)**: None
 
 ## Description
 
-LumenVision est un outil permettant d'initialiser rapidement la vision, la lumière et sa couleur issue d'un ou plusieurs tokens sélectionnés, une notification apparaît alors dans le cas contraire. Cette macro est en partie issue de la communauté Foundry VTT et a par la suite été traduite en français, modifiée puis convertie au système métrique européen. C'est un outil principalement utile pour le MJ. Voici un exemple avec les différentes sources de lumières disponibles :
+SoundBox is a macro that allows you to display a sound box. You can play a sound from a selection and then adjust its volume. It is particularly useful when you don't want to use the JukeBox integrated into FoundryVTT and when you want to play sound effects or small ambient sounds for exemple.
 
-![LumenVision-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
+![SoundBox-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/SoundBox/EN/images/dem_01.gif)
 
 ## Installation
 
-1. Copiez le code ci-dessous ou accédez-y depuis le fichier [LumenVision.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/LumenVision.js) :
+1. Copy the code below or access it from [SoundBox.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/SoundBox/EN/SoundBox.js) :
 
    ```javascript
 
-    let applyChanges = false;
-    if (!actor) {
-        ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
-        return;
-    }
-    new Dialog({
-    title: `Configuration de la vision du token`,
-    content: `
-        <form>
-        <div class="form-group">
-            <label>Type de vision :</label>
-            <select id="vision-type" name="vision-type">
-            <option value="nochange">Pas de changement</option>
-            <option value="dim0">Aucune</option>
-            <option value="dim30">Vision dans le noir (9 m)</option>
-            <option value="dim60">Vision dans le noir (18 m)</option>
-            <option value="dim90">Vision dans le noir (27 m)</option>
-            <option value="dim120">Vision dans le noir (36 m)</option>
-            <option value="dim150">Vision dans le noir (45 m)</option>
-            <option value="dim180">Vision dans le noir (54 m)</option>
-            <option value="bright120">Vision du diable (36 m dans les ténèbres)</option>
-            </select>
+   let applyChanges = false;
+   new Dialog({
+     title: `SoundBox`,
+     content: `
+       <form>
+         <div class="form-group">
+           <label>Choose category</label>
+             <select id="dropDown" onchange="SoundBox()">
+               <option value="1" id="playlist-1" selected="selected">Playlist 1</option>
+               <option value="2" id="playlist-2">Playlist 2</option>
+               <option value="3" id="playlist-3">Playlist 3</option>
+             </select>
+         </div>
+         <div class="form-group">
+           <label>Choose song</label>
+             <select id="playlist-content-1" name="selected-playlist">
+               <option value="sounds/dice.wav">Dice</option>
+               <option value="sounds/lock.wav">Door</option>
+               <option value="sounds/drums.wav">Drums</option>
+               <option value="sounds/notify.wav">Notify</option>
+             </select>
+             <select id="playlist-content-2" style="display: none;">
+               <option value="sounds/lock.wav">Lock</option>
+               <option value="sounds/dice.wav">Dice</option>
+               <option value="sounds/notify.wav">Notify</option>
+               <option value="sounds/drums.wav">Drums</option>
+             </select>
+             <select id="playlist-content-3" style="display: none;">
+               <option value="sounds/notify.wav">Notify</option>
+               <option value="sounds/drums.wav">Drums</option>
+               <option value="sounds/lock.wav">Door</option>
+               <option value="sounds/dice.wav">Dice</option>
+             </select>
         </div>
         <div class="form-group">
-            <label>Source de lumière :</label>
-            <select id="light-source" name="light-source">
-            <option value="nochange">Pas de changement</option>
-            <option value="none">Aucune</option>
-            <option value="candle">Bougie</option>
-            <option value="lamp">Lampe</option>
-            <option value="bullseye">Lanterne sourde</option>
-            <option value="hooded-dim">Lanterne à capote (lumière faible)</option>
-            <option value="hooded-bright">Lanterne à capote (lumière vive)</option>
-            <option value="light-dim">Lanterne de révélation (lumière faible)</option>
-            <option value="light-bright">Lanterne de révélation (lumière vive)</option>
-            <option value="torch">Torche</option>
-            </select>
-        </div>
-        </form>
-        `,
-    buttons: {
-        yes: {
-        icon: "<i class='fas fa-check'></i>",
-        label: `Appliquer`,
-        callback: () => applyChanges = true
-        },
-        no: {
-        icon: "<i class='fas fa-times'></i>",
-        label: `Annuler`
-        },
-    },
-    default: "yes",
-    close: html => {
-        if (applyChanges) {
-        for ( let token of canvas.tokens.controlled ) {
-            let visionType = html.find('[name="vision-type"]')[0].value || "none";
-            let lightSource = html.find('[name="light-source"]')[0].value || "none";
-            let dimSight = 0;
-            let brightSight = 0;
-            let dimLight = 0;
-            let brightLight = 0;
-            let lightAngle = 360;
-            let lockRotation = token.data.lockRotation;
-            // Get Vision Type Values
-            switch (visionType) {
-            case "dim0":
-                dimSight = 0;
-                brightSight = 0;
-                break;
-            case "dim30":
-                dimSight = 9;
-                brightSight = 0;
-                break;
-            case "dim60":
-                dimSight = 18;
-                brightSight = 0;
-                break;
-            case "dim90":
-                dimSight = 27;
-                brightSight = 0;
-                break;
-            case "dim120":
-                dimSight = 36;
-                brightSight = 0;
-                break;
-            case "dim150":
-                dimSight = 45;
-                brightSight = 0;
-                break;
-            case "dim180":
-                dimSight = 54;
-                brightSight = 0;
-                break;
-            case "bright120":
-                dimSight = 0;
-                brightSight= 36;
-                break;
-            case "nochange":
-            default:
-                dimSight = token.data.dimSight;
-                brightSight = token.data.brightSight;
-            }
-            // Get Light Source Values
-            switch (lightSource) {
-            case "none":
-                dimLight = 0;
-                brightLight = 0;
-                break;
-            case "candle":
-                dimLight = 2;
-                brightLight = 1;
-                break;
-            case "lamp":
-                dimLight = 9;
-                brightLight = 3;
-                break;
-            case "bullseye":
-                dimLight = 24;
-                brightLight = 12;
-                lockRotation = false;
-                lightAngle = 52.5;
-                break;
-            case "hooded-dim":
-                dimLight = 1;
-                brightLight = 0;
-                break;
-            case "hooded-bright":
-                dimLight = 12;
-                brightLight = 6;
-                break;
-            case "light-dim":
-                dimLight = 1;
-                brightLight = 0;
-                break;
-            case "light-bright":
-                dimLight = 10;
-                brightLight = 4;
-                break;
-            case "torch":
-                dimLight = 8;
-                brightLight = 4;
-                break;
-            case "nochange":
-            default:
-                dimLight = token.data.dimLight;
-                brightLight = token.data.brightLight;
-                lightAngle = token.data.lightAngle;
-                lockRotation = token.data.lockRotation;
-            }
-            // Update Token
-            console.log(token);
-            token.update({
-            vision: true,
-            dimSight: dimSight,
-            brightSight: brightSight,
-            dimLight: dimLight,
-            brightLight:  brightLight,
-            lightAngle: lightAngle,
-            lockRotation: lockRotation
-            });
-        }
-        }
-    }
-    }).render(true);
+           <label for="vol">Volume</label>
+              <div class="form-fields">
+               <input type="range" id="vol" name="vol" min="0" max="8" value="1" step="0.2" data-dtype="Number">
+               <span class="range-value" id="demo">1</span>
+              </div>
+           </div>
+    </form>
+   <script>
+   var slider = document.getElementById("vol");
+   var output = document.getElementById("demo");
+   output.innerHTML = slider.value;
+   slider.oninput = function() {output.innerHTML = this.value;}
+     var dropDown = document.getElementById("dropDown"),
+       myPlaylists = [
+         document.getElementById("playlist-content-1"),
+         document.getElementById("playlist-content-2"),
+         document.getElementById("playlist-content-3")
+       ];
+     function SoundBox() {
+       for (i = 0; i < myPlaylists.length; i++) {
+         if (dropDown.value === "1") {
+           myPlaylists[i].style.display = "none";
+           myPlaylists[i].removeAttribute("name", "selected-playlist");
+           myPlaylists[1].style.display = "flex";
+           myPlaylists[1].setAttribute("name", "selected-playlist");
+         } else if (dropDown.value === "2") {
+           myPlaylists[i].style.display = "none";
+           myPlaylists[i].removeAttribute("name", "selected-playlist");
+           myPlaylists[2].style.display = "flex";
+           myPlaylists[2].setAttribute("name", "selected-playlist");
+         } else if (dropDown.value === "3") {
+           myPlaylists[i].style.display = "none";
+           myPlaylists[i].removeAttribute("name", "selected-playlist");
+           myPlaylists[3].style.display = "flex";
+           myPlaylists[3].setAttribute("name", "selected-playlist");
+         }
+       }
+     }
+   </script>
+             `,
+     buttons: {
+       yes: {
+         icon: "<i class='fas fa-check'></i>",
+         label: `Apply`,
+         callback: () => applyChanges = true
+       },
+       no: {
+         icon: "<i class='fas fa-times'></i>",
+         label: `Cancel`
+       },
+     },
+     default: "yes",
+     close: html => {
+       if (applyChanges) {
+           let canzone = html.find('[name="selected-playlist"]')[0].value || "none";
+         let vol1 = html.find('[name="vol"]')[0].value || "none";
+         AudioHelper.play({ src: canzone, volume: vol1, autoplay: true, loop: false }, true);
+       }
+     }
+   }).render(true);
 
    ```
 
-   *[LumenVision.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/LumenVision.js)*
+   *[SoundBox.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/SoundBox/EN/SoundBox.js)*
 
-2. Allez maintenant sur Foundry VTT puis cliquez sur un emplacement libre de la barre de macros afin d'en créer une nouvelle.
+2. Now go to FoundryVTT then click on an empty place in the macro bar to create a new one.
 
-3. Sélectionnez le type "Script" puis collez le code à l'intérieur.
+3. Select type "Script" then paste the code inside.
 
-4. Donnez-lui le nom de votre choix, par exemple : ``` LumenVision ``` et sauvegardez la macro.
+4. Give it the name of your choice, for example: ``` SoundBox ``` and save the macro.
+
+## Configuration
+
+You can configure the macro to manage your sounds in multiple defined playlists. Your sounds are contained in different playlists. By default, the macro has 3 playlists containing 4 sounds.
+
+### Rename a playlist
+
+   To rename a playlist, you just have to change its name which is contained in the first lines of the macro options. If we take the first playlist as an example, this line should correspond to this:
+
+   ```javascript
+
+   <option value="3" id="playlist-3">Playlist 3</option>
+
+   ```
+
+   You just need to replace ``` Playlist 3 ``` by the name of your choice, for example ``` Sounds of monsters ```
+
+   ```javascript
+
+   <option value="3" id="playlist-3">Sounds of monsters</option>
+
+   ```
+
+### Add a new playlist
+
+1. Add a new playlist option
+
+   To add an add a new playlist, you will first have to copy and paste a new line option as below after a line break in the category part:
+
+   ```javascript
+
+   <option value="3" id="playlist-3">Playlist 3</option>
+
+   ```
+
+   Then you need to give it a new value, a new ID and rename it, avoid any spaces and special characters for the new ID. Keeping our example given above, this new line should look like this:
+
+   ```javascript
+
+   <option value="4" id="playlist-4">Playlist 4</option>
+
+   ```
+
+2. Add a new list of sounds
+
+   Then create your new list of sounds, you will then have to copy and paste a new selection block as below after a line break:
+
+   ```javascript
+
+   <select id="playlist-content-3" style="display: none;">
+     <option value="sounds/lock.wav">Lock</option>
+     <option value="sounds/dice.wav">Dice</option>
+     <option value="sounds/notify.wav">Notify</option>
+     <option value="sounds/drums.wav">Drums</option>
+   </select>
+
+   ```
+
+   You should then get something like that after renaming its ID. In this example we have renamed ``` id="playlist-content-3" ``` to ``` id="playlist-content-4" ``` :
+
+   ```javascript
+
+   <select id="playlist-content-4" style="display: none;">
+     <option value="sounds/lock.wav">Lock</option>
+     <option value="sounds/dice.wav">Dice</option>
+     <option value="sounds/notify.wav">Notify</option>
+     <option value="sounds/drums.wav">Drums</option>
+   </select>
+
+   ```
+
+3. Automate drop-down list
+
+   To finish, you will have to add a second block of drop-down list in order to automate the script allowing to play a sound. So, a little further down in the code, you will find the following line to copy and paste into a new line:
+
+   ```javascript
+
+      } else if (dropDown.value === "3") {
+    myPlaylists[i].style.display = "none";
+    myPlaylists[i].removeAttribute("name", "selected-playlist");
+    myPlaylists[3].style.display = "flex";
+    myPlaylists[3].setAttribute("name", "selected-playlist");
+
+   ```
+
+   Then you need to change the value of ``` dropDown.value ``` to ``` myPlaylists ``` to 4 for a fourth playlist as an example:
+
+   ```javascript
+
+      } else if (dropDown.value === "4") {
+    myPlaylists[i].style.display = "none";
+    myPlaylists[i].removeAttribute("name", "selected-playlist");
+    myPlaylists[4].style.display = "flex";
+    myPlaylists[4].setAttribute("name", "selected-playlist");
+
+   ```
+
+### Add new sounds
+
+Some system sounds are installed by default as an example. If you want to add your own sounds, you will have to do it as below:
+
+1. Add a new option line
+
+   Adding a new option line allow you to add a sound to the playlist. To add an additional option, simply copy an option line like this: ``` <option value="sounds/drums.wav">Drums</option> ``` then paste it after a line break in the playlist of your choice.
+
+2. Select the sound to play
+
+   To choose the sound to play when you select the option from the drop-down menu (the option called Drums in the example above), you will simply have to change its path to the new audio file. The path is between the quotes just after ``` value= ```
+
+   Par exemple :
+
+   ```javascript
+
+   <option value="my-path/audio-file.wav">Drums</option>
+
+   ```

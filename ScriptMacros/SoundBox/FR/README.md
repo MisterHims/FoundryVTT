@@ -11,9 +11,7 @@
 
 ## Description
 
-SoundBox est une macro qui vous permet de faire apparaître une boite à sons. Cette dernière vous permet de faire jouer un son parmi une sélection puis de régler son volume. Elle est particulièrement utile lorsque vous ne souhaitez pas utiliser la JukeBox intégrée à FoundryVTT lorsque vous désirez faire jouer des bruitages ou des petits sons d'ambiance par exemple.
-
-
+SoundBox est une macro qui vous permet de faire apparaître une boite à sons. Vous pouvez ainsi faire jouer un son parmi une sélection puis régler son volume. Elle est particulièrement utile lorsque vous ne souhaitez pas utiliser la JukeBox intégrée à FoundryVTT lorsque vous désirez faire jouer des bruitages ou des petits sons d'ambiance par exemple.
 
 ![SoundBox-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/SoundBox/FR/images/dem_01.gif)
 
@@ -203,7 +201,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
 3. Automatiser la liste déroulante
 
-   Pour terminer, vous devrez ajouter un second bloc de liste déroulante afin d'automatiser le script le script permettant de faire jouer un son. Ainsi, un peu plus bas dans le code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
+   Pour terminer, vous devrez ajouter un second bloc de liste déroulante afin d'automatiser le script permettant de faire jouer un son. Ainsi, un peu plus bas dans le code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
 
    ```javascript
 
@@ -215,7 +213,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-   Vous devrez ensuite changer la la valeur de ``` dropDown.value ``` et ``` myPlaylists ``` à 4 pour une quatrième playlist à titre d'exemple  :
+   Vous devrez ensuite changer la la valeur de ``` dropDown.value ``` et ``` myPlaylists ``` à 4 pour une quatrième playlist à titre d'exemple :
 
    ```javascript
 
@@ -227,16 +225,16 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-### Ajouter des sons
+### Ajouter des nouveaux sons
 
 Des sons systèmes sont installés par défaut à titre d'exemple. Si vous souhaitez ajouter vos propres sons, vous devrez vous y prendre comme ci-dessous :
 
-1. Ajouter une nouvelle ligne option :
+1. Ajouter une nouvelle ligne option
 
    Ajouter une nouvelle ligne option vous permettra de rajouter un son dans la playlist en question.
    Pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="sounds/drums.wav">Drums</option> ``` puis collez là après un retour à la ligne dans la playlist de votre choix.
 
-2. Choisir le son à faire jouer :
+2. Sélectionner le son à faire jouer
 
    Pour choisir le son à faire jouer lorsque vous sélectionnerez l'option en question dans le menu déroulant (l'option appelée Drums dans l'exemple ci-dessus), vous devrez simplement changer son chemin d'accès vers le fichier audio en question. Le chemin d'accès se trouve entre les guillemets juste après ``` value= ```
 
