@@ -11,7 +11,7 @@
 
 ## Description
 
-LightItems est une collection de macros qui permettra de simuler la lumière générée par divers objects comme une torche, une lampe ou encore une lanterne utilisée par un personnage. L'utilisation de ces objets consomment autimatique les ressources nécéssaires à leur utilisation (bougies, flasques d'huile, etc.). Cette collection est en partie issue de la communauté Foundry VTT mais a été traduite en français, modifiée puis convertie au système métrique.
+LightItems est une collection de macros qui permettra de simuler la lumière générée par divers objets comme une torche, une lampe ou encore une lanterne utilisée par un personnage. L'utilisation de ces objets consomment automatiquement les ressources nécessaires à leur utilisation (bougies, flasques d'huile, etc.). Cette collection est en partie issue de la communauté FoundryVTT mais a été traduite en français, modifiée puis convertie au système métrique.
 
 ![LightItems-Lanterne-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LightItems/FR/images/dem_01.gif)
 
