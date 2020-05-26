@@ -155,6 +155,8 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
 ### Ajouter une playlist
 
+   1. Ajouter une nouvelle option de playlist
+
    Pour ajouter une ajouter une nouvelle playlist, vous devrez dans un premier temps copier-coller une nouvelle ligne option comme ci-dessous après un retour à la ligne dans la partie catégorie :
 
    ```javascript
@@ -163,13 +165,15 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-   Vous devrez ensuite lui donner une nouvelle valeur, un nouvel ID et là renommer, évitez tout espaces et caractères spéciaux pour le nouvel ID. En gardant notre exemple donné ci-dessous, cette nouvelle ligne devrait alors ressembler à ça :
+   Vous devrez ensuite lui donner une nouvelle valeur, un nouvel ID et là renommer, évitez tout espaces et caractères spéciaux pour le nouvel ID. En gardant notre exemple donné ci-dessus, cette nouvelle ligne devrait alors ressembler à ça :
 
    ```javascript
 
-   <option value="4" id="playlist-4">Bruits de monstres</option>
+   <option value="4" id="playlist-4">Playlist 4</option>
 
    ```
+
+   2. Ajouter une nouvelle liste de sons
 
    Il vous sera ensuite nécessaire de créer votre nouvelle liste de sons, vous devrez alors copier-coller un nouveau bloc-sélection comme ci-dessous après un retour à la ligne :
 
@@ -184,7 +188,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-   Vous devriez alors obtenir quelque chose comme ça après avoir renommé son ID, dans cet exemple nous avons renommé ``` id="playlist-content-3" ``` en ``` id="playlist-content-4" ``` :
+   Vous devriez alors obtenir quelque chose comme ça après avoir renommé son ID. Dans cet exemple nous avons renommé ``` id="playlist-content-3" ``` en ``` id="playlist-content-4" ``` :
 
    ```javascript
 
@@ -197,7 +201,9 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-   Pour terminer, vous devrez ajouter un second bloc de liste déroulante un peu plus bas dans le code en faisant un copier-coller de la ligne suivante :
+   3. Automatiser la liste déroulante
+
+   Pour terminer, vous devrez ajouter un second bloc de liste déroulante afin d'automatiser le script le script permettant de faire jouer un son. Ainsi, un peu plus bas dans le code, vous trouverez la ligne suivante à copier-coller dans une nouvelle ligne :
 
    ```javascript
 
@@ -209,7 +215,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    ```
 
-   Puis en changeant la valeur de ``` dropDown.value ``` et de ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
+   Vous devrez ensuite changer la valeur de ``` dropDown.value ``` et de ``` myPlaylists ``` à par exemple 4 pour une quatrième playlist  :
 
    ```javascript
 
