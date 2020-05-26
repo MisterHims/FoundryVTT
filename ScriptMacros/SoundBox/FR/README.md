@@ -29,7 +29,7 @@ SoundBox est une macro qui vous permet de faire apparaître une boite à sons. C
      content: `
        <form>
          <div class="form-group">
-           <label>Choose category:</label>
+           <label>Choose category</label>
              <select id="dropDown" onchange="SoundBox()">
                <option value="1" id="playlist-1" selected="selected">Playlist 1</option>
                <option value="2" id="playlist-2">Playlist 2</option>
@@ -37,7 +37,7 @@ SoundBox est une macro qui vous permet de faire apparaître une boite à sons. C
              </select>
          </div>
          <div class="form-group">
-           <label>Choose song:</label>
+           <label>Choose song</label>
              <select id="playlist-content-1" name="selected-playlist">
                <option value="sounds/dice.wav">Dice</option>
                <option value="sounds/lock.wav">Door</option>
@@ -58,7 +58,7 @@ SoundBox est une macro qui vous permet de faire apparaître une boite à sons. C
              </select>
         </div>
         <div class="form-group">
-           <label for="vol">Volume:</label>
+           <label for="vol">Volume</label>
               <div class="form-fields">
                <input type="range" id="vol" name="vol" min="0" max="8" value="1" step="0.2" data-dtype="Number">
                <span class="range-value" id="demo">1</span>
