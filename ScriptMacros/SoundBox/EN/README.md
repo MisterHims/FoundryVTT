@@ -237,7 +237,7 @@ You can configure the macro to manage your sounds in multiple defined playlists.
 
    ```
 
-   You will then have to change the value of ``` dropDown.value ``` and ``` myPlaylists ``` to 4 for a fourth playlist as an example:
+   You will then need to change the value from ``` dropDown.value ``` at 4 and the value from ``` myPlaylists ``` at 3 for a fourth playlist. Perform the same process by adding +1 to the values ​​for a fifth playlist, etc.:
 
    ```js
 
