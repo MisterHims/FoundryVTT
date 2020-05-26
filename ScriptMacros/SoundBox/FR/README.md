@@ -137,7 +137,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
    Pour renommer une playlist, il vous suffit de changer son nom qui est contenu les premières lignes options de la macro.
    Si nous prenons comme exemple la première playlist, cette ligne devrait correspondre à ça :
 
-   ```javascript
+   ```html
 
    <option value="3" id="playlist-3">Playlist 3</option>
 
@@ -145,7 +145,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Il vous suffit alors de remplacer ``` Playlist 3 ``` par le nom de votre choix, par exemple ``` Bruits de monstres ```
 
-   ```javascript
+   ```html
 
    <option value="3" id="playlist-3">Bruits de monstres</option>
 
@@ -157,7 +157,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Pour ajouter une ajouter une nouvelle playlist, vous devrez dans un premier temps copier-coller une nouvelle ligne option comme ci-dessous après un retour à la ligne dans la partie catégorie :
 
-   ```javascript
+   ```html
 
    <option value="3" id="playlist-3">Playlist 3</option>
 
@@ -165,7 +165,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Vous devrez ensuite lui donner une nouvelle valeur, un nouvel ID et là renommer, évitez tout espaces et caractères spéciaux pour le nouvel ID. En gardant notre exemple donné ci-dessus, cette nouvelle ligne devrait alors ressembler à ça :
 
-   ```javascript
+   ```html
 
    <option value="4" id="playlist-4">Playlist 4</option>
 
@@ -175,7 +175,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Il vous sera ensuite nécessaire de créer votre nouvelle liste de sons, vous devrez alors copier-coller un nouveau bloc-sélection comme ci-dessous après un retour à la ligne :
 
-   ```javascript
+   ```html
 
    <select id="playlist-content-3" style="display: none;">
      <option value="sounds/lock.wav">Lock</option>
@@ -188,7 +188,7 @@ Par défaut, la macro dispose de 3 playlists contenant 4 sons.
 
    Vous devriez alors obtenir quelque chose comme ça après avoir renommé son ID. Dans cet exemple nous avons renommé ``` id="playlist-content-3" ``` en ``` id="playlist-content-4" ``` :
 
-   ```javascript
+   ```html
 
    <select id="playlist-content-4" style="display: none;">
      <option value="sounds/lock.wav">Lock</option>
