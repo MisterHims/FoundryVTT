@@ -1,8 +1,9 @@
-# EquipUnEquip
+# EssentialChecks
 
 ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 
-* **Author**: Foundry VTT Community, MisterHims, Melithian539, Ultrakorne
+* **Author**: DocQuantic, Foundry VTT Community
+* **Traduction**: DocQuantic
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
 * **System Compatibility**: DnD5e
@@ -10,74 +11,134 @@
 
 ## Description
 
-EquipUnequip is a macro allowing to quickly equip or unequip an object of the inventory for the selected token. A notification appear if no token has been selected and if the object sought has not been found.
+EssentialChecks is a collection of very useful macros for performing Ability or Skill checks. If the character is not selected, a notification will appear to warn you.
 
-![EquipUnequip-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/images/dem-en-1.gif)
+### Installation of AbilityCheck
 
-## Installation
+![AbilityCheck-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EssentialChecks/EN/images/abilitycheck-dem-01.gif)
 
-### Installation of equip-unequip-generic
-
-The following code is necessary to use the second macro which will allow you to define the object to equip or unequip.
-
-1. Copy the code below or access it from the file [equip-unequip-item.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/EN/Macros/equip-unequip-generic.js) :
+1. Copy the code below or access it from the [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EssentialChecks/EN/Collection/AbilityCheck.js) under the name of "AbilityCheck.js" :
 
    ```javascript
-    let itemName = args[0];
-    let item = actor.items.find(i => i.name === itemName);
-    if (!item) {
-        ui.notifications.warn(`No object named ${itemName} was found`);
-        return;
-    }
-    ui.notifications.info(item.data.data.equipped ? `${itemName} Equipped` : `${itemName} Unequipped`);
-    actor.updateOwnedItem({ _id: item.id, "data.equipped": !item.data.data.equipped });
+   let rollDices = false;
+   if (!actor) {
+       ui.notifications.warn(`No selected token!`);
+       return;
+   }
+   let messageContent = '';
+   let d = new Dialog({
+       title: "Ability Check",
+       content: `
+        <form>
+        <div class="form-group">
+            <label>Ability Check</label>
+            <select id="ability-type" name="ability-type">
+            <option value="str">Strength</option>
+            <option value="dex">Dexterity</option>
+            <option value="con">Constitution</option>
+            <option value="int">Intelligence</option>
+            <option value="wis">Wisdom</option>
+            <option value="cha">Charisma</option>
+            </select>
+        </div>
+        </form>
+        `,
+       buttons: {
+           yes: {
+               icon: '<i class="fas fa-check"></i>',
+               label: "Roll",
+               callback: () => rollDices = true
+           },
+           no: {
+               icon: '<i class="fas fa-times"></i>',
+               label: "Cancel"
+           }
+       },
+       default: "yes",
+       close: html => {
+           if (rollDices) {
+               let caracType = html.find('[name="ability-type"]')[0].value || "none";
+               actor.rollAbility(caracType);
+           }
+       }
+   }).render(true);
    ```
 
-   *[equip-unequip-generic.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/EN/Macros/equip-unequip-generic.js)*
+   *[AbilityCheck.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EssentialChecks/EN/Collection/AbilityCheck.js)*
 
-2. Now go to Foundry VTT then click on an empty slot in the macro bar to create a new one.
+2. Now go to Foundry VTT then click on an empty place in the macro bar to create a new one.
 
-3. Select the "Script" type then paste the code inside.
+3. Select the type "Script" then paste the code inside.
 
-4. Give it exactly the following name: ``` equip-unequip-generic ``` and save the macro.
+4. For example, give it the following name: ``` Ability Check ``` and save the macro.
 
-5. You will not need the macro there, so you can remove (but not delete) of there.
+### Installation of SkillCheck
 
-### Installation of the macro object to use
+![SkillCheck-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EssentialChecks/EN/images/skillcheck-dem-01.gif)
 
-1. Copy the code below or access it from the [Macros](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/EN/Macros/equip-unequip-item.js) under the name of "equip-unequip-item.js" :
+1. Copy the code below or access it from the [Collection](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EssentialChecks/EN/Collection/SkillCheck.js) under the name of "SkillCheck.js" :
 
    ```javascript
-    const macro = game.macros.entities.find(m => m.name === "equip-unequip-generic");
-    if (!actor) {
-        ui.notifications.warn(`You didn't have selected token !`);
-        return;
-    }
-    if (!macro) {
-        ui.notifications.error("This macro depends of the 'equip-unequip-generic' macro which cannot be found.");
-        return;
-    }
-    macro.execute("Shield", true);
+   let rollDices = false;
+   if (!actor) {
+       ui.notifications.warn(`No selected token!`);
+       return;
+   }
+   let messageContent = '';
+   let d = new Dialog({
+       title: "Skill Check",
+       content: `
+        <form>
+        <div class="form-group">
+            <label>Skill Check</label>
+            <select id="ability-type" name="ability-type">
+            <option value="acr">Acrobatics</option>
+            <option value="arc">Arcana</option>
+            <option value="ath">Athletics</option>
+            <option value="ste">Stealth</option>
+            <option value="ani">Animal Handling</option>
+            <option value="slt">Sleight of Hand</option>
+            <option value="his">History</option>
+            <option value="itm">Intimidation</option>
+            <option value="inv">Investigation</option>
+            <option value="med">Medicine</option>
+            <option value="nat">Nature</option>
+            <option value="prc">Perception</option>
+            <option value="ins">Insight</option>
+            <option value="per">Persuasion</option>
+            <option value="rel">Religion</option>
+            <option value="prf">Représentation</option>
+            <option value="dec">Supercherie</option>
+            <option value="sur">Survival</option>
+            </select>
+        </div>
+        </form>
+        `,
+       buttons: {
+           yes: {
+               icon: '<i class="fas fa-check"></i>',
+               label: "Roll",
+               callback: () => rollDices = true
+           },
+           no: {
+               icon: '<i class="fas fa-times"></i>',
+               label: "Cancel"
+           }
+       },
+       default: "yes",
+       close: html => {
+           if (rollDices) {
+               let abilityType = html.find('[name="ability-type"]')[0].value || "none";
+               actor.rollSkill(abilityType);
+           }
+       }
+   }).render(true);
    ```
 
-   *[equip-unequip-item.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EquipUnequip/EN/Macros/equip-unequip-item.js)*
+   *[SkillCheck.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/EssentialChecks/EN/Collection/SkillCheck.js)*
 
-2. Now go to Foundry VTT then click on an empty slot in the macro bar to create a new one.
+2. Now go to Foundry VTT then click on an empty place in the macro bar to create a new one.
 
-3. Select the "Script" type then paste the code inside.
+3. Select the type "Script" then paste the code inside.
 
-4. For example, give it the following name: ``` Equip/Unequip Shield ``` and save the macro.
-
-It is with the macro above that you will have to interact to equip or unequip the desired object (in this example a Shield).
-
-Thus, the name of the object in this macro must be identical to the token's inventory. For example, replace "Shield" with "Trident" if you want to equip or remove your trident.
-
-Warning ! Before using the macro with the desired object, it's advisable to unequip the object. Otherwise, the macro may warn you that the object has been equipped when it was actually unequipped. To solve this problem, all you need to do is to access in your token's inventory and manually equip / unequip the item once.
-
-## Upcoming improvements
-
-* Possibility to equip or unequip several objects at the same time
-
-## Problems encountered
-
-* It's possible that the macro signals you that the object has been equipped when it was actually unequipped or vice versa. If this is the case, you only need to manually equip or unequip the desired object once in your character's inventory.
+4. For example, give it the following name: ``` Skill Check ``` and save the macro.
