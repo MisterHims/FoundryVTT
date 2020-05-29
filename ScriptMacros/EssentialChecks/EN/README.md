@@ -107,7 +107,7 @@ EssentialChecks is a collection of very useful macros for performing Ability or 
             <option value="ins">Insight</option>
             <option value="per">Persuasion</option>
             <option value="rel">Religion</option>
-            <option value="prf">Représentation</option>
+            <option value="prf">Performance</option>
             <option value="dec">Deception</option>
             <option value="sur">Survival</option>
             </select>

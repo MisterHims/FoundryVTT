@@ -26,7 +26,7 @@ let d = new Dialog({
          <option value="ins">Insight</option>
          <option value="per">Persuasion</option>
          <option value="rel">Religion</option>
-         <option value="prf">Représentation</option>
+         <option value="prf">Performance</option>
          <option value="dec">Deception</option>
          <option value="sur">Survival</option>
          </select>
