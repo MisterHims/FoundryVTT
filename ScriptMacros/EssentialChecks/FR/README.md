@@ -11,7 +11,7 @@
 
 ## Description
 
-EssentialChecks est une collection de macros très utiles pour éffectuer des jets de dés "manuels" en tout genre comme des Tests de caractéristique par exemple. Leur utilisation nécessite que le token dont vous souhaitez éffectuer les différents jets soit sélectionné, une notification pour vous prévenir apparaîtra dans le cas contraire.
+EssentialChecks est une collection de macros très utiles pour effectuer des Tests de Caractéristique ou de Compétences. Si le personnage n'est pas sélectionné, une notification apparaîtra le cas échéant.
 
 ### Installation de AbilityCheck (Test de Caractéristique)
 
