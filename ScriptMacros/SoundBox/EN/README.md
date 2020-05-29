@@ -2,7 +2,7 @@
 
 ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.5.5-informational)
 
-* **Author**: Rockshow, MisterHims, Foundry VTT Community
+* **Author**: MisterHims, Rockshow , Foundry VTT Community
 * **Traduction**: MisterHims
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.5.5+
