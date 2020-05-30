@@ -11,7 +11,7 @@
 
 ## Description
 
-LumenVision est une macro permettant d'initialiser rapidement le type de vision et la source lumière afin de simuler par exemple l'utilisation d'une bougie sur un ou plusieurs tokens sélectionnés. Une notification apparaîtra dans le cas contraire. Cette macro est en partie issue de la communauté Foundry VTT et a par la suite été traduite en français, modifiée puis convertie au système métrique européen. C'est un outil principalement utile pour le MJ. Voici un exemple avec les différentes sources de lumières disponibles :
+LumenVision est une macro permettant d'initialiser le type de vision et la source lumière afin de simuler par exemple l'utilisation d'une bougie sur un ou plusieurs tokens sélectionnés. Une notification apparaîtra dans le cas contraire. Cette macro est en partie issue de la communauté Foundry VTT et a par la suite été traduite en français, modifiée puis convertie au système métrique européen. C'est un outil principalement utile pour le MJ. Voici un exemple avec les différentes sources de lumières disponibles :
 
 ![LumenVision-Demonstration](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/LumenVision/FR/images/dem_01.gif)
 
