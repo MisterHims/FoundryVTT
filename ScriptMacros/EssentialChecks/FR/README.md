@@ -11,7 +11,7 @@
 
 ## Description
 
-EssentialChecks est une collection de macros très utiles pour effectuer des Tests de Caractéristique ou de Compétences. Si le personnage n'est pas sélectionné, une notification apparaîtra le cas échéant.
+EssentialChecks est une collection de macros très utiles pour effectuer des Tests de Caractéristique ou de Compétence. Si le personnage n'est pas sélectionné, une notification apparaîtra le cas échéant.
 
 ### Installation de AbilityCheck (Test de Caractéristique)
 
