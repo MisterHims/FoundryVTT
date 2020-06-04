@@ -82,3 +82,11 @@ Attention ! Avant d'utiliser la macro avec l'objet en question, il est conseill�
 ## Problèmes rencontrés
 
 * Il est possible que la macro vous signale que l'objet à été équiper alors qu'il a été en réalité déséquiper ou vice-versa. Si tel est le cas, il vous suffit d'équiper ou déséquiper manuellement une seule fois l'objet dans l'inventaire de votre personnage.
+
+## Rejoint La Fonderie
+
+Tu es la c'est parce que tu as découvert avec bonheur qu'il existait des modules et systèmes en Français ? Mais tu ne sais peut-être pas qu'il existe désormais un discord francophone officiel, sur lequel tu vas pouvoir parler dans la langue de Molière sans te faire prendre pour un Klingon !
+
+Alors si tu as envie de nous rejoindre dans la bonne entente, je t'invite à cliquer sur le lien ci-dessous :
+
+<a href="https://discord.gg/pPSDNJk" target="_blank">Serveur Discord La Fonderie</a>

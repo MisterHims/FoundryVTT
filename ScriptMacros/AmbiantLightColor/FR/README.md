@@ -268,10 +268,10 @@ AmbiantLightColor est une macro vous permettant d'ajouter très rapidement une l
 
 * Suppression automatique de la dernière lumière ambiante créer lorsqu'une autre est sélectionnée
 
-## Rejoint La Fonderie !
+## Rejoint La Fonderie
 
-Tu es la c'est parce que tu as découvert avec bonheur qu'il existait des modules et systèmes en Français ? Mais tu ne sais peut-être pas qu'il existe désormais un discord francophone officiel sur lequel tu vas pouvoir parler dans la langue de Molière sans te faire prendre pour un Klingon !
+Tu es la c'est parce que tu as découvert avec bonheur qu'il existait des modules et systèmes en Français ? Mais tu ne sais peut-être pas qu'il existe désormais un discord francophone officiel, sur lequel tu vas pouvoir parler dans la langue de Molière sans te faire prendre pour un Klingon !
 
 Alors si tu as envie de nous rejoindre dans la bonne entente, je t'invite à cliquer sur le lien ci-dessous :
 
-[Serveur Discord La Fonderie](https://discord.gg/pPSDNJk)
+<a href="https://discord.gg/pPSDNJk" target="_blank">Serveur Discord La Fonderie</a>
