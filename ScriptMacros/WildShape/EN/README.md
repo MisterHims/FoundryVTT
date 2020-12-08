@@ -53,7 +53,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 5. Then create the two new external macros (Script type): [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) and [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js) which you will need to keep their respective names:
 
-    [WildShape] Transfer DAE Effects:
+    [WildShape] Transfer DAE Effects
 
     ```javascript
     if (actor.data.flags.dnd5e?.isPolymorphed) {
@@ -66,7 +66,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
     }
     ```
 
-    Remove WildShape Effect:
+    Remove WildShape Effect
 
     ```javascript
     setTimeout(function () {
