@@ -20,7 +20,7 @@ The various DAE effects and Token Magic FX animations already present on your ch
 
 ## Informations
 
-* By default, you will transfer the following attributes from your original form to your new form:
+* By default, you will transfer the following capabilities from your original form to your new form:
   * Mental ablities scores (Wisdom, Intelligence, Charisma)
 
   * Masteries of saving throws
