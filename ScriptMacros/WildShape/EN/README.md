@@ -23,13 +23,13 @@ The various DAE effects and Token Magic FX animations already present on your ch
 * By default, you will transfer the following attributes from your original form to your new form:
   * Mental ablities scores (Wisdom, Intelligence, Charisma)
 
-  * Mastery of saving throws
+  * Masteries of saving throws
 
   * Skills
 
   * Biography
 
-  * Class capacities
+  * Class features
 
 You can yourself choose which skills to remove or add from the macro. More information on this at the bottom.
 
