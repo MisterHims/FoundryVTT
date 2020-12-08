@@ -142,7 +142,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
         }];
         //TokenMagic.addFiltersOnSelected(paramsStart, true);
         TokenMagic.addUpdateFilters(target, paramsStart);
-        setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1900);
+        setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1800);
 
         // Polymorph into the new form with delay for the start animation
         setTimeout(function () { actorPolymorphism(); }, 1500);
@@ -184,7 +184,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
                     }
                 }];
             token.TMFXaddUpdateFilters(paramsBack);
-            setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1900);
+            setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1800);
             // Revert to original form with delay for the return animation
             setTimeout(function () { actor.revertOriginalForm(); }, 1500);
             // Adjusts them back the original size.
@@ -300,7 +300,7 @@ A: Depending on the configuration and optimization of the effects performed by y
 
 ```javascript
 
-    setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1900);
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1800);
 
 ```
 
@@ -308,13 +308,13 @@ A: Depending on the configuration and optimization of the effects performed by y
 
 ```javascript
 
-    setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1900);
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1800);
 
 ```
 
    *[Line 105](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/EN/WildShape.js#L105)*
 
-You will then have to play on the value (1900 in this precise case) and reduce or increase this number. This code is used to stop the animation loop, so it is necessary to keep it but you are free to change its value.
+You will then have to play on the value (1800 in this precise case) and reduce or increase this number. This code is used to stop the animation loop, so it is necessary to keep it but you are free to change its value.
 
 ## Upcoming improvements
 
