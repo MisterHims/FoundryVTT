@@ -3,7 +3,7 @@
 ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.7.8-informational)
 
 * **Author**: MisterHims
-* **Special thanks to**: tposney, Ikabodo, Archer, Crymix, Kandashi and many others :)
+* **Special thanks to**: tposney, Ikabodo, Archer, Crymic, Kandashi and many others :)
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.7.5+
 * **System Compatibility**: DnD5e
