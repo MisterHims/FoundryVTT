@@ -35,6 +35,9 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 ## Installation
 
+![WildShape-Quick-Video](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/images/quick-video-how-to-install.mp4)
+
+
 *Note* :
 
 * Foundry FVTT polymorph requires players to have rights to create new actors and tokens. You will need to allow them to "Create new characters" and "Create new tokens" from the Options configuration.
