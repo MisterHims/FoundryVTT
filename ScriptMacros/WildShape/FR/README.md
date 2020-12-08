@@ -39,19 +39,19 @@ A noter :
 
 * Le polymorph de Foundry VTT requiert que les joueurs soient autorisés à le faire. Vous devrez pour cela les autoriser à "Créer de nouveaux personnages" et "Créer de nouveaux tokens" depuis la Configuration des options.
 
-* Vous devrez également ajouter les droits de possession au personnage qui servira de base à votre polymorph.
+* Vous devrez également ajouter les droits de possession du personnage dont vous souhaitez faire adopter la forme à vos joueurs.
 
 Important. Suivez exactement les étapes ci-dessous. Vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
 1. Premièrement, vous avez besoin de récupérer l'activable Forme Sauvage depuis le compendium SRD par exemple.
 
-2. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez-le en mode "Suspended" et "Enabled when equiped". Ajoutez-y une nouvelle clé d'attribut avec ces valeurs macro.execute // CUSTOM // "WildShape Macro" // 20
+2. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez-le en mode "Suspended" et "Enabled when equiped". Ajoutez-y une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20
 
 3. Ajoutez une durée, soit depuis l'activable Forme Sauvage, soit directement depuis son effet (mettez au moins 2 heures). Vérifiez également si la cible est bien reglée sur 'Soi-même'.
 
 4. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et dans votre forme d'arrivée (nouvelle forme).
 
-5. Créez ensuite les deux nouvelles macros externes dont vous aurez besoin ([WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js))
+5. Créez ensuite les deux nouvelles macros externes dont vous aurez besoin ([[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js)) et 
 
 ## Configuration
 
