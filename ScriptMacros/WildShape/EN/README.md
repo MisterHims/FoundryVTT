@@ -20,7 +20,7 @@ The various DAE effects and Token Magic FX animations already present on your ch
 
 ## Informations
 
-* By default, you will transfer the following skills from your original form to your new form:
+* By default, you will transfer the following attributes from your original form to your new form:
   * Mental ablities scores (Wisdom, Intelligence, Charisma)
 
   * Mastery of saving throws
@@ -41,14 +41,13 @@ You can yourself choose which skills to remove or add from the macro. More infor
 
 * You must also give the players the ownership rights to the actor of the desired shape.
 
-*IMPORTANT*
-Follow the steps below exactly, then you will be free to configure the macro to your needs after installation.
+*IMPORTANT* | Follow the steps below exactly, then you will be free to configure the macro to your needs after installation.
 
 1. First, you need to get the Wild Shape activable from the SRD Compendium.
 
 2. Then create a DAE effect named "WildShape Effect" on the Wild Shape and set it to "Suspended" and "Enabled when equipped" mode. Add a new attribute key with these values: macro.execute // CUSTOM // "WildShape Macro" // 20
 
-3. Add a duration, either from the Wild Shape activable, or directly from the effect (put at least 2 hours). Also check if the target is set to 'Self'.
+3. Add a duration, either from the Wild Shape activable, or directly from the effect (put at least 2 hours). Also check if the target is set to 'self'.
 
 4. Then place the activatable Wild Shape in the character sheet of your original form and in your new form.
 
@@ -181,6 +180,12 @@ Follow the steps below exactly, then you will be free to configure the macro to 
 9. Replace the ID in line 15 with the ID of the character whose shape you want to adopt.
 
 10. After making these changes, you should be able to get the macro to work. If not, you will find more information at the bottom of the page.
+
+## Tips
+
+You can add resource consumption inside your original actor activable (Attribute: resources.primary.values).
+
+For a better animation, make the ratio size of your original token to be the same as the new token form (0.5 and 0.5, 0.8 and 0.8, 1 and 1, ...).
 
 ## Configuration
 

@@ -41,14 +41,13 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
 * Vous devrez également ajouter les droits de possession du personnage dont vous souhaitez faire adopter la forme à vos joueurs.
 
-*IMPORTANT*
-Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
+*IMPORTANT* | Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
 1. Premièrement, vous avez besoin de récupérer l'activable Forme Sauvage depuis le compendium SRD par exemple.
 
 2. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez-le en mode "Suspended" et "Enabled when equiped". Ajoutez-y une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20
 
-3. Ajoutez une durée, soit depuis l'activable Forme Sauvage, soit directement depuis son effet (mettez au moins 2 heures). Vérifiez également si la cible est bien reglée sur 'Soi-même'.
+3. Ajoutez une durée, soit depuis l'activable Forme Sauvage, soit directement depuis son effet (mettez au moins 2 heures). Vérifiez également si la cible est bien reglée sur 'soi-même'.
 
 4. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et dans votre forme d'arrivée (nouvelle forme).
 
@@ -181,6 +180,12 @@ Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer
 9. Remplacez l'ID de la ligne 15 par l'ID du personnage dont vous souhaitez faire adopter la forme
 
 10. Une fois ces changements effectués, vous devriez être en mesure de faire fonctionner la macro. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
+
+## Conseils
+
+Vous pouvez ajouter la consommation de ressources à l'intérieur de votre Forme Sauvage (Attribute : resources.primary.values).
+
+Pour une meilleure animation, faites en sorte que le ratio-taille associé aux tokens de votre forme originale et de votre nouvelle forme soient les mêmes (0.5 et 0.5, 0.8 et 0.8, 1 et 1, etc.)
 
 ## Configuration
 
