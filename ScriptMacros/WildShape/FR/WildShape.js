@@ -1,5 +1,5 @@
 // Name of your original actor form
-let actorOriginalFormName = "Randal";
+let actorOriginalFormName = "Name of your original form";
 
 // Name of your WildShape Effect
 let wildShapeEffectName = "WildShape Effect";
@@ -68,9 +68,9 @@ if (!actor.data.flags.dnd5e?.isPolymorphed) {
     // Transfer all effects from original actor to new actor (except the WildShape effect)
     let transferDAEeffectsWithoutWildShape = game.macros.getName("[WildShape] Transfer DAE Effects");
     // With delay for the animation time
-    setTimeout(function () { transferDAEeffectsWithoutWildShape.execute(wildShapeEffectName); }, 2550);
+    setTimeout(function () { transferDAEeffectsWithoutWildShape.execute(wildShapeEffectName); }, 3000);
     // Choose the token size of the new form
-    target.update({ "width": 1, "height": 1, });
+    // target.update({ "width": 1, "height": 1, });
 
 
     // If actor is already polymorphed, remove the WildShape effect from the original actor to launch the return animation
@@ -106,5 +106,6 @@ if (!actor.data.flags.dnd5e?.isPolymorphed) {
     // Revert to original form with delay for the return animation
     setTimeout(function () { actor.revertOriginalForm(); }, 1500);
     // Adjusts them back the original size.
-    target.update({"width": 1, "height": 1,});
+    // target.update({"width": 1, "height": 1,});
+
 }
