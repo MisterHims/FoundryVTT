@@ -97,7 +97,7 @@ if (!actor.data.flags.dnd5e?.isPolymorphed) {
     // Transfer all effects from original actor to new actor (except the WildShape effect)
     let transferDAEeffectsWithoutWildShape = game.macros.getName("[WildShape] Transfer DAE Effects");
     // With delay for the animation time
-    setTimeout(function () { transferDAEeffectsWithoutWildShape.execute(wildShapeEffectName); }, 3000);
+    setTimeout(function () { transferDAEeffectsWithoutWildShape.execute(wildShapeEffectName); }, 2550);
     // Choose the token size of the new form
     target.update({ "width": 1, "height": 1, });
 
@@ -143,29 +143,3 @@ if (!actor.data.flags.dnd5e?.isPolymorphed) {
     }
     polymorphAnimation();
 }
-
-////////////// THE REQUIRED EXTERNALS MACROS //////////////
-/*
-
-// [WildShape] Transfer DAE Effects
-
-// assume the actor is selected
-if (actor.data.flags.dnd5e?.isPolymorphed) {
-  let originalActor = game.actors.get(actor.data.flags.dnd5e.originalActor);
-  // Put your effects to exclude below between the brackets
-  let effectsData = originalActor.effects.filter(ef =>
-  ![args[0]].includes(ef.data.label)
-).map(ef => ef.data);
-  actor.createEmbeddedEntity("ActiveEffect", effectsData)
-}
-
-// Remove WildShape Effect
-
-setTimeout(function () {
-    let WildShapeEffect = game.actors.getName(args[0]);
-    let removeWildShapeEffect = WildShapeEffect.effects.find(i => i.data.label === args[1]);
-    removeWildShapeEffect.delete();
-        }, 3500);
-
-
-*/

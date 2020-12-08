@@ -8,7 +8,7 @@
 * **Foundry VTT Compatibility**: 0.7.5+
 * **System Compatibility**: DnD5e
 * **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace), [DAE](https://gitlab.com/tposney/dae),[Token Magic FX](https://github.com/Feu-Secret/Tokenmagic), [Midi-QOL](https://gitlab.com/tposney/midi-qol)
-* **Macro Requirement(s)**: [[WildShape] Transfer DAE Effects], [Remove WildShape Effect]
+* **Macro Requirement(s)**: [WildShape] Transfer DAE Effects, Remove WildShape Effect
 
 ## Description
 
@@ -20,98 +20,38 @@ Les différents effets de DAE et les animations de Token Magic FX déjà présen
 
 ## Informations
 
-1. Par défaut, vous transférerez les aptitudes suivantes de votre forme originale à votre nouvelle forme :
-    * Scores d'ablités mentales (Sagesse, Intelligence, Charisme)
+* Par défaut, vous transférerez les aptitudes suivantes de votre forme originale à votre nouvelle forme :
+  * Scores d'ablités mentales (Sagesse, Intelligence, Charisme)
 
-    * Maitrîse des jets de sauvegarde
+  * Maitrîse des jets de sauvegarde
 
-    * Compétences
+  * Compétences
 
-    * Biographie
+  * Biographie
 
-    * Les capacités de la classe
+  * Capacités de la classe
 
 Vous pouvez-vous choisir les aptitudes à enlever ou à ajouter depuis la macro.
 
 ## Installation
 
-Attention ! La macro ne fonctionnera certainement pas après son installation, il vous faudra alors y faire quelques modifications afin de là rendre fonctionnelle et de l'adapter à vos besoins. Mais ne vous découragez pas, c'est bien plus simple que ça en a l'air.
+A noter :
 
-1. Copiez le code ci-dessous ou accédez-y depuis le fichier [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js) :
+* Le polymorph de Foundry VTT requiert que les joueurs soient autorisés à le faire. Vous devrez pour cela les autoriser à "Créer de nouveaux personnages" et "Créer de nouveaux tokens" depuis la Configuration des options.
 
-   ```javascript
+* Vous devrez également ajouter les droits de possession au personnage qui servira de base à votre polymorph.
 
-   if (!actor) {
-       ui.notifications.warn(`Aucun personnage n'est sélectionné !`);
-       return;
-   }
-   let changeForm = false;
-   actor = actor ? actor : game.user.character;
-   let formActorId;
-   let formActor;
-   let cost = 1;
-   if (actor.isPolymorphed) {
-       actor.revertOriginalForm();
-       return;
-   }
-   let remainingShapes = actor.data.data.resources.primary.value;
-   if (remainingShapes < 1) return;
-   let d = new Dialog({
-       title: "Forme sauvage",
-       content: `
-        <form>
-        <div class="form-group">
-            <label>Choix de la forme sauvage :</label>
-            <select id="form-type" name="form-type">
-            <option value="loup">Forme de Loup</option>
-            <option value="crocodile">Forme de Crocodile</option>
-            <option value="aigle">Forme d'Aigle</option>
-            </select>
-        </div>
-        </form>
-        `,
-       buttons: {
-           yes: {
-               icon: '<i class="fas fa-check"></i>',
-               label: "Appliquer",
-               callback: () => changeForm = true
-           },
-           no: {
-               icon: '<i class="fas fa-times"></i>',
-               label: "Annuler"
-           }
-       },
-       default: "yes",
-       close: html => {
-           if (changeForm) {
-               let formType = html.find('[name="form-type"]')[0].value || "none";
-               switch (formType) {
-                   case "loup":
-                       formActorId = "ID_du_personnage";
-                       break;
-                   case "crocodile":
-                       formActorId = "ID_du_personnage";
-                       break;
-                   case "aigle":
-                       formActorId = "ID_du_personnage";
-                       break;
-               }
-               formActor = game.actors.get(formActorId);
-               actor.data.data.resources.primary.value = remainingShapes - cost;
-               actor.transformInto(formActor, { keepMental: true, mergeSaves: true, mergeSkills: true, keepBio: true });
-           }
-       }
-   }).render(true);
+Important. Suivez exactement les étapes ci-dessous. Vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
-   ```
+1. Premièrement, vous avez besoin de récupérer l'activable Forme Sauvage depuis le compendium SRD par exemple.
 
-   *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)*
+2. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez-le en mode "Suspended" et "Enabled when equiped". Ajoutez-y une nouvelle clé d'attribut avec ces valeurs macro.execute // CUSTOM // "WildShape Macro" // 20
 
-2. Allez maintenant sur Foundry VTT puis cliquez sur un emplacement libre de la barre de macros afin d'en créer une nouvelle.
+3. Ajoutez une durée, soit depuis l'activable Forme Sauvage, soit directement depuis son effet (mettez au moins 2 heures). Vérifiez également si la cible est bien reglée sur 'Soi-même'.
 
-3. Sélectionnez le type "Script" puis collez le code à l'intérieur.
+4. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et dans votre forme d'arrivée (nouvelle forme).
 
-4. Donnez-lui le nom de votre choix, par exemple : ``` WildShape ``` et sauvegardez la macro.
+5. Créez ensuite les deux nouvelles macros externes dont vous aurez besoin ([WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js))
 
 ## Configuration
 
