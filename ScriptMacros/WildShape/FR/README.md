@@ -3,11 +3,11 @@
 ![Foundry Badge](https://img.shields.io/badge/Foundry-v0.7.8-informational)
 
 * **Author**: MisterHims
-* **Remerciements**: tposney, Ikabodo, Archer, Kandashi and many others :)
+* **Remerciements**: tposney, Ikabodo, Archer, Crymic, Kandashi et plein d'autres :)
 * **Version**: 1.0.0
 * **Foundry VTT Compatibility**: 0.7.5+
 * **System Compatibility**: DnD5e
-* **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace), [DAE](https://gitlab.com/tposney/dae),[Token Magic FX](https://github.com/Feu-Secret/Tokenmagic), [Midi-QOL](https://gitlab.com/tposney/midi-qol)
+* **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace), [DAE](https://gitlab.com/tposney/dae), [Token Magic FX](https://github.com/Feu-Secret/Tokenmagic), [Midi-QOL](https://gitlab.com/tposney/midi-qol)
 * **Macro Requirement(s)**: [WildShape] Transfer DAE Effects, Remove WildShape Effect
 
 ## Description
@@ -295,4 +295,4 @@ Vous devrez alors jouer sur la valeur (1900 dans ce cas précis) et réduire ou 
 
 ## Améliorations à venir
 
-Je prévoi d'améliorer cette macro afin d'en faire un module. Cela permettra une installation bien plus facile et permettra également de rapidement créer et configurer différents polymorphs (choix des aptitudes à conserver, du nom de l'activable, du nom de l'effet, de la taille des personnages, de l'animation, etc.)
+Je prévois d'améliorer cette macro afin d'en faire un module. Cela permettra une installation bien plus facile et permettra également de rapidement créer et configurer différents polymorphs (choix des aptitudes à conserver, du nom de l'activable, du nom de l'effet, de la taille des personnages, de l'animation, etc.)
