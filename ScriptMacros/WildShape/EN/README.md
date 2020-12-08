@@ -31,17 +31,17 @@ Les différents effets de DAE et les animations de Token Magic FX déjà présen
 
   * Capacités de la classe
 
-Vous pouvez-vous choisir les aptitudes à enlever ou à ajouter depuis la macro.
+Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la macro. Plus d'informations à ce sujet en bas de page.
 
 ## Installation
 
-A noter :
+*A noter* :
 
 * Le polymorph de Foundry VTT requiert que les joueurs soient autorisés à le faire. Vous devrez pour cela les autoriser à "Créer de nouveaux personnages" et "Créer de nouveaux tokens" depuis la Configuration des options.
 
 * Vous devrez également ajouter les droits de possession du personnage dont vous souhaitez faire adopter la forme à vos joueurs.
 
-Important. Suivez exactement les étapes ci-dessous. Vous serez ensuite libre de configurer la macro à vos besoins après son installation.
+*IMPORTANT*. Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
 1. Premièrement, vous avez besoin de récupérer l'activable Forme Sauvage depuis le compendium SRD par exemple.
 
@@ -51,9 +51,9 @@ Important. Suivez exactement les étapes ci-dessous. Vous serez ensuite libre de
 
 4. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et dans votre forme d'arrivée (nouvelle forme).
 
-5. Créez ensuite les deux nouvelles macros externes dont vous aurez besoin [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js)) et [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/Remove%20WildShape%20Effect.js) dont vous devrez garder leurs noms respectifs.
+5. Créez ensuite les deux nouvelles macros externes (de type Script) dont vous aurez besoin [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) et [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/Remove%20WildShape%20Effect.js) dont vous devrez garder leurs noms respectifs.
 
-6. Créez une nouvelle macro de type Script à partir du code ci-dessous (ou accédez-y depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
+6. Créez une nouvelle macro (de type Script) à partir du code ci-dessous (ou accédez-y depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
 
    ```javascript
 
@@ -175,19 +175,17 @@ Important. Suivez exactement les étapes ci-dessous. Vous serez ensuite libre de
 
 7. Remplacez "Name of your original form" au début de la macro par le nom du personnage principal (de la forme originale).
 
-8. Remplacez l'ID de la ligne 52 par l'ID du personnage principale
+8. Remplacez l'ID de la ligne 10 par l'ID du personnage principale
 
-9. Remplacez l'ID de la ligne 57 par l'ID du personnage dont vous souhaitez faire adopter la forme
+9. Remplacez l'ID de la ligne 15 par l'ID du personnage dont vous souhaitez faire adopter la forme
 
-10. Une fois ces changements effectués, vous devriez être en mesure de lancer la macro. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
+10. Une fois ces changements effectués, vous devriez être en mesure de faire fonctionner la macro. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
 
 ## Configuration
 
-Il est possible de personaliser la macro pour la rendre adaptable à vos besoins.
+### Personnaliser l'animation
 
-### Personaliser l'animation
-
-Il vous est possible de choisir différentes animations grâce à Magic Token FX. Il existe 9 types d'animations différentes :
+Il vous est possible de choisir différentes animations grâce à Magic Token FX. Il existe 9 types d'animations différentes (celle installée par défaut est la numéro 6) :
 
 1. Simple transition
 
@@ -219,6 +217,8 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
 
 ```
 
+   *[Ligne 40 à 44](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L42)*
+
 ```javascript
 
     filterType: "polymorph",
@@ -228,6 +228,8 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
     magnify: 1,
 
 ```
+
+   *[Ligne 85 à 89](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L87)*
 
 ### Personaliser la taille de sa forme de départ et d'arrivée
 
@@ -257,15 +259,15 @@ Il vous est possible d'enlever et/ou d'ajouter différentes aptitudes qui seront
 
 ## Foire aux Questions
 
-Q : Je ne comprend pas, j'ai beau faire toutes les étapes une à une après avoir installer les modules requis, cela ne fonctionne toujours pas, pourquoi ?
+Q : Je ne comprend pas, j'ai fait toutes les étapes une à une après avoir installé les modules requis et cela ne fonctionne toujours pas, pourquoi ?
 
 R : Il est nécessaire d'avoir au préalable correctement configuré ces différents modules pour le bon fonctionnement de la macro. Il est également requis d'avoir coché la case "Auto apply item to targets" dans la configuration de Midi-QOL
 
 ***
 
-Q : Je rencontre un léger décalage lors de l'animation de mon personnage, il m'arrive aussi des fois de voir une image d'une seconde avec mon ancienne qui forme qui apprait durant la transition. Je ne sais pas comment résoudre ce problème, que faire ?
+Q : Je rencontre un léger décalage lors de l'animation de mon personnage, il m'arrive aussi des fois de voir une image d'une seconde avec mon ancienne forme qui apparait durant la transition. Je ne sais pas comment résoudre ce problème, que faire ?
 
-R : En fonction de la configuration et de l'optimisation des effets réalisés par votre navigateur, il est possible de devoir faire quelques ajustements sur la macro. Lorsque vous rencontrerez les lignes suivantes :
+R : En fonction de la configuration et de l'optimisation des effets réalisés par votre navigateur, il est possible de devoir faire quelques ajustements sur la macro lorsque vous rencontrerez les lignes suivantes :
 
 ```javascript
 
@@ -273,11 +275,15 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```
 
+   *[Ligne 63](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L63)*
+
 ```javascript
 
     setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1900);
 
 ```
+
+   *[Ligne 105](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L105)*
 
 Vous devrez alors jouer sur la valeur (1900 dans ce cas précis) et réduire ou augmenter ce nombre. Ce code permet de stopper la boucle d'animation, il est donc néccesaire de le conserver mais vous êtes libre d'y changer sa valeur.
 

@@ -217,7 +217,7 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
 
 ```
 
-   *[Ligne 40 à 44](---)*
+   *[Ligne 40 à 44](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L42)*
 
 ```javascript
 
@@ -229,7 +229,7 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
 
 ```
 
-   *[Ligne 85 à 89](---)*
+   *[Ligne 85 à 89](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L87)*
 
 ### Personaliser la taille de sa forme de départ et d'arrivée
 
@@ -275,7 +275,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```
 
-   *[Ligne 63](---)*
+   *[Ligne 63](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L63)*
 
 ```javascript
 
@@ -283,7 +283,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```
 
-   *[Ligne 105](---)*
+   *[Ligne 105](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L105)*
 
 Vous devrez alors jouer sur la valeur (1900 dans ce cas précis) et réduire ou augmenter ce nombre. Ce code permet de stopper la boucle d'animation, il est donc néccesaire de le conserver mais vous êtes libre d'y changer sa valeur.
 
