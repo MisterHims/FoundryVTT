@@ -51,7 +51,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 4. Then place the activatable Wild Shape in the character sheet of your original form and in your new form.
 
-5. Then create the two new external macros (Script type) you will need [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) and [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js) which you will need to keep their respective names.
+5. Then create the two new external macros (Script type): [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) and [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js) which you will need to keep their respective names.
 
 6. Create a new macro (Script type) from the code below (or access it from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
 
