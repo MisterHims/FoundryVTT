@@ -12,7 +12,7 @@
 
 ## Description
 
-WildShape is a macro allowing to polymorph his token then to return to his original form, all possible with the animations available from Token Magic FX. The actor's capabilities will thus be replaced by those of the desired form and he will then see his token replaced.
+WildShape is a macro allowing to polymorph his token with the animations available from Token Magic FX. The actor's capabilities will thus be replaced by those of the desired shahpe and he will then see his token replaced.
 
 The various DAE effects and Token Magic FX animations already present on your character will be preserved.
 
