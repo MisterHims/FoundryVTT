@@ -31,7 +31,7 @@ The various DAE effects and Token Magic FX animations already present on your ch
 
   * Class features
 
-You can yourself choose which skills to remove or add from the macro. More information on this at the bottom.
+You can yourself choose which capabilities to remove or add from the macro. More information on this at the bottom.
 
 ## Installation
 
