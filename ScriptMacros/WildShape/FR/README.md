@@ -51,114 +51,236 @@ Important. Suivez exactement les étapes ci-dessous. Vous serez ensuite libre de
 
 4. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et dans votre forme d'arrivée (nouvelle forme).
 
-5. Créez ensuite les deux nouvelles macros externes dont vous aurez besoin ([[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js)) et 
+5. Créez ensuite les deux nouvelles macros externes dont vous aurez besoin [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js)) et [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/Remove%20WildShape%20Effect.js) dont vous devrez garder leurs noms respectifs.
+
+6. Créez une nouvelle macro de type Script à partir du code ci-dessous (ou accédez-y depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
+
+   ```javascript
+
+    // Name of your original actor form
+    let actorOriginalFormName = "Name of your original form";
+
+    // Name of your WildShape Effect
+    let wildShapeEffectName = "WildShape Effect";
+
+    // Get the Actor name from the original form
+    let getOriginalActorForm = game.actors.getName(actorOriginalFormName);
+    // Get Actor ID from the original form
+    let actorOriginalFormId = game.actors.get("JmJGW3LivaKbKZYm");
+    // Get Image's Token associated with the original actor form
+    let actorOriginalFormImagePath = actorOriginalFormId.data.token.img;
+
+    // Get Actor ID from the new form
+    let actorNewFormId = game.actors.get("6tag3KViMYOHciFe");
+    // Get Image's Token associated with the new actor form
+    let actorNewFormImagePath = actorNewFormId.data.token.img;
+
+    let target = canvas.tokens.controlled[0];
+
+    // Declare my polymorph function
+    let actorPolymorphism = async function () {
+        // For actorNewFormID, the ratio's Token should be at the same scale of the original form
+        actor.transformInto(actorNewFormId, {
+            keepMental: true,
+            mergeSaves: true,
+            mergeSkills: true,
+            keepBio: true,
+            keepClass: true,
+        });
+    }
+
+    let removeWildShapeEffect = game.macros.getName("Remove WildShape Effect");
+
+    // If actor is not already polymorphed, remove its effect and launch polymorph
+    if (!actor.data.flags.dnd5e?.isPolymorphed) {
+        removeWildShapeEffect.execute(actorOriginalFormName, wildShapeEffectName);
+        token.TMFXhasFilterId("polymorphToNewForm");
+        let paramsStart = [{
+            filterType: "polymorph",
+            filterId: "polymorphToNewForm",
+            type: 6,
+            padding: 70,
+            magnify: 1,
+            imagePath: actorNewFormImagePath,
+            animated:
+            {
+                progress:
+                {
+                    active: true,
+                    animType: "halfCosOscillation",
+                    val1: 0,
+                    val2: 100,
+                    loops: 1,
+                    loopDuration: 1000
+                }
+            },
+            autoDisable: false,
+            autoDestroy: false
+        }];
+        //TokenMagic.addFiltersOnSelected(paramsStart, true);
+        TokenMagic.addUpdateFilters(target, paramsStart);
+        setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1900);
+
+        // Polymorph into the new form with delay for the start animation
+        setTimeout(function () { actorPolymorphism(); }, 1500);
+
+        // Transfer all effects from original actor to new actor (except the WildShape effect)
+        let transferDAEeffectsWithoutWildShape = game.macros.getName("[WildShape] Transfer DAE Effects");
+        // With delay for the animation time
+        setTimeout(function () { transferDAEeffectsWithoutWildShape.execute(wildShapeEffectName); }, 3000);
+        // Choose the token size of the new form
+        // target.update({ "width": 1, "height": 1, });
+
+
+        // If actor is already polymorphed, remove the WildShape effect from the original actor to launch the return animation
+    } else if (args[0] === "off") {
+        removeWildShapeEffect.execute(actorOriginalFormName, wildShapeEffectName);
+
+        // Starts the return animation if the actor is polymorphed
+    } else if (actor.data.flags.dnd5e?.isPolymorphed) {
+        token.TMFXhasFilterId("polymorphToOriginalForm");
+            let paramsBack =
+                [{
+                    filterType: "polymorph",
+                    filterId: "polymorphToOriginalForm",
+                    type: 6,
+                    padding: 70,
+                    magnify: 1,
+                    imagePath: actorOriginalFormImagePath,
+                    animated:
+                    {
+                        progress:
+                        {
+                            active: true,
+                            animType: "halfCosOscillation",
+                            val1: 0,
+                            val2: 100,
+                            loops: 1,
+                            loopDuration: 1000
+                        }
+                    }
+                }];
+            token.TMFXaddUpdateFilters(paramsBack);
+            setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1900);
+            // Revert to original form with delay for the return animation
+            setTimeout(function () { actor.revertOriginalForm(); }, 1500);
+            // Adjusts them back the original size.
+            // target.update({"width": 1, "height": 1,});
+
+        }
+
+   ```
+
+   *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)*
+
+7. Remplacez "Name of your original form" au début de la macro par le nom du personnage principal (de la forme originale).
+
+8. Remplacez l'ID de la ligne 52 par l'ID du personnage principale
+
+9. Remplacez l'ID de la ligne 57 par l'ID du personnage dont vous souhaitez faire adopter la forme
+
+10. Une fois ces changements effectués, vous devriez être en mesure de lancer la macro. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
 
 ## Configuration
 
-Après avoir effectué l'installation de WildShape, vous devez la configurer.
+Il est possible de personaliser la macro pour la rendre adaptable à vos besoins.
 
-1. Dans un premier temps vous devez disposer du personnage dont vous souhaitez faire changer de forme. Vérifiez bien que celui-ci dispose de l'aptitude Forme sauvage dans sa fiche. Si ce n'est pas le cas, vous devrez l'ajouter depuis le compendium "Capacités des Classes". Par la suite, vous devrez ajouter un nouveau slot de ressource à celui-ci :
+### Personaliser l'animation
 
-   ![WildShape-New-Slot](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/new-slot.jpg)
+Il vous est possible de choisir différentes animations grâce à Magic Token FX. Il existe 9 types d'animations différentes :
 
-2. Créez les fiches personnages des différentes formes que vous souhaitez ajouter à la macro. Pour cela, je vous propose de directement utiliser une solution intégrée à FoundryVTT :
-    * Faites un glisser-déposer de la bête dont vous souhaitez adopter la forme (par exemple un Loup) depuis le compendium "Monstres" vers la fiche du personnage précédemment créée à l'étape 1.
+1. Simple transition
 
-    * Une fenêtre s'ouvre alors, cochez les cases "Conserver l'équipement", "Conserver le bonus de maîtrise", "Conservez les aptitudes",  "Conserver les sorts", "Conservez sa biographie", "Garder la vision" et "Transformer tous les tokens liés".
+2. Dreamy
 
-    * De cette façon, une nouvelle fiche personnage sera temporairement créée dans votre liste du menu Personnages, vous pouvez alors là modifier à votre guise. Faites-en une copie puis renommez-là afin de la sauvegarder. Vous pouvez alors supprimer la première fiche personnage temporaire.
+3. Twist
 
-    * Répétez l'opération pour toutes les formes que vous souhaitez ajouter, par exemple le Crocodile et l'Aigle.
+4. Water drop
 
-      ![WildShape-Polymorph](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_polymorph.gif)
+5. TV Noise
 
-3. Récupérez l'ID des différentes fiches personnages des formes en question, pour cela il existe plusieurs méthodes mais je vous propose celle-ci afin de rester sur FoundryVTT :
-    * Ouvrez ou créez un nouvel article dans le menu Articles et passez en mode édition (en cliquant sur l'icône représentant un carré avec un crayon).
+6. Morphing
 
-    * Ouvrez le menu Personnages puis faites un glisser-déposer de la fiche du personnage de la forme, vous devriez obtenir quelque chose comme cela : ``` @Actor[5K4RGyiivnSg1jFe]{Erendil le Loup} ```, l'ID se trouve alors entre les crochets, c'est à dire ``` 5K4RGyiivnSg1jFe ``` dans ce cas présent.
+7. Take off/Put on you disguise!
 
-    * Notez alors cet ID quelque part, il vous permettra d'ajouter cette forme à la macro.
+8. Wind
 
-      ![WildShape-RécupérerIDs](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_id.gif)
+9. Hologram
 
-4. Après avoir récupérer les différents IDs nécessaires à vos besoins des différentes fiches personnages (par exemple : Erendil le Loup, Erendil le Crocodile et Erendil l'Aigle), vous devrez alors modifier le code de la macro afin d'y ajouter ces IDs. Dans le bout de code suivant, remplacez alors ``` ID_du_personnage ``` par l'ID du personnage dont vous souhaitez changer la forme :
-
-   ```javascript
-
-    case "loup":
-     formActorId = "ID_du_personnage";
-     break;
-
-   ```
-
-   Deviendrait alors :
-
-   ```javascript
-
-    case "loup":
-     formActorId = "5K4RGyiivnSg1jFe";
-     break;
-
-   ```
-
-5. Répétez alors l'opération avec les IDs utilisés pour les formes de Crocodile et d'Aigle :
-
-   ```javascript
-
-    case "loup":
-     formActorId = "5K4RGyiivnSg1jFe";
-     break;
-    case "crocodile":
-     formActorId = "I2CjA2taEWxY03aR";
-     break;
-    case "aigle":
-     formActorId = "Y0d0Hy8FcBNYC79u";
-     break;
-
-   ```
-
-C'est terminé ! Vous voilà avec une macro fonctionnelle pour changer la forme de votre personnage sous 3 différentes formes !
-
-### Ajoutez davantage de formes
-
-Vous êtes ici limités à trois formes, si vous souhaitez en ajouter davantage prenez connaissance de la méthode proposée ci-dessous, sinon choisissez plutôt l'une des macros suivantes déjà pré-configurées :
-
-* 1 forme : *[WildShape-1-shape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-1-shape.js)*
-* 2 formes : *[WildShape-2-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-2-shapes.js)*
-* 3 formes : *[WildShape-3-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-3-shapes.js)*
-* 4 formes : *[WildShape-4-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-4-shapes.js)*
-* 5 formes : *[WildShape-5-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-5-shapes.js)*
-* 6 formes : *[WildShape-6-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-6-shapes.js)*
-* 7 formes : *[WildShape-7-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-7-shapes.js)*
-* 8 formes : *[WildShape-8-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-8-shapes.js)*
-* 9 formes : *[WildShape-9-shapes.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/WildShape-9-shapes.js)*
-
----
-
-Si vous avez besoin d'ajouter encore une autre forme à la macro, vous pouvez alors vous y prendre de cette façon :
-
-1. Vous trouverez en haut du code contenu dans la macro les options de la fenêtre qui apparaître lors de l'interaction avec la macro, pour rajouter une option supplémentaire, copiez simplement une ligne option comme celle-ci : ``` <option value="loup">Forme de Loup</option> ``` puis collez là après un retour à la ligne.
-
-2. Modifiez ensuite la valeur de cette option et son nom. Si vous souhaitez ajouter par exemple une forme d'ours, cette nouvelle ligne devrait alors ressembler à quelque chose comme cela : ``` <option value="ours">Forme d'Ours</option> ```
-
-3. Allez ensuite en bas du code contenu dans la macro, vous y trouverez les "cases". De la même manière que précédemment, copiez-coller une nouvelle case après un retour à la ligne :
-
-   * Modifiez-y le nom de la case, par exemple ``` case "loup": ``` en ``` case "ours": ```
-
-   * Remplacez-y ensuite l'ID par celui de votre feuille de personnage pour la forme d'Ours en question, par exemple ``` formActorId = "5K4RGyiivnSg1jFe"; ``` en ``` formActorId = "x82ahds4sazDF2s3"; ```
-
-4. C'est fait, vous avez rajoutez une forme à la macro. Répétez alors l'opération autant de fois que nécessaire.
-
-### Choisir de garder son équipement lors du changement de forme
-
-Pour celà, rien de plus simple. Il vous suffit de changer la ligne suivante :
+Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utiliser par le type numéro 6 présent à deux endroits dans la macro WildShape :
 
 ```javascript
-actor.transformInto(formActor, {keepMental: true, mergeSaves: true, mergeSkills: true, keepBio: true});
-```
 
-par cette nouvelle ligne :
+    filterType: "polymorph",
+    filterId: "polymorphToNewForm",
+    type: 6,
+    padding: 70,
+    magnify: 1,
+
+```
 
 ```javascript
-actor.transformInto(formActor, {keepMental: true, mergeSaves: true, mergeSkills: true, keepItems: true, keepBio: true})
+
+    filterType: "polymorph",
+    filterId: "polymorphToOriginalForm",
+    type: 6,
+    padding: 70,
+    magnify: 1,
+
 ```
+
+### Personaliser la taille de sa forme de départ et d'arrivée
+
+Par défaut, la taille de la forme de départ et d'arrivée est définie à 1x1 carré. Il vous est possible de modifier cette taille en changeant les valeurs ```js width``` et ```js height``` affichés à deux endroits sur la macro. La première correspond à la taille de la forme originale, la seconde à la forme d'arrivée.
+
+```javascript
+    // Adjusts them back the original size.
+    // target.update({"width": 1, "height": 1,});
+```
+
+### Personaliser les aptitudes à conserver lors du polymorph
+
+Il vous est possible d'enlever et/ou d'ajouter différentes aptitudes qui seront transférer à votre nouvelle forme lors du polymorph :
+
+* ```keepPhysical: true``` Keep Physical Ablitiescores (Str, Dex, Con)
+* ```keepMental: true``` Keep Mental Ablitiescores (Wis, Int, Cha)
+* ```keepSaves: true``` Keep Savingthrow Proficiency of the Character
+* ```keepSkills: true``` Keep Skill Proficiency of the Character
+* ```mergeSaves: true``` Merge Savingthrow Proficiencys (take both) this will keep proficiencys of the character intact and also grant any extra proficiencys from the draged on actor
+* ```mergeSkills: true``` Merge Skill Proficiency (take both) this will keep proficiencys of the character intact and also grant any extra proficiencys from the draged on actor
+* ```keepClass: true``` Keep Proficiency bonus (leaves Class items in sheet) this will leave any Class "item" of the original actor in order to keep the original level and therefore Proficiency bonus
+* ```keepFeats: true``` Keep Features
+* ```keepSpells: true``` Keep Spells
+* ```keepItems: true``` Keep Equipment
+* ```keepBio: true``` Keep Biography
+* ```keepVision: true``` Keep Vision (Character and Token) if you want to preserve the exact way a token has vision on the map, this will do that. It will also not change the characters senses in the character sheet
+
+## Foire aux Questions
+
+Q : Je ne comprend pas, j'ai beau faire toutes les étapes une à une après avoir installer les modules requis, cela ne fonctionne toujours pas, pourquoi ?
+
+R : Il est nécessaire d'avoir au préalable correctement configuré ces différents modules pour le bon fonctionnement de la macro. Il est également requis d'avoir coché la case "Auto apply item to targets" dans la configuration de Midi-QOL
+
+***
+
+Q : Je rencontre un léger décalage lors de l'animation de mon personnage, il m'arrive aussi des fois de voir une image d'une seconde avec mon ancienne qui forme qui apprait durant la transition. Je ne sais pas comment résoudre ce problème, que faire ?
+
+R : En fonction de la configuration et de l'optimisation des effets réalisés par votre navigateur, il est possible de devoir faire quelques ajustements sur la macro. Lorsque vous rencontrerez les lignes suivantes :
+
+```javascript
+
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1900);
+
+```
+
+```javascript
+
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1900);
+
+```
+
+Vous devrez alors jouer sur la valeur (1900 dans ce cas précis) et réduire ou augmenter ce nombre. Ce code permet de stopper la boucle d'animation, il est donc néccesaire de le conserver mais vous êtes libre d'y changer sa valeur.
+
+## Améliorations à venir
+
+Je prévoi d'améliorer cette macro afin d'en faire un module. Cela permettra une installation bien plus facile et permettra également de rapidement créer et configurer différents polymorphs (choix des aptitudes à conserver, du nom de l'activable, du nom de l'effet, de la taille des personnages, de l'animation, etc.)
