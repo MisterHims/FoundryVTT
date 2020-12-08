@@ -76,7 +76,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
     }, 3500);
     ```
 
-6. Create a new macro (Script type) from the code below (or access it from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
+6. Create a new macro (Script type) named "WildShape Macro" from the code below (or access it from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
 
    ```javascript
 
