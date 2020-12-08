@@ -12,48 +12,49 @@
 
 ## Description
 
-WildShape est une macro permettant de polymorphe son personnage puis de revenir sous sa forme originale, le tout possible avec les animations disponibles de Token Magic FX. Les statistiques du druide seront ainsi remplacées par celles de la forme souhaitée et celui-ci verra alors son token remplacé.
+WildShape is a macro allowing to polymorph his character then to return to his original form, all possible with the animations available from Token Magic FX. The actor's capabilities will thus be replaced by those of the desired form and he will then see his token replaced.
 
-Les différents effets de DAE et les animations de Token Magic FX déjà présentes sur votre personnage seront conservés.
+The various DAE effects and Token Magic FX animations already present on your character will be preserved.
 
-![WildShape-Demonstration-01](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_01.gif)
+![WildShape-Demonstration-01](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/images/dem_01.gif)
 
 ## Informations
 
-* Par défaut, vous transférerez les aptitudes suivantes de votre forme originale à votre nouvelle forme :
-  * Scores d'ablités mentales (Sagesse, Intelligence, Charisme)
+* By default, you will transfer the following skills from your original form to your new form:
+  * Mental ablities scores (Wisdom, Intelligence, Charisma)
 
-  * Maitrîse des jets de sauvegarde
+  * Mastery of saving throws
 
-  * Compétences
+  * Skills
 
-  * Biographie
+  * Biography
 
-  * Capacités de la classe
+  * Class capacities
 
-Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la macro. Plus d'informations à ce sujet en bas de page.
+You can yourself choose which skills to remove or add from the macro. More information on this at the bottom.
 
 ## Installation
 
-*A noter* :
+*Note* :
 
-* Le polymorph de Foundry VTT requiert que les joueurs soient autorisés à le faire. Vous devrez pour cela les autoriser à "Créer de nouveaux personnages" et "Créer de nouveaux tokens" depuis la Configuration des options.
+* Foundry FVTT polymorph requires players to have rights to create new actors and tokens. You will need to allow them to "Create new characters" and "Create new tokens" from the Options configuration.
 
-* Vous devrez également ajouter les droits de possession du personnage dont vous souhaitez faire adopter la forme à vos joueurs.
+* You must also give the players the ownership rights to the actor of the desired shape.
 
-*IMPORTANT*. Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
+*IMPORTANT*
+Follow the steps below exactly, then you will be free to configure the macro to your needs after installation.
 
-1. Premièrement, vous avez besoin de récupérer l'activable Forme Sauvage depuis le compendium SRD par exemple.
+1. First, you need to get the Wild Shape activable from the SRD Compendium.
 
-2. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez-le en mode "Suspended" et "Enabled when equiped". Ajoutez-y une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20
+2. Then create a DAE effect named "WildShape Effect" on the Wild Shape and set it to "Suspended" and "Enabled when equipped" mode. Add a new attribute key with these values: macro.execute // CUSTOM // "WildShape Macro" // 20
 
-3. Ajoutez une durée, soit depuis l'activable Forme Sauvage, soit directement depuis son effet (mettez au moins 2 heures). Vérifiez également si la cible est bien reglée sur 'Soi-même'.
+3. Add a duration, either from the Wild Shape activable, or directly from the effect (put at least 2 hours). Also check if the target is set to 'Self'.
 
-4. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et dans votre forme d'arrivée (nouvelle forme).
+4. Then place the activatable Wild Shape in the character sheet of your original form and in your new form.
 
-5. Créez ensuite les deux nouvelles macros externes (de type Script) dont vous aurez besoin [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) et [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/Remove%20WildShape%20Effect.js) dont vous devrez garder leurs noms respectifs.
+5. Then create the two new external macros (Script type) you will need [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) and [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js) which you will need to keep their respective names.
 
-6. Créez une nouvelle macro (de type Script) à partir du code ci-dessous (ou accédez-y depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
+6. Create a new macro (Script type) from the code below (or access it from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
 
    ```javascript
 
@@ -171,21 +172,21 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
    ```
 
-   *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)*
+   *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)*
 
-7. Remplacez "Name of your original form" au début de la macro par le nom du personnage principal (de la forme originale).
+7. Replace "Name of your original form" at the beginning of the macro with the name of the main character (of the original form).
 
-8. Remplacez l'ID de la ligne 10 par l'ID du personnage principale
+8. Change the ID in line 10 to the ID of the main character.
 
-9. Remplacez l'ID de la ligne 15 par l'ID du personnage dont vous souhaitez faire adopter la forme
+9. Replace the ID in line 15 with the ID of the character whose shape you want to adopt.
 
-10. Une fois ces changements effectués, vous devriez être en mesure de faire fonctionner la macro. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
+10. After making these changes, you should be able to get the macro to work. If not, you will find more information at the bottom of the page.
 
 ## Configuration
 
-### Personnaliser l'animation
+### Customize animation
 
-Il vous est possible de choisir différentes animations grâce à Magic Token FX. Il existe 9 types d'animations différentes (celle installée par défaut est la numéro 6) :
+You can choose different animations from Magic Token FX. There are 9 different types of animations (the one installed by default is number 6):
 
 1. Simple transition
 
@@ -205,7 +206,7 @@ Il vous est possible de choisir différentes animations grâce à Magic Token FX
 
 9. Hologram
 
-Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utiliser par le type numéro 6 présent à deux endroits dans la macro WildShape :
+You will then need to replace the animation number you want to use by type number 6 found in two places in the WildShape macro:
 
 ```javascript
 
@@ -217,7 +218,7 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
 
 ```
 
-   *[Ligne 40 à 44](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L42)*
+   *[Line 40 to 44](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/EN/WildShape.js#L42)*
 
 ```javascript
 
@@ -229,45 +230,45 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
 
 ```
 
-   *[Ligne 85 à 89](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L87)*
+   *[Line 85 to 89](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/EN/WildShape.js#L87)*
 
-### Personaliser la taille de sa forme de départ et d'arrivée
+### Customize the size of the start and end shape
 
-Par défaut, la taille de la forme de départ et d'arrivée est définie à 1x1 carré. Il vous est possible de modifier cette taille en changeant les valeurs ```js width``` et ```js height``` affichés à deux endroits sur la macro. La première correspond à la taille de la forme originale, la seconde à la forme d'arrivée.
+By default, the size of the start and end shape is set to 1x1 square. You can change this size by changing the ```js width``` and ```js height``` values displayed in two places on the macro. The first is the size of the original shape, the second is the end shape.
 
 ```javascript
     // Adjusts them back the original size.
     // target.update({"width": 1, "height": 1,});
 ```
 
-### Personaliser les aptitudes à conserver lors du polymorph
+### Customize the skills to retain during the polymorph
 
-Il vous est possible d'enlever et/ou d'ajouter différentes aptitudes qui seront transférer à votre nouvelle forme lors du polymorph :
+You can remove and / or add different abilities that will be transferred to your new form during the polymorph:
 
-* ```keepPhysical: true``` Keep Physical Ablitiescores (Str, Dex, Con)
-* ```keepMental: true``` Keep Mental Ablitiescores (Wis, Int, Cha)
-* ```keepSaves: true``` Keep Savingthrow Proficiency of the Character
-* ```keepSkills: true``` Keep Skill Proficiency of the Character
-* ```mergeSaves: true``` Merge Savingthrow Proficiencys (take both) this will keep proficiencys of the character intact and also grant any extra proficiencys from the draged on actor
-* ```mergeSkills: true``` Merge Skill Proficiency (take both) this will keep proficiencys of the character intact and also grant any extra proficiencys from the draged on actor
-* ```keepClass: true``` Keep Proficiency bonus (leaves Class items in sheet) this will leave any Class "item" of the original actor in order to keep the original level and therefore Proficiency bonus
-* ```keepFeats: true``` Keep Features
-* ```keepSpells: true``` Keep Spells
-* ```keepItems: true``` Keep Equipment
-* ```keepBio: true``` Keep Biography
-* ```keepVision: true``` Keep Vision (Character and Token) if you want to preserve the exact way a token has vision on the map, this will do that. It will also not change the characters senses in the character sheet
+* ```keepPhysical: true``` : Keep Physical Ablitiescores (Str, Dex, Con)
+* ```keepMental: true``` : Keep Mental Ablitiescores (Wis, Int, Cha)
+* ```keepSaves: true``` : Keep Savingthrow Proficiency of the Character
+* ```keepSkills: true``` : Keep Skill Proficiency of the Character
+* ```mergeSaves: true``` : Merge Savingthrow Proficiencys (take both) this will keep proficiencys of the character intact and also grant any extra proficiencys from the draged on actor
+* ```mergeSkills: true``` : Merge Skill Proficiency (take both) this will keep proficiencys of the character intact and also grant any extra proficiencys from the draged on actor
+* ```keepClass: true``` : Keep Proficiency bonus (leaves Class items in sheet) this will leave any Class "item" of the original actor in order to keep the original level and therefore Proficiency bonus
+* ```keepFeats: true``` : Keep Features
+* ```keepSpells: true``` : Keep Spells
+* ```keepItems: true``` : Keep Equipment
+* ```keepBio: true``` : Keep Biography
+* ```keepVision: true``` : Keep Vision (Character and Token) if you want to preserve the exact way a token has vision on the map, this will do that. It will also not change the characters senses in the character sheet
 
-## Foire aux Questions
+## Frequently Asked Questions
 
-Q : Je ne comprend pas, j'ai fait toutes les étapes une à une après avoir installé les modules requis et cela ne fonctionne toujours pas, pourquoi ?
+Q: I don't understand, I did all the steps one by one after installing the required modules and it still doesn't work, why?
 
-R : Il est nécessaire d'avoir au préalable correctement configuré ces différents modules pour le bon fonctionnement de la macro. Il est également requis d'avoir coché la case "Auto apply item to targets" dans la configuration de Midi-QOL
+A: It's necessary to have previously correctly configured these different modules for the correct functioning of the macro. It's also required to have checked the box "Auto apply item to targets" in the configuration of Midi-QOL module.
 
 ***
 
-Q : Je rencontre un léger décalage lors de l'animation de mon personnage, il m'arrive aussi des fois de voir une image d'une seconde avec mon ancienne forme qui apparait durant la transition. Je ne sais pas comment résoudre ce problème, que faire ?
+Q: I experience a slight lag when animating my character, sometimes I also see a 1 second frame with my old shape appearing during the transition. I don't know how to solve this issue, what to do?
 
-R : En fonction de la configuration et de l'optimisation des effets réalisés par votre navigateur, il est possible de devoir faire quelques ajustements sur la macro lorsque vous rencontrerez les lignes suivantes :
+A: Depending on the configuration and optimization of the effects performed by your browser, you may need to make some adjustments on the macro when you encounter the following lines:
 
 ```javascript
 
@@ -275,7 +276,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```
 
-   *[Ligne 63](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L63)*
+   *[Line 63](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/EN/WildShape.js#L63)*
 
 ```javascript
 
@@ -283,10 +284,10 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```
 
-   *[Ligne 105](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L105)*
+   *[Line 105](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/EN/WildShape.js#L105)*
 
-Vous devrez alors jouer sur la valeur (1900 dans ce cas précis) et réduire ou augmenter ce nombre. Ce code permet de stopper la boucle d'animation, il est donc néccesaire de le conserver mais vous êtes libre d'y changer sa valeur.
+You will then have to play on the value (1900 in this precise case) and reduce or increase this number. This code is used to stop the animation loop, so it is necessary to keep it but you are free to change its value.
 
-## Améliorations à venir
+## Upcoming improvements
 
-Je prévoi d'améliorer cette macro afin d'en faire un module. Cela permettra une installation bien plus facile et permettra également de rapidement créer et configurer différents polymorphs (choix des aptitudes à conserver, du nom de l'activable, du nom de l'effet, de la taille des personnages, de l'animation, etc.)
+I plan to improve this macro to make it a module. This will allow a much easier installation and will also allow you to quickly create and configure different polymorphs (choice of skills to keep, the name of the activable, the name of the effect, the size of the characters, the animation type, etc.)

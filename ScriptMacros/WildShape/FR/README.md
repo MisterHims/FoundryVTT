@@ -12,7 +12,7 @@
 
 ## Description
 
-WildShape est une macro permettant de polymorphe son personnage puis de revenir sous sa forme originale, le tout possible avec les animations disponibles de Token Magic FX. Les statistiques du druide seront ainsi remplacées par celles de la forme souhaitée et celui-ci verra alors son token remplacé.
+WildShape est une macro permettant de polymorphe son personnage puis de revenir sous sa forme originale, le tout possible avec les animations disponibles de Token Magic FX. Les statistiques du personnage seront ainsi remplacées par celles de la forme souhaitée et celui-ci verra alors son token remplacé.
 
 Les différents effets de DAE et les animations de Token Magic FX déjà présentes sur votre personnage seront conservés.
 
@@ -41,7 +41,8 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
 * Vous devrez également ajouter les droits de possession du personnage dont vous souhaitez faire adopter la forme à vos joueurs.
 
-*IMPORTANT*. Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
+*IMPORTANT*
+Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
 1. Premièrement, vous avez besoin de récupérer l'activable Forme Sauvage depuis le compendium SRD par exemple.
 
