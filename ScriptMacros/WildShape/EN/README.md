@@ -16,6 +16,8 @@ WildShape is a macro allowing to polymorph his token with the animations availab
 
 The various DAE effects and Token Magic FX animations already present on your character will be preserved.
 
+![WildShape-Demonstration-01](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/dem_01.gif)
+
 ## Informations
 
 * By default, you will transfer the following capabilities from your original form to your new form:
