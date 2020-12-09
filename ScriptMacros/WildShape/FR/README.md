@@ -43,7 +43,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
 *IMPORTANT* | Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
-1. Vous devez d'abord récupérer les deux autres macros externes, importez dans Foundry VTT puis sauvegardez-les avec leur nom respéctif. Répetez l'opération avec la macro principale "WildShape", vous-y effectuerez les modifications nécessaires par la suite.
+1. Premièrement, vous devez importer dans Foundry VTT les deux macros externes nécessaires, sauvegardez-les avec leurs noms respéctifs. Répetez l'opération avec la macro principale "WildShape", vous-y effectuerez les modifications nécessaires par la suite.
 
     [WildShape] Transfer DAE Effects
 
@@ -58,7 +58,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
     }
     ```
 
-    *[WildShape] Transfer DAE Effects.js](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js>)*
+    *[[WildShape] Transfer DAE Effects](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js>)*
 
     Remove WildShape Effect
 
@@ -72,16 +72,20 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
     *[Remove WildShape Effect](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/Remove%20WildShape%20Effect.js>)*
 
-2. Vous pouvez par la suite aller vérifier dans les configurations de Midi-QOL si la case "Auto apply item effects to targeté à bien été cochée.
+2. Par la suite, vous pouvez aller vérifier dans les configurations de Midi-QOL si la case "Auto apply item effects to target" à bien été cochée.
 
 3. Récupérez la compétence Forme Sauvage depuis le Compendium SRD et importez-là a votre liste d'objets.
 
-4. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez cet effet en mode "Suspended". Allez dans l'onglet "Durée" puis ajoutez-y une durée, par exemple 3600 secondes  et ajoutez une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20. Après validation, n'oubliez pas de cocher également "Enabled when equiped".
+4. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez cet effet de la façon suivante :
+    * Cochez le mode "Suspended" ;
+    * Allez dans l'onglet "Durée" puis ajoutez-y une durée, par exemple 3600 secondes 
+    * Ajoutez une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20.
+    * Après validation, n'oubliez pas de cocher également "Enabled when equiped".
  *Vous pouvez directement ajouter la durée de l'effet depuis l'onglet Détails de l'objet si vous disposez du module About Time*
 
 5. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et de votre forme d'arrivée (nouvelle forme).
 
-6. Reprenez ensuite la macro "WildShape Macro" précedemment ajoutée à Foundry (vous pouvez y accéder depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
+6. Reprenons ensuite la "WildShape Macro" précedemment ajoutée à Foundry VTT(également accessible depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
 
    ```javascript
 
