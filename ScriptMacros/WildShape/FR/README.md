@@ -252,7 +252,7 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
 
 ```
 
-   *[Ligne 40 à 44](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L42)*
+   *[Ligne 40 à 44](https://github.com/MisterHims/FoundryVTT/blob/ed8a96ecd8fc509820b8328cdb2e0fe8869687c0/ScriptMacros/WildShape/FR/WildShape.js#L42)*
 
 ```javascript
 
@@ -264,7 +264,7 @@ Vous devrez alors remplacer le numéro de l'animation que vous souhaitez utilise
 
 ```
 
-   *[Ligne 85 à 89](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L87)*
+   *[Ligne 85 à 89](https://github.com/MisterHims/FoundryVTT/blob/ed8a96ecd8fc509820b8328cdb2e0fe8869687c0/ScriptMacros/WildShape/FR/WildShape.js#L87)*
 
 ### Personaliser la taille de sa forme de départ et d'arrivée
 
