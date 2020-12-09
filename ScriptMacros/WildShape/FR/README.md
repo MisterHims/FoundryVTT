@@ -119,7 +119,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
         }];
         //TokenMagic.addFiltersOnSelected(paramsStart, true);
         TokenMagic.addUpdateFilters(target, paramsStart);
-        setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1800);
+        setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm") }, 1800);
 
         // Polymorph into the new form with delay for the start animation
         setTimeout(function () { actorPolymorphism(); }, 1500);
@@ -161,7 +161,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
                     }
                 }];
             token.TMFXaddUpdateFilters(paramsBack);
-            setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1800);
+            setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm") }, 1800);
             // Revert to original form with delay for the return animation
             setTimeout(function () { actor.revertOriginalForm(); }, 1500);
             // Adjusts them back the original size.
@@ -277,7 +277,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```javascript
 
-    setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1800);
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm") }, 1800);
 
 ```
 
@@ -285,7 +285,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```javascript
 
-    setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1800);
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm") }, 1800);
 
 ```
 
