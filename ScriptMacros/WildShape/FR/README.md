@@ -212,7 +212,7 @@ Une fois ces changements effectués, cela devrai fonctionner. Si ce n'est pas le
 
 ## Conseils
 
-Vous pouvez ajouter la consommation de ressources à l'intérieur de votre Forme Sauvage (Attribute : resources.primary.values).
+Vous êtes libre de configurer la Forme Sauvage à vos besoins, vous pouvez par exemple ajouter la consommation de ressources à l'intérieur de votre Forme Sauvage (Attribute : resources.primary.values).
 
 Pour une meilleure animation, faites en sorte que le ratio-taille associé aux tokens de votre forme originale et de votre nouvelle forme soient les mêmes (0.5 et 0.5, 0.8 et 0.8, 1 et 1, etc.)
 

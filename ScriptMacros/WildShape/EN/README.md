@@ -210,7 +210,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 ## Tips
 
-You can add resource consumption inside your original actor activable (Attribute: resources.primary.values).
+You are free to configure your Wild Shape 'item' as yours needs, you can add resource consumption inside your original actor activable (Attribute: resources.primary.values).
 
 For a better animation, make the ratio size of your original token be the same as the new token form (0.5 and 0.5, 0.8 and 0.8, 1 and 1, ...).
 
