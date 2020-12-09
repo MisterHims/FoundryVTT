@@ -200,8 +200,6 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
    ```
 
-   *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)*
-
 7. Remplacez "Name of your original form" au début par le nom du personnage principal (de la forme originale).
 
 8. Remplacez l'ID de la ligne 10 par l'ID du personnage principale

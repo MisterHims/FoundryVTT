@@ -80,7 +80,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 5. Check if the target item is set to 'self' and place Wild Shape in the character sheet of your original form and of your new form.
 
-6. Then let's take the "WildShape Macro" previously added to Foundry VTT, also accessible from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
+6. Then let's take the "WildShape Macro" previously added to Foundry VTT, also accessible from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js):
 
    ```javascript
 
@@ -197,8 +197,6 @@ You can yourself choose which capabilities to remove or add from the macro. More
         }
 
    ```
-
-   *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)*
 
 7. Replace "Name of your original form" at the beginning of the macro with the name of the main character (of the original form).
 
