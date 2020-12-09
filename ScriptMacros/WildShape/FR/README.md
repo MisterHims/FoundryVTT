@@ -310,7 +310,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```
 
-   *[Ligne 63](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L63)*
+   *[Ligne 63](https://github.com/MisterHims/FoundryVTT/blob/ed8a96ecd8fc509820b8328cdb2e0fe8869687c0/ScriptMacros/WildShape/FR/WildShape.js#L63)*
 
 ```javascript
 
@@ -318,7 +318,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```
 
-   *[Ligne 105](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L105)*
+   *[Ligne 105](https://github.com/MisterHims/FoundryVTT/blob/ed8a96ecd8fc509820b8328cdb2e0fe8869687c0/ScriptMacros/WildShape/FR/WildShape.js#L105)*
 
 Vous devrez alors jouer sur la valeur (1800 dans ce cas précis) et réduire ou augmenter ce nombre. Ce code permet de stopper la boucle d'animation, il est donc néccesaire de le conserver mais vous êtes libre d'y changer sa valeur.
 
