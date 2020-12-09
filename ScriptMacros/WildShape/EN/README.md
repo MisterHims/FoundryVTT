@@ -198,7 +198,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
    ```
 
-7. Replace "Name of your original form" at the beginning of the macro with the name of the main character (of the original form).
+7. Replace "Name of your original form" at the beginning of the macro with the name of the main character (the original form).
 
 8. Change the ID in line 10 to the ID of the main character.
 
