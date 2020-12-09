@@ -78,7 +78,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
         *You can directly add the duration of the effect from the Details tab of the item if you have the About Time module*
 
-5. Check if the target item is set to 'self' and place Wild Shape in the character sheet of your original form and in your new form.
+5. Check if the target item is set to 'self' and place Wild Shape in the character sheet of your original form and of your new form.
 
 6. Then let's take the "WildShape Macro" previously added to Foundry VTT, also accessible from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
 
