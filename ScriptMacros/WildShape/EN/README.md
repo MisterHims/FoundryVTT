@@ -206,7 +206,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 You can add resource consumption inside your original actor activable (Attribute: resources.primary.values).
 
-For a better animation, make the ratio size of your original token to be the same as the new token form (0.5 and 0.5, 0.8 and 0.8, 1 and 1, ...).
+For a better animation, make the ratio size of your original token be the same as the new token form (0.5 and 0.5, 0.8 and 0.8, 1 and 1, ...).
 
 ## Configuration
 
@@ -232,7 +232,7 @@ You can choose different animations from Magic Token FX. There are 9 different t
 
 9. Hologram
 
-You will then need to replace the animation number you want to use by type number 6 found in two places in the WildShape macro:
+Then you need to replace the type number 6 by the animation number you want to use. Can be found in two places in the WildShape macro:
 
 ```javascript
 
