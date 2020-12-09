@@ -119,7 +119,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
         }];
         //TokenMagic.addFiltersOnSelected(paramsStart, true);
         TokenMagic.addUpdateFilters(target, paramsStart);
-        setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1900);
+        setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1800);
 
         // Polymorph into the new form with delay for the start animation
         setTimeout(function () { actorPolymorphism(); }, 1500);
@@ -161,7 +161,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
                     }
                 }];
             token.TMFXaddUpdateFilters(paramsBack);
-            setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1900);
+            setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1800);
             // Revert to original form with delay for the return animation
             setTimeout(function () { actor.revertOriginalForm(); }, 1500);
             // Adjusts them back the original size.
@@ -277,7 +277,7 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```javascript
 
-    setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1900);
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToNewForm");; }, 1800);
 
 ```
 
@@ -285,13 +285,13 @@ R : En fonction de la configuration et de l'optimisation des effets réalisés p
 
 ```javascript
 
-    setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1900);
+    setTimeout(function () { token.TMFXdeleteFilters("polymorphToOriginalForm");; }, 1800);
 
 ```
 
    *[Ligne 105](https://github.com/MisterHims/FoundryVTT/blob/27c728b5fa370ed9c8eae554640ee5ce78bfdd18/ScriptMacros/WildShape/FR/WildShape.js#L105)*
 
-Vous devrez alors jouer sur la valeur (1900 dans ce cas précis) et réduire ou augmenter ce nombre. Ce code permet de stopper la boucle d'animation, il est donc néccesaire de le conserver mais vous êtes libre d'y changer sa valeur.
+Vous devrez alors jouer sur la valeur (1800 dans ce cas précis) et réduire ou augmenter ce nombre. Ce code permet de stopper la boucle d'animation, il est donc néccesaire de le conserver mais vous êtes libre d'y changer sa valeur.
 
 ## Améliorations à venir
 
