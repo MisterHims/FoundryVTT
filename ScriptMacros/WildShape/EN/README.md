@@ -39,19 +39,11 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 * You must also give the players the ownership rights to the actor of the desired shape.
 
-*IMPORTANT* | Follow the steps below exactly, then you will be free to configure the macro to your needs after installation.
+**IMPORTANT** | Follow the steps below exactly, then you will be free to configure the macro to your needs after installation.
 
-1. First, you need to get the Wild Shape activable from the SRD Compendium.
+1. First, you need to import into Foundry VTT the two required external macros, save them with their respective names. Repeat the operation with the main "WildShape" Macro", you will make the necessary modifications thereafter.
 
-2. Then create a DAE effect named "WildShape Effect" on the Wild Shape and set it to "Suspended" and "Enabled when equipped" mode. Add a new attribute key with these values: macro.execute // CUSTOM // "WildShape Macro" // 20
-
-3. Add a duration, either from the Wild Shape activable, or directly from the effect (put at least 2 hours). Also check if the target is set to 'self'.
-
-4. Then place the activatable Wild Shape in the character sheet of your original form and in your new form.
-
-5. Then create the two new external macros (Script type): [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) and [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js) which you will need to keep their respective names:
-
-    [WildShape] Transfer DAE Effects
+    **[WildShape] Transfer DAE Effects**
 
     ```javascript
     if (actor.data.flags.dnd5e?.isPolymorphed) {
@@ -64,7 +56,9 @@ You can yourself choose which capabilities to remove or add from the macro. More
     }
     ```
 
-    Remove WildShape Effect
+    *[[WildShape] Transfer DAE Effects](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js>)*
+
+    **Remove WildShape Effect**
 
     ```javascript
     setTimeout(function () {
@@ -74,7 +68,22 @@ You can yourself choose which capabilities to remove or add from the macro. More
     }, 3500);
     ```
 
-6. Create a new macro (Script type) named "WildShape Macro" from the code below (or access it from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
+    *[Remove WildShape Effect](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js>)*
+
+2. Subsequently, you can check in the Midi-QOL configurations if the checkbox "Auto apply item effects to target" has been checked.
+
+3. Get the Wild Shape 'item' from the SRD Compendium "Class Features" and import it to your item list.
+
+4. Next, create a DAE effect named "WildShape Effect" into the Wild Shape item, then configure this effect as follows:
+      * Check the "Suspended" mode;
+      * Go to the "Duration" tab then add a duration, for example 3600 seconds
+      * Add a new attribute key with these values: macro.execute // CUSTOM // "WildShape Macro" // 20.
+      * After validation, do not forget to also check "Activated when equipped".
+    *You can directly add the duration of the effect from the Details tab of the object if you have the About Time module*
+
+5. Check if the target item is set to 'self' and place Wild Shape in the character sheet of your original form and in your new form.
+
+6. Then let's take the "WildShape Macro" previously added to Foundry VTT, also accessible from the collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/WildShape.js)):
 
    ```javascript
 
@@ -199,6 +208,8 @@ You can yourself choose which capabilities to remove or add from the macro. More
 8. Change the ID in line 10 to the ID of the main character.
 
 9. Replace the ID in line 15 with the ID of the character whose shape you want to adopt.
+
+    *A simple trick to finding out a character ID is to open an article from the Journal tab, switch it to edit mode, then drag and drop characters from the Characters tab inside.*
 
 10. After making these changes, you should be able to get the macro to work. If not, you will find more information at the bottom of the page.
 

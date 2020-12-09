@@ -41,11 +41,11 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
 * Vous devrez également ajouter les droits de possession du personnage dont vous souhaitez faire adopter la forme à vos joueurs.
 
-*IMPORTANT* | Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
+**IMPORTANT** | Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
-1. Premièrement, vous devez importer dans Foundry VTT les deux macros externes nécessaires, sauvegardez-les avec leurs noms respéctifs. Répetez l'opération avec la macro principale "WildShape", vous-y effectuerez les modifications nécessaires par la suite.
+1. Premièrement, vous devez importer dans Foundry VTT les deux macros externes nécessaires, sauvegardez-les avec leurs noms respéctifs. Répetez l'opération avec la macro principale "WildShape Macro", vous-y effectuerez les modifications nécessaires par la suite.
 
-    [WildShape] Transfer DAE Effects
+    **[WildShape] Transfer DAE Effects**
 
     ```javascript
     if (actor.data.flags.dnd5e?.isPolymorphed) {
@@ -60,7 +60,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
     *[[WildShape] Transfer DAE Effects](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js>)*
 
-    Remove WildShape Effect
+    **Remove WildShape Effect**
 
     ```javascript
     setTimeout(function () {
@@ -83,9 +83,9 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
     * Après validation, n'oubliez pas de cocher également "Enabled when equiped".
  *Vous pouvez directement ajouter la durée de l'effet depuis l'onglet Détails de l'objet si vous disposez du module About Time*
 
-5. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et de votre forme d'arrivée (nouvelle forme).
+5. Vérifiez si la cible de la Forme Sauvage est bien reglée sur "soi-même" puis placez-là dans la fiche personnage de votre forme de départ (forme originale) et de votre forme d'arrivée (nouvelle forme).
 
-6. Reprenons ensuite la "WildShape Macro" précedemment ajoutée à Foundry VTT(également accessible depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
+6. Reprenons ensuite la "WildShape Macro" précedemment ajoutée à Foundry VT, également accessible depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
 
    ```javascript
 
@@ -211,7 +211,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
 9. Remplacez l'ID de la ligne 15 par l'ID du personnage dont vous souhaitez faire adopter la forme
 
-    *Une astuce simple pour connaitre l'ID d'un personnage consiste à ouvrir un article depuis l'onglet Journal, de le passer en mode édition, puis de faire un glisser-déposer des personnages depuis l'onglet Personnages.*
+    *Une astuce simple pour connaitre l'ID d'un personnage consiste à ouvrir un article depuis l'onglet Journal, de le passer en mode édition, puis de faire un glisser-déposer des personnages depuis l'onglet Personnages à l'intérieur.*
 
 Une fois ces changements effectués, cela devrai fonctionner. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
 
