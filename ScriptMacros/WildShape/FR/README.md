@@ -324,4 +324,4 @@ Vous devrez alors jouer sur la valeur (1800 dans ce cas précis) et réduire ou 
 
 ## Améliorations à venir
 
-Je prévois d'améliorer cette macro afin d'en faire un module. Cela permettra une installation bien plus facile et permettra également de rapidement créer et configurer différents polymorphs (choix des aptitudes à conserver, du nom de l'activable, du nom de l'effet, de la taille des personnages, de l'animation, etc.)
+Je prévois d'améliorer cette macro afin d'en faire un module. Cela permettra une installation bien plus facile et permettra également de rapidement créer et configurer différents polymorphs (choix des aptitudes à conserver, du nom de la macro, du nom de l'effet, de la taille des personnages, de l'animation, etc.)

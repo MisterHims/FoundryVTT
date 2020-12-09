@@ -322,4 +322,4 @@ You will then have to play on the value (1800 in this precise case) and reduce o
 
 ## Upcoming improvements
 
-I plan to improve this macro to make it a module. This will allow a much easier installation and will also allow you to quickly create and configure different polymorphs (choice of skills to keep, the name of the activable, the name of the effect, the size of the characters, the animation type, etc.)
+I plan to improve this macro to make it a module. This will allow a much easier installation and will also allow you to quickly create and configure different polymorphs (choice of skills to keep, the name of the macro, the name of the effect, the size of the characters, the animation type, etc.)
