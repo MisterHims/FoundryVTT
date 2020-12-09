@@ -43,7 +43,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 1. First, you need to import into Foundry VTT the two required external macros, save them with their respective names. Repeat the operation with the main "WildShape" Macro", you will make the necessary modifications thereafter.
 
-    **[WildShape] Transfer DAE Effects**
+    **[[WildShape] Transfer DAE Effects](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js>)**
 
     ```javascript
     if (actor.data.flags.dnd5e?.isPolymorphed) {
@@ -56,9 +56,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
     }
     ```
 
-    *[[WildShape] Transfer DAE Effects](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js>)*
-
-    **Remove WildShape Effect**
+    **[Remove WildShape Effect](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js>)**
 
     ```javascript
     setTimeout(function () {
@@ -67,8 +65,6 @@ You can yourself choose which capabilities to remove or add from the macro. More
         removeWildShapeEffect.delete();
     }, 3500);
     ```
-
-    *[Remove WildShape Effect](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/Collection/Remove%20WildShape%20Effect.js>)*
 
 2. Subsequently, you can check in the Midi-QOL configurations if the checkbox "Auto apply item effects to target" has been checked.
 
