@@ -75,7 +75,8 @@ You can yourself choose which capabilities to remove or add from the macro. More
       * Go to the "Duration" tab then add a duration, for example 3600 seconds
       * Add a new attribute key with these values: macro.execute // CUSTOM // "WildShape Macro" // 20.
       * After validation, do not forget to also check "Enabled when equipped".
-    *You can directly add the duration of the effect from the Details tab of the item if you have the About Time module*
+
+        *You can directly add the duration of the effect from the Details tab of the item if you have the About Time module*
 
 5. Check if the target item is set to 'self' and place Wild Shape in the character sheet of your original form and in your new form.
 

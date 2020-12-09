@@ -77,7 +77,8 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
     * Allez dans l'onglet "Durée" puis ajoutez-y une durée, par exemple 3600 secondes 
     * Ajoutez une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20.
     * Après validation, n'oubliez pas de cocher également "Enabled when equiped".
- *Vous pouvez directement ajouter la durée de l'effet depuis l'onglet Détails de l'objet si vous disposez du module About Time*
+
+        *Vous pouvez directement ajouter la durée de l'effet depuis l'onglet Détails de l'objet si vous disposez du module About Time*
 
 5. Vérifiez si la cible de la Forme Sauvage est bien reglée sur "soi-même" puis placez-là dans la fiche personnage de votre forme de départ (forme originale) et de votre forme d'arrivée (nouvelle forme).
 
