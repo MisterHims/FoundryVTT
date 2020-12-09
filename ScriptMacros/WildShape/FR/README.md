@@ -43,17 +43,45 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
 *IMPORTANT* | Suivez exactement les étapes ci-dessous, vous serez ensuite libre de configurer la macro à vos besoins après son installation.
 
-1. Premièrement, vous avez besoin de récupérer l'activable Forme Sauvage depuis le compendium SRD par exemple.
+1. Vous devez d'abord récupérer les deux autres macros externes, importez dans Foundry VTT puis sauvegardez-les avec leur nom respéctif. Répetez l'opération avec la macro principale "WildShape", vous-y effectuerez les modifications nécessaires par la suite.
 
-2. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez-le en mode "Suspended" et "Enabled when equiped". Ajoutez-y une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20
+    [WildShape] Transfer DAE Effects
 
-3. Ajoutez une durée, soit depuis l'activable Forme Sauvage, soit directement depuis son effet (mettez au moins 2 heures). Vérifiez également si la cible est bien reglée sur 'soi-même'.
+    ```javascript
+    if (actor.data.flags.dnd5e?.isPolymorphed) {
+        let originalActor = game.actors.get(actor.data.flags.dnd5e.originalActor);
+        // Put your effects to exclude below between the brackets
+        let effectsData = originalActor.effects.filter(ef =>
+            ![args[0]].includes(ef.data.label)
+        ).map(ef => ef.data);
+        actor.createEmbeddedEntity("ActiveEffect", effectsData)
+    }
+    ```
 
-4. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et dans votre forme d'arrivée (nouvelle forme).
+    *[WildShape] Transfer DAE Effects.js](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js>)*
 
-5. Créez ensuite les deux nouvelles macros externes (de type Script) dont vous aurez besoin [[WildShape] Transfer DAE Effects.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/%5BWildShape%5D%20Transfer%20DAE%20Effects.js) et [Remove WildShape Effect](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/Remove%20WildShape%20Effect.js) dont vous devrez garder leurs noms respectifs.
+    Remove WildShape Effect
 
-6. Créez une nouvelle macro (de type Script) à partir du code ci-dessous (ou accédez-y depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
+    ```javascript
+    setTimeout(function () {
+        let WildShapeEffect = game.actors.getName(args[0]);
+        let removeWildShapeEffect = WildShapeEffect.effects.find(i => i.data.label === args[1]);
+        removeWildShapeEffect.delete();
+    }, 3500);
+    ```
+
+    *[Remove WildShape Effect](<https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/Collection/Remove%20WildShape%20Effect.js>)*
+
+2. Vous pouvez par la suite aller vérifier dans les configurations de Midi-QOL si la case "Auto apply item effects to targeté à bien été cochée.
+
+3. Récupérez la compétence Forme Sauvage depuis le Compendium SRD et importez-là a votre liste d'objets.
+
+4. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez cet effet en mode "Suspended". Allez dans l'onglet "Durée" puis ajoutez-y une durée, par exemple 3600 secondes  et ajoutez une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20. Après validation, n'oubliez pas de cocher également "Enabled when equiped".
+ *Vous pouvez directement ajouter la durée de l'effet depuis l'onglet Détails de l'objet si vous disposez du module About Time*
+
+5. Placez ensuite l'activable Forme Sauvage dans la fiche personnage de votre forme de départ (forme originale) et de votre forme d'arrivée (nouvelle forme).
+
+6. Reprenez ensuite la macro "WildShape Macro" précedemment ajoutée à Foundry (vous pouvez y accéder depuis la collection [WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)) :
 
    ```javascript
 
@@ -173,13 +201,15 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
    *[WildShape.js](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/WildShape.js)*
 
-7. Remplacez "Name of your original form" au début de la macro par le nom du personnage principal (de la forme originale).
+7. Remplacez "Name of your original form" au début par le nom du personnage principal (de la forme originale).
 
 8. Remplacez l'ID de la ligne 10 par l'ID du personnage principale
 
 9. Remplacez l'ID de la ligne 15 par l'ID du personnage dont vous souhaitez faire adopter la forme
 
-10. Une fois ces changements effectués, vous devriez être en mesure de faire fonctionner la macro. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
+    *Une astuce simple pour connaitre l'ID d'un personnage consiste à ouvrir un article depuis l'onglet Journal, de le passer en mode édition, puis de faire un glisser-déposer des personnages depuis l'onglet Personnages.*
+
+Une fois ces changements effectués, cela devrai fonctionner. Si ce n'est pas le cas, vous trouverez davantage d'informations en bas de page.
 
 ## Conseils
 
@@ -267,7 +297,7 @@ Il vous est possible d'enlever et/ou d'ajouter différentes aptitudes qui seront
 
 Q : Je ne comprend pas, j'ai fait toutes les étapes une à une après avoir installé les modules requis et cela ne fonctionne toujours pas, pourquoi ?
 
-R : Il est nécessaire d'avoir au préalable correctement configuré ces différents modules pour le bon fonctionnement de la macro. Il est également requis d'avoir coché la case "Auto apply item to targets" dans la configuration de Midi-QOL
+R : Il est nécessaire d'avoir au préalable correctement configuré ces différents modules pour le bon fonctionnement de la macro. Il est également requis d'avoir coché la case "Auto apply item effects to targets" dans la configuration de Midi-QOL
 
 ***
 
