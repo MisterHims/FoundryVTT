@@ -71,7 +71,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 3. Get the Wild Shape 'item' from the SRD Compendium "Class Features" and import it to your item list.
 
 4. Next, create a DAE effect named "WildShape Effect" into the Wild Shape item, then configure this effect as follows:
-      * Check the "Suspended" mode;
+      * Check the "Suspended" mode
       * Go to the "Duration" tab then add a duration, for example 3600 seconds
       * Add a new attribute key with these values: macro.execute // CUSTOM // "WildShape Macro" // 20.
       * After validation, do not forget to also check "Activated when equipped".

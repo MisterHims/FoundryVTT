@@ -73,7 +73,7 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 3. Récupérez la compétence Forme Sauvage depuis le Compendium SRD et importez-là a votre liste d'objets.
 
 4. Créez ensuite un effet DAE nommé "WildShape Effect" sur la Forme Sauvage puis paramétrez cet effet de la façon suivante :
-    * Cochez le mode "Suspended" ;
+    * Cochez le mode "Suspended"
     * Allez dans l'onglet "Durée" puis ajoutez-y une durée, par exemple 3600 secondes 
     * Ajoutez une nouvelle clé d'attribut avec ces valeurs : macro.execute // CUSTOM // "WildShape Macro" // 20.
     * Après validation, n'oubliez pas de cocher également "Enabled when equiped".
