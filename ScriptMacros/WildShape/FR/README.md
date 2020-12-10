@@ -1,11 +1,11 @@
 # WildShape
 
-![Foundry Badge](https://img.shields.io/badge/Foundry-v0.7.6-informational)
+![Foundry Badge](https://img.shields.io/badge/Foundry-0.7.6-informational)
 
 * **Author**: MisterHims
 * **Remerciements**: tposney, Ikabodo, Archer, Crymic, Kandashi et plein d'autres :)
 * **Version**: 1.0.0
-* **Foundry VTT Compatibility**: 0.7.5+
+* **Foundry VTT Compatibility**: 0.7.65+
 * **System Compatibility**: DnD5e
 * **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace), [DAE](https://gitlab.com/tposney/dae), [Token Magic FX](https://github.com/Feu-Secret/Tokenmagic), [Midi-QOL](https://gitlab.com/tposney/midi-qol)
 * **Macro Requirement(s)**: [WildShape] Transfer DAE Effects, Remove WildShape Effect
