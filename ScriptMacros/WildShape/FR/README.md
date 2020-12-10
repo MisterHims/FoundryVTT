@@ -1,6 +1,6 @@
 # WildShape
 
-![Foundry Badge](https://img.shields.io/badge/Foundry-v0.7.8-informational)
+![Foundry Badge](https://img.shields.io/badge/Foundry-v0.7.6-informational)
 
 * **Author**: MisterHims
 * **Remerciements**: tposney, Ikabodo, Archer, Crymic, Kandashi et plein d'autres :)
