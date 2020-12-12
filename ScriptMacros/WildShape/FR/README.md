@@ -35,6 +35,8 @@ Vous pouvez vous-même choisir les aptitudes à enlever ou à ajouter depuis la 
 
 ## Installation
 
+[![Rapide vidéo sur Comment installer la macro](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/FR/images/how-to-install-the-wildshape-macro.jpg)](https://www.youtube.com/watch?v=_2EZ79JbtFQ)
+
 *A noter* :
 
 * Le polymorph de Foundry VTT requiert que les joueurs soient autorisés à le faire. Vous devrez pour cela les autoriser à "Créer de nouveaux personnages" et "Créer de nouveaux tokens" depuis la Configuration des options.
