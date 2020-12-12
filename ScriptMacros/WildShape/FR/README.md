@@ -4,7 +4,7 @@
 
 * **Author**: MisterHims
 * **Remerciements**: tposney, Ikabodo, Archer, Crymic, Kandashi et plein d'autres :)
-* **Version**: 1.0.0
+* **Version**: 1.0.0 Alpha
 * **Foundry VTT Compatibility**: 0.7.65+
 * **System Compatibility**: DnD5e
 * **Module Requirement(s)**: [The Furnace](https://github.com/kakaroto/fvtt-module-furnace), [DAE](https://gitlab.com/tposney/dae), [Token Magic FX](https://github.com/Feu-Secret/Tokenmagic), [Midi-QOL](https://gitlab.com/tposney/midi-qol)
