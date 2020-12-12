@@ -35,7 +35,7 @@ You can yourself choose which capabilities to remove or add from the macro. More
 
 ## Installation
 
-[![Quick video on How to install](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/images/how-to-install-the-wildshape-macro.gif)](https://www.youtube.com/watch?v=_2EZ79JbtFQ)
+[![Quick video on How to install](https://github.com/MisterHims/FoundryVTT/blob/master/ScriptMacros/WildShape/EN/images/how-to-install-the-wildshape-macro.jpg)](https://www.youtube.com/watch?v=_2EZ79JbtFQ)
 
 *Note* :
 
