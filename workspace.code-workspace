@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "DnD5e-WildShape",
+			"path": "..\\DnD5e-WildShape"
+		},
+		{
+			"name": "DnD5e-WildShape-Macro",
+			"path": "..\\DnD5e-WildShape-Macro"
+		},
+		{
+			"path": "..\\..\\..\\[Personnel]\\[ELV] Teletravail\\Layers d'attente\\Pre-loader"
+		},
+		{
+			"name": "FoundryVTT-2",
+			"path": "..\\FoundryVTT-2"
+		}
+	],
+	"settings": {}
+}
